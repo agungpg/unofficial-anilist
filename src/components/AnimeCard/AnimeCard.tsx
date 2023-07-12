@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnimeCardDiv, AnimeCardCover, AnimeCardTitle, AnimeCardMetaInfoWrapper, AnimeCardMetaInfoText, AnimeCardInfoWrapper, AnimeCardDescriptionText } from './AnimeCard.styled'
 import Link from 'next/link'
-import { AnimeCardPropsType } from '@/types/AnimeList'
+import { AnimeCardPropsType } from '../../types/animeList'
 
 const AnimeCard = ({ data }: AnimeCardPropsType) => (<AnimeCardDiv>
   <Link href={`/anime/${data.id}`}>

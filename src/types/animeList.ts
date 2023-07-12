@@ -6,7 +6,7 @@ export type AnimeListItemTypes =  {
   coverImage: string
   description: string 
 }
-export type AnimeListDataItemResponseType = {
+export interface AnimeListDataItemResponseType {
   id: string, 
   title: {
     romaji: string
@@ -19,6 +19,34 @@ export type AnimeListDataItemResponseType = {
   }, 
   status: string, 
   coverImage: { medium: string}
+}
+
+type studioEdges = {
+  "id": number,
+  "isMain": boolean,
+  "node": {
+      "name": string,
+  }
+}
+
+type reviewEdge = {
+  node:  {
+    id: number
+    rating: number
+  }
+}
+export interface AnimeDetailDataResponseType extends AnimeListDataItemResponseType {
+  studios: {
+    edges: studioEdges[]
+  }
+  duration: number
+  updatedAt: number
+  genres: string[]
+  averageScore: number
+  episodes: number
+  reviews:  {
+    edges: reviewEdge[] 
+  }
 }
 
 export type AnimeCardPropsType = {

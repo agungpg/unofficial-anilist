@@ -54,4 +54,4 @@ export const AnimeLoadingCard = () => (
   </AnimeCardDiv>
 )
 
-export const AnimeLoadingList = ({total}: {total: number}) => Array.from(Array(total).keys()).map(item => <AnimeLoadingCard />)
+export const AnimeLoadingList = ({total}: {total: number}) => Array.from(Array(total).keys()).map(item => <AnimeLoadingCard key={item*Math.random()} />)

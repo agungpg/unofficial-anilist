@@ -1,5 +1,5 @@
-import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from "@/types/AnimeList";
-import composeAnimeListData from "@/utils/composeAnimeListData";
+import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../../types/animeList'
+import composeAnimeListData from "@/utils/anime";
 import { gql, useQuery } from "@apollo/client";
 import React, { Fragment, useEffect, useState } from "react";
 import AnimeCard from "../AnimeCard/AnimeCard";
@@ -35,25 +35,13 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
 }
 `;
 
-const AnimeList = ({pageInfo, setPageInfo}: {pageInfo: PageInfoType, setPageInfo: (pageInfo: PageInfoType) => void}) => {
-  const [list, setList] = useState<AnimeListItemTypes[]>([])
-  const { loading, error, data } = useQuery(GET_ANIMELIST, {
-    variables: {
-      page: pageInfo.currentPage,
-      perPage: pageInfo.perPage,
-    }
-  });
-  
-  useEffect(() => {
-    if(data) {
-      setList(data.result.list.map((item: AnimeListDataItemResponseType) => composeAnimeListData(item)))
-      if(!pageInfo.isSetFromBE) setPageInfo({...data.result.pageInfo, isSetFromBE: true} as PageInfoType)
-    }
-  }, [data])
-  if(loading) return <AnimeLoadingList total={5} /> 
+const AnimeList = (
+  { data, isLoading}: {data: AnimeListItemTypes[], isLoading: boolean}
+  ) => {
+  if(isLoading) return <AnimeLoadingList total={5} /> 
   return (
     <Fragment>
-    {list.map((item: AnimeListItemTypes) => <AnimeCard key={item.id} data={item} />)}
+    {data.map((item: AnimeListItemTypes) => <AnimeCard key={item.id} data={item} />)}
     </Fragment>
   )
 }

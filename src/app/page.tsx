@@ -1,27 +1,13 @@
 'use client'
-import AnimeCard from '../components/AnimeCard/AnimeCard'
-import styled from '@emotion/styled'
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import composeAnimeListData from '@/utils/composeAnimeListData';
-import { AnimeListItemTypes, PageInfoType } from '@/types/AnimeList';
+import { mapAnimeListItemData } from '@/utils/anime';
+import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../types/animeList';
 import AnimeList from '@/components/AnimeList/AnimeList';
 import Pagination from '@/components/Pagination/Pagination';
+import { GET_ANIMELIST } from '@/queries';
+import { AppTitle, NavBar } from './styeled';
 
-const NavBar = styled.div`
-  diplay: flex;
-  align-items: center;
-  justify-content: center;
-  widht: 100%;
-  background: #0D70DF;
-`
-
-const Title = styled.h2`
-  text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  color: #FFF;
-`
 export default function Home() {
   const [pageInfo, setPageInfo] = useState<PageInfoType>({
     total: 0,
@@ -32,13 +18,30 @@ export default function Home() {
     isSetFromBE: false,
   })
 
+  const [list, setList] = useState<AnimeListItemTypes[]>([])
+  
+  const { loading, data } = useQuery(GET_ANIMELIST, {
+    variables: {
+      page: pageInfo.currentPage,
+      perPage: pageInfo.perPage,
+      isAdult: false
+    }
+  });
+  
+  useEffect(() => {
+    if(data) {
+      setList(data.result.list.map((item: AnimeListDataItemResponseType) => mapAnimeListItemData(item)))
+      if(!pageInfo.isSetFromBE) setPageInfo({...data.result.pageInfo, isSetFromBE: true} as PageInfoType)
+    }
+  }, [data])
+  
   return (
     <main className="flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between">
       <div className='container'>
       <NavBar>
-        <Title>UNOFFICIAL ANILIST</Title>
+        <AppTitle>UNOFFICIAL ANILIST</AppTitle>
       </NavBar>
-      <AnimeList pageInfo={pageInfo} setPageInfo={setPageInfo} />
+      <AnimeList data={list} isLoading={loading} />
       {pageInfo.total > 1 && <Pagination 
         totalPage={pageInfo.total} 
         currentPage={pageInfo.currentPage} 
