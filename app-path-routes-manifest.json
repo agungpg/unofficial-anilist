@@ -1,0 +1,5 @@
+{
+  "/page": "/",
+  "/favicon.ico/route": "/favicon.ico",
+  "/anime/[id]/page": "/anime/[id]"
+}
