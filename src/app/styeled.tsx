@@ -6,10 +6,10 @@ export const NavBar = styled.div`
   justify-content: center;
   widht: 100%;
   background: #0D70DF;
+  padding: 8px;
 `
 
 export const AppTitle = styled.h2`
-  text-align: center;
   font-size: 32px;
   font-weight: bold;
   color: #FFF;

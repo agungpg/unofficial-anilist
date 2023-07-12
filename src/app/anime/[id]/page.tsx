@@ -4,6 +4,8 @@ import { mapAnimeDetailData, mapAnimeListItemData } from "@/utils/anime"
 import { useQuery } from "@apollo/client"
 import { useParams } from "next/navigation"
 import React, { useEffect, useState } from "react"
+import AnimeDetail from "./components/AnimeDetail"
+import { AppTitle, NavBar } from "@/app/styeled"
 
 export default function DETAIL() {
   const params = useParams()
@@ -25,8 +27,11 @@ export default function DETAIL() {
   }, [data])
 
   console.log("data: ", detail)
-  return (
-    <h1>DETAIL</h1>
-  )
+  return (<>      
+    <NavBar>
+      <AppTitle>ANIME DETAIL</AppTitle>
+    </NavBar>
+    <AnimeDetail />
+  </>)
 }
 
