@@ -3920,7 +3920,7 @@ var _graphql = __webpack_require__(5787);
 
 var _index = __webpack_require__(6641);
 
-var _index2 = __webpack_require__(2634);
+var _index2 = __webpack_require__(7180);
 
 var _index3 = __webpack_require__(6300);
 
@@ -5547,7 +5547,7 @@ exports.DirectiveLocation = DirectiveLocation;
 
 /***/ }),
 
-/***/ 2634:
+/***/ 7180:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";

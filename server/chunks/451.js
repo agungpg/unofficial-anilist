@@ -165,7 +165,7 @@ _export(exports, {
 });
 const _requestcookies = __webpack_require__(4277);
 const _headers = __webpack_require__(2022);
-const _cookies = __webpack_require__(8375);
+const _cookies = __webpack_require__(2634);
 const _requestasyncstorage = __webpack_require__(3474);
 const _actionasyncstorage = __webpack_require__(7629);
 const _staticgenerationbailout = __webpack_require__(7931);
@@ -5022,7 +5022,7 @@ Object.defineProperty(exports, "RequestAsyncStorageWrapper", ({
 const _approuterheaders = __webpack_require__(2497);
 const _headers = __webpack_require__(2022);
 const _requestcookies = __webpack_require__(4277);
-const _cookies = __webpack_require__(8375);
+const _cookies = __webpack_require__(2634);
 const _draftmodeprovider = __webpack_require__(6493);
 function getHeaders(headers) {
     const cleaned = _headers.HeadersAdapter.from(headers);
@@ -7155,7 +7155,7 @@ _export(exports, {
         return MutableRequestCookiesAdapter;
     }
 });
-const _cookies = __webpack_require__(8375);
+const _cookies = __webpack_require__(2634);
 const _reflect = __webpack_require__(8980);
 class ReadonlyRequestCookiesError extends Error {
     constructor(){
@@ -7273,7 +7273,7 @@ class MutableRequestCookiesAdapter {
 
 /***/ }),
 
-/***/ 8375:
+/***/ 2634:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
