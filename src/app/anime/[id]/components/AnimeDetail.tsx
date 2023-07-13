@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AnimeDetailContainer } from "./AnimeDetail.styled";
 import { Rating } from 'react-simple-star-rating';
 import StarRatings from 'react-star-ratings';
@@ -7,10 +7,14 @@ import Genre from "./Genre";
 import { AnimeDetailDataTypes } from "@/types/animeList";
 import { infoList } from "../contants";
 import { AnimeCardDescriptionText } from "@/components/AnimeCard/AnimeCard.styled";
+import AnimeDetailLoading from "./AnimeDetailLoading";
+import AddCollectionIcon from "@/assets/icons/AddCollectionIcon";
+import RemoveCollectionIcon from "@/assets/icons/RemoveCollectionIcon";
 
 const AnimeDetail = ({ data, isLoading }: {data: AnimeDetailDataTypes, isLoading: boolean}) => {
 
-  if(isLoading || !data) return <></>
+  if(isLoading || !data) return <AnimeDetailLoading />
+  const [isCollect, setCollect] = useState(false)
 
   return <AnimeDetailContainer>
     <div className="cover-image-wrapper">
@@ -29,7 +33,13 @@ const AnimeDetail = ({ data, isLoading }: {data: AnimeDetailDataTypes, isLoading
         />
         </div>
       </div>
-    <button className="collect-btn">Collect</button>
+    <button className="collect-btn" onClick={() => setCollect(prevCollect => !prevCollect)}>
+      {isCollect 
+      ? <RemoveCollectionIcon width={'24px'} height="24px" color="#fff" /> 
+      : <AddCollectionIcon width={'24px'} height="24px" color="#fff" />
+      }
+      <span>COLLECT</span>
+    </button>
     <div className="flex-column-wrapper w-full">
     <h3 className="title">{data.title}</h3>
     <div className="sub-info-wrapper">

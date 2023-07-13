@@ -3,8 +3,7 @@ import styled from "@emotion/styled";
 export const AnimeDetailContainer = styled.div`
   padding: 16px;
   width:100%;
-
-
+  height:200%;
   display: grid;
   grid-template-areas:
     'cover body '
@@ -14,6 +13,11 @@ export const AnimeDetailContainer = styled.div`
   gap: 12px;
   background-color: #222222;
 
+  .sub-info-wrapper-loading{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 8px;
+  }
 
   @media only screen and (max-width: 768px) {
     grid-template-areas:
@@ -27,20 +31,24 @@ export const AnimeDetailContainer = styled.div`
   @media only screen and (max-width: 600px) {
     .item-info-wrapper {
       width: 100% !important;
-    }
-    .item-info-wrapper {
       justify-content: center;
     }
     .sub-info-wrapper {
       display: flex !important;
       justify-content:center !important;
       align-items:center !important;
+      position: relative;
+      width: 100%;
     }
     .title {
       text-align: center;
     }
     .description {
       text-align: center;
+    }
+    .title-wrapper {
+      margin-left: 20%;
+      width: 100%;
     }
   }
 
@@ -102,6 +110,7 @@ export const AnimeDetailContainer = styled.div`
     width: 100%;
     display: flex;
     flex-flow: wrap;
+    position: relative;
   }
   .item-info-wrapper {
     width: 50%;
@@ -135,10 +144,45 @@ export const AnimeDetailContainer = styled.div`
   .collect-btn {
     text-align: center;
     background: #0c70de;
-    font-size: 13px;
+    font-size: 18px;
     color: #FFF;
     border-radius: 5px;
     padding: 8px 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
+`
+
+export const InfoWrapper = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
+
+  @media only screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 8px;
+  
+  }
+`
+export const GenresWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  @media only screen and (max-width: 600px) {
+    justify-items: center !important;
+  }
+`
+
+export const DetailBodyInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  grid-area: body;
+  width: 100%;
 `

@@ -13,7 +13,7 @@ export const mapAnimeDetailData =  ({ id, title, description, startDate, status,
   id,
   status,
   description,
-  updatedAt,
+  updatedAt: timeStamptoDate(updatedAt),
   genres,
   title: title.romaji,
   releaseDate: (startDate.day > 9 ? startDate.day  : "0"+startDate.day)+"/"+startDate.month+"/"+startDate.year,
@@ -23,6 +23,12 @@ export const mapAnimeDetailData =  ({ id, title, description, startDate, status,
   totalEpisodes: episodes,
   rating: getAverageRatingInFive(reviews)
 })
+
+const timeStamptoDate = (timestamp: number) => {
+
+  const date = new Date(timestamp);
+ return date.toLocaleString('en-ID'); // 👉️ "1/20/2022, 9:50:15 AM"
+}
 
 const getAverageRatingInFive = (reviews: {edges: reviewEdge[]}) => {
   if(reviews?.edges?.length == 0) return 0

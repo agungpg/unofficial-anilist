@@ -3,6 +3,8 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { AnimeCardDiv, AnimeCardInfoWrapper, AnimeCardMetaInfoWrapper } from '../AnimeCard/AnimeCard.styled'
 
+
+export const DescriptionLineLoading = () => <Skeleton style={{ height: '10px', width: '95%', borderRadius: '8px',}}/>
 export const AnimeLoadingCard = () => (
   <AnimeCardDiv>
      <Skeleton
@@ -28,27 +30,9 @@ export const AnimeLoadingCard = () => (
             }}
           />
           <div className='gap-y-[0px] mt-2'>
-            <Skeleton
-              style={{
-                height: '10px',
-                width: '95%',
-                borderRadius: '8px',
-              }}
-            />
-          <Skeleton
-              style={{
-                height: '10px',
-                width: '95%',
-                borderRadius: '8px',
-              }}
-            />
-          <Skeleton
-              style={{
-                height: '10px',
-                width: '95%',
-                borderRadius: '8px',
-              }}
-            />
+            <DescriptionLineLoading />
+            <DescriptionLineLoading />
+            <DescriptionLineLoading />
           </div>
       </AnimeCardInfoWrapper>
   </AnimeCardDiv>

@@ -30,7 +30,7 @@ export default function DETAIL() {
   }, [data])
 
   console.log("data: ", detail)
-  return (<>      
+  return (<div>      
     <NavBar className="flex">
       <Link href={'/'}>
         <BackIcon width="32px" height="32px" color="#fff" />
@@ -38,6 +38,6 @@ export default function DETAIL() {
       <AppTitle>ANIME DETAIL</AppTitle>
     </NavBar>
     <AnimeDetail data={detail} isLoading={loading} />
-  </>)
+  </div>)
 }
 

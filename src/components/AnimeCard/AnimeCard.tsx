@@ -9,11 +9,11 @@ const AnimeCard = ({ data }: AnimeCardPropsType) => (<AnimeCardDiv>
   </Link>
   <AnimeCardInfoWrapper >
     <Link href={`/anime/${data.id}`}>
-      <AnimeCardTitle>{data?.title || 'One Piece'}</AnimeCardTitle>
+      <AnimeCardTitle>{data?.title}</AnimeCardTitle>
     </Link>
     <AnimeCardMetaInfoWrapper>
-      <AnimeCardMetaInfoText><b>Release Date</b>: {data?.releaseDate || 'July 2015'}</AnimeCardMetaInfoText>
-      <AnimeCardMetaInfoText><b>Status</b>: {data?.status || 'On Going'}</AnimeCardMetaInfoText>
+      <AnimeCardMetaInfoText><b>Release Date</b>: {data?.releaseDate}</AnimeCardMetaInfoText>
+      <AnimeCardMetaInfoText><b>Status</b>: {data?.status}</AnimeCardMetaInfoText>
     </AnimeCardMetaInfoWrapper>
     <AnimeCardDescriptionText dangerouslySetInnerHTML={{__html: data?.description}}/>
   </AnimeCardInfoWrapper>
