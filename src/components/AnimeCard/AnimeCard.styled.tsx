@@ -43,7 +43,7 @@ export const AnimeCardMetaInfoText = styled.span`
   color: #B5B5B5;
 `
 
-export const AnimeCardDescriptionText = styled.span`
+export const AnimeCardDescriptionText = styled.p`
   font-size: 12px;
   color: #B5B5B5;
   
@@ -51,5 +51,5 @@ export const AnimeCardDescriptionText = styled.span`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
-  white-space: pre-wrap; 
+  white-space: wrap; 
 `

@@ -1,10 +1,18 @@
-export type AnimeListItemTypes =  { 
+export interface AnimeListItemTypes { 
   id: string
   title: string
   releaseDate: string
   status: string
   coverImage: string
   description: string 
+}
+export interface AnimeDetailDataTypes extends AnimeListItemTypes  { 
+  studio: string
+  duration: string
+  totalEpisodes: number
+  rating: number
+  genres: string[]
+  updatedAt: string
 }
 export interface AnimeListDataItemResponseType {
   id: string, 
@@ -22,14 +30,14 @@ export interface AnimeListDataItemResponseType {
 }
 
 type studioEdges = {
-  "id": number,
-  "isMain": boolean,
-  "node": {
-      "name": string,
+  id: number,
+  isMain: boolean,
+  node: {
+      name: string,
   }
 }
 
-type reviewEdge = {
+export type reviewEdge = {
   node:  {
     id: number
     rating: number
@@ -54,10 +62,10 @@ export type AnimeCardPropsType = {
 }
 
 export type PageInfoType = {
-  "total": number,
-  "currentPage": number,
-  "lastPage": number,
-  "hasNextPage": boolean,
-  "perPage": number,
+  total: number,
+  currentPage: number,
+  lastPage: number,
+  hasNextPage: boolean,
+  perPage: number,
   isSetFromBE?: boolean;
 }

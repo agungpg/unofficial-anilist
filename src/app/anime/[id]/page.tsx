@@ -6,6 +6,9 @@ import { useParams } from "next/navigation"
 import React, { useEffect, useState } from "react"
 import AnimeDetail from "./components/AnimeDetail"
 import { AppTitle, NavBar } from "@/app/styeled"
+import BackIcon from "@/assets/icons/BackIcon"
+import { BackButton } from "../styled"
+import Link from "next/link"
 
 export default function DETAIL() {
   const params = useParams()
@@ -28,10 +31,13 @@ export default function DETAIL() {
 
   console.log("data: ", detail)
   return (<>      
-    <NavBar>
+    <NavBar className="flex">
+      <Link href={'/'}>
+        <BackIcon width="32px" height="32px" color="#fff" />
+      </Link>
       <AppTitle>ANIME DETAIL</AppTitle>
     </NavBar>
-    <AnimeDetail />
+    <AnimeDetail data={detail} isLoading={loading} />
   </>)
 }
 

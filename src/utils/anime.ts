@@ -1,4 +1,4 @@
-import { AnimeDetailDataResponseType, AnimeListDataItemResponseType } from "../types/animeList";
+import { AnimeDetailDataResponseType, AnimeListDataItemResponseType, reviewEdge } from "../types/animeList";
 
 export const mapAnimeListItemData =  ({ id, title, description, startDate, status, coverImage }: AnimeListDataItemResponseType) => ({
   id,
@@ -21,5 +21,16 @@ export const mapAnimeDetailData =  ({ id, title, description, startDate, status,
   studio: studios.edges.find(stud => stud.isMain)?.node?.name || "-",
   duration: duration+" minutes",
   totalEpisodes: episodes,
-  rating: (reviews?.edges.reduce((result, item) => result += item.node.rating, 0)/reviews?.edges.length) || 0
+  rating: getAverageRatingInFive(reviews)
 })
+
+const getAverageRatingInFive = (reviews: {edges: reviewEdge[]}) => {
+  if(reviews?.edges?.length == 0) return 0
+  const averageRatingInHundred =  (reviews?.edges.reduce((result, item) => result += item.node.rating, 0)/reviews?.edges.length)
+  const ratingInFive = averageRatingInHundred / 20
+  return roundToTwo(ratingInFive)
+}
+
+function roundToTwo(num: number) {
+  return +(Math.round(parseFloat(num  + "e+2"))  + "e-2");
+}

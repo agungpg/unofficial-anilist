@@ -4,17 +4,23 @@ import { Rating } from 'react-simple-star-rating';
 import StarRatings from 'react-star-ratings';
 import InfoItem from "./InfoItem";
 import Genre from "./Genre";
+import { AnimeDetailDataTypes } from "@/types/animeList";
+import { infoList } from "../contants";
+import { AnimeCardDescriptionText } from "@/components/AnimeCard/AnimeCard.styled";
 
-const AnimeDetail = () => {
+const AnimeDetail = ({ data, isLoading }: {data: AnimeDetailDataTypes, isLoading: boolean}) => {
+
+  if(isLoading || !data) return <></>
+
   return <AnimeDetailContainer>
     <div className="cover-image-wrapper">
-      <img className="cover-image" src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx1-CXtrrkMpJ8Zq.png" />
+      <img className="cover-image" src={data.coverImage} />
       </div>
       <div className="rating-wrapper">
-        <span>Rating 9.15</span>
+        <span>Rating {data.rating}</span>
         <div className="flex">
         <StarRatings
-          rating={4}
+          rating={data.rating}
           starRatedColor="#FEC702"
           starSpacing="2px"
           numberOfStars={5}
@@ -25,27 +31,14 @@ const AnimeDetail = () => {
       </div>
     <button className="collect-btn">Collect</button>
     <div className="flex-column-wrapper w-full">
-    <h3 className="title">ONE PIECE</h3>
+    <h3 className="title">{data.title}</h3>
     <div className="sub-info-wrapper">
-      <InfoItem label="Status" value="FINISH" />
-      <InfoItem label="Studio" value="FINISH" />
-      <InfoItem label="Release Date" value="FINISH" />
-      <InfoItem label="Last Update" value="FINISH" />
-      <InfoItem label="Total Episodes" value="FINISH" />
-      <InfoItem label="Duration" value="FINISH" />
+      {infoList.map(item => (<InfoItem key={item.key} label={item.label} value={(data as any)[item.key] || "-"} />))}
     </div>
     <div className="sub-info-wrapper">
-      <Genre name="Action" />
-      <Genre name="Drama" />
-      <Genre name="Drama" />
-      <Genre name="Drama" />
-      <Genre name="Drama" />
-      <Genre name="Action" />
-      <Genre name="Action" />
-      <Genre name="Drama" />
-      <Genre name="Action" />
+      {data.genres.map(item => (<Genre key={item} name={item} />))}
     </div>
-    <p className="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda sit nisi exercitationem, fugit debitis rerum quaerat. Ducimus repellat odit quas beatae ratione expedita nostrum, voluptas doloribus blanditiis natus placeat error. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sapiente cupiditate reprehenderit illo tenetur tempora sint consequatur exercitationem unde, natus officia aliquid accusamus praesentium, nemo inventore officiis explicabo, beatae maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero alias blanditiis ipsa accusantium! Facere eveniet assumenda ipsam animi inventore numquam, velit voluptas saepe rerum libero a consequuntur omnis rem veniam? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam eius exercitationem ut repellat quae natus neque itaque veritatis. Vel iure quaerat ipsum eum rem quasi labore? Doloribus quae in reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ut nostrum hic sapiente enim ducimus suscipit, ab qui, pariatur facilis temporibus mollitia, fugit odio dolorum assumenda totam voluptatem doloremque fugiat!</p>
+    <p className="description" dangerouslySetInnerHTML={{__html: data?.description}}></p>
     </div>
     
   </AnimeDetailContainer>
