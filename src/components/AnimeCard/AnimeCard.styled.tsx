@@ -34,7 +34,7 @@ export const AnimeCardTitle = styled.h3`
 export const AnimeCardMetaInfoWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 5%;
+  gap: 0 5%;
   width: 100%;
   color: #B5B5B5;
 `

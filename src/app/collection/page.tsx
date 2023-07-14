@@ -2,12 +2,12 @@
 import { useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
 import { mapAnimeListItemData } from '@/utils/anime';
-import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../types/animeList';
+import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../../types/animeList';
 import AnimeList from '@/components/AnimeList/AnimeList';
 import Pagination from '@/components/Pagination/Pagination';
 import { GET_ANIMELIST } from '@/queries';
-import { AppTitle, NavBar } from './styeled';
-import CollectionCard from './collection/(components)/CollectionCard';
+import { AppTitle, NavBar } from '../styeled';
+import CollectionCard from './(components)/CollectionCard';
 
 export default function Home() {
   const [pageInfo, setPageInfo] = useState<PageInfoType>({
@@ -40,7 +40,7 @@ export default function Home() {
     <main className="flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between  lg:py-10 md:py-10">
       <div className='container'>
       <NavBar>
-        <AppTitle>UNOFFICIAL ANILIST</AppTitle>
+        <AppTitle>COLLECTION LIST</AppTitle>
       </NavBar>
       <CollectionCard />
       <AnimeList data={list} isLoading={loading} />
