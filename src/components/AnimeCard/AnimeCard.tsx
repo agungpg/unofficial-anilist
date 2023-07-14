@@ -1,16 +1,17 @@
-import React from 'react'
-import {
-  AnimeCardDiv,
-  AnimeCardCover,
-  AnimeCardTitle,
-  AnimeCardMetaInfoWrapper,
-  AnimeCardMetaInfoText,
-  AnimeCardInfoWrapper,
-  AnimeCardDescriptionText,
-} from './AnimeCard.styled'
 import Link from 'next/link'
-import { AnimeCardPropsType } from '../../types/animeList'
+import React from 'react'
+
 import { VerticalInfoWrapper } from '@/app/styeled'
+
+import {
+  AnimeCardCover,
+  AnimeCardDescriptionText,
+  AnimeCardDiv,
+  AnimeCardMetaInfoText,
+  AnimeCardMetaInfoWrapper,
+  AnimeCardTitle,
+} from './AnimeCard.styled'
+import { AnimeCardPropsType } from '../../types/animeList'
 
 const AnimeCard = ({ data }: AnimeCardPropsType) => (
   <AnimeCardDiv>

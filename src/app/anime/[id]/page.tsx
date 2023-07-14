@@ -1,14 +1,15 @@
 'use client'
-import { GET_ANIMEDETAIL } from '@/queries'
-import { mapAnimeDetailData, mapAnimeListItemData } from '@/utils/anime'
 import { useQuery } from '@apollo/client'
+import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import AnimeDetail from './(components)/AnimeDetail'
+
 import { AppTitle, NavBar } from '@/app/styeled'
 import BackIcon from '@/assets/icons/BackIcon'
-import { BackButton } from '../styled'
-import Link from 'next/link'
+import { GET_ANIMEDETAIL } from '@/queries'
+import { mapAnimeDetailData } from '@/utils/anime'
+
+import AnimeDetail from './(components)/AnimeDetail'
 
 export default function DETAIL() {
   const params = useParams()
@@ -33,7 +34,7 @@ export default function DETAIL() {
   return (
     <div>
       <NavBar className='flex'>
-        <Link href={'/'}>
+        <Link href="/">
           <BackIcon
             width='32px'
             height='32px'

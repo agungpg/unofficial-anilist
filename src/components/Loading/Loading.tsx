@@ -1,7 +1,9 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
+
 import 'react-loading-skeleton/dist/skeleton.css'
-import { AnimeCardDiv, AnimeCardInfoWrapper, AnimeCardMetaInfoWrapper } from '../AnimeCard/AnimeCard.styled'
+
+import { AnimeCardDiv, AnimeCardInfoWrapper } from '../AnimeCard/AnimeCard.styled'
 
 export const DescriptionLineLoading = () => <Skeleton style={{ height: '10px', width: '95%', borderRadius: '8px' }} />
 export const AnimeLoadingCard = () => (

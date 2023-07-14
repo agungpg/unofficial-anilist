@@ -1,13 +1,15 @@
 'use client'
 import { useQuery } from '@apollo/client'
 import { useEffect, useState } from 'react'
-import { mapAnimeListItemData } from '@/utils/anime'
-import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../types/animeList'
+
 import AnimeList from '@/components/AnimeList/AnimeList'
 import Pagination from '@/components/Pagination/Pagination'
 import { GET_ANIMELIST } from '@/queries'
-import { AppTitle, NavBar } from './styeled'
+import { mapAnimeListItemData } from '@/utils/anime'
+
 import CollectionCard from './collection/(components)/CollectionCard'
+import { AppTitle, NavBar } from './styeled'
+import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../types/animeList'
 
 export default function Home() {
   const [pageInfo, setPageInfo] = useState<PageInfoType>({

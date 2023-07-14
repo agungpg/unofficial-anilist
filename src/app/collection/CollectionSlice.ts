@@ -1,5 +1,6 @@
-import { AnimeListDataItemResponseType } from '@/types/animeList'
 import { createSlice } from '@reduxjs/toolkit'
+
+import { AnimeListDataItemResponseType } from '@/types/animeList'
 
 type collectStateType = {
   id: number

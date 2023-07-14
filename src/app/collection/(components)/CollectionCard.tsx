@@ -1,17 +1,11 @@
-import React from 'react'
-import {
-  AnimeCardCover,
-  AnimeCardTitle,
-  AnimeCardMetaInfoWrapper,
-  AnimeCardMetaInfoText,
-  AnimeCardInfoWrapper,
-  AnimeCardDescriptionText,
-} from '@/components/AnimeCard/AnimeCard.styled'
 import Link from 'next/link'
-import { AnimeCardPropsType } from '@/types/animeList'
-import { Image, InfoText, ListItemCard, VerticalInfoWrapper } from '@/app/styeled'
+import React from 'react'
+
 import InfoItem from '@/app/anime/[id]/(components)/InfoItem'
-import styled from '@emotion/styled'
+import { Image, ListItemCard, VerticalInfoWrapper } from '@/app/styeled'
+import {
+  AnimeCardTitle,
+} from '@/components/AnimeCard/AnimeCard.styled'
 
 const coverDefault = '@/assets/images/collection-cover-default.jpg'
 
@@ -26,7 +20,7 @@ const CollectionCard = () =>
         </Link>
         <VerticalInfoWrapper gap='8px'>
           <Link href={`/anime/${data.id}`}>
-            <AnimeCardTitle>{'Action And Drama'}</AnimeCardTitle>
+            <AnimeCardTitle>Action And Drama</AnimeCardTitle>
           </Link>
           <VerticalInfoWrapper gap='0'>
             <InfoItem

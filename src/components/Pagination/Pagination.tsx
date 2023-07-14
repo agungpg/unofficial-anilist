@@ -1,6 +1,8 @@
 import React from 'react'
-import { PaginationStyled } from './Pagination.styled'
+
 import { arrayRange } from '@/utils/common'
+
+import { PaginationStyled } from './Pagination.styled'
 
 const Pagination = ({ totalPage, currentPage, onPageChange }: any) => {
   let paginationList = []

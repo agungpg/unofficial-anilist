@@ -1,8 +1,9 @@
 'use client'
-import ApolloClientProvider from '@/configs/ApolloClientProvider'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import { store, persistor } from '@/store/index'
+
+import ApolloClientProvider from '@/configs/ApolloClientProvider'
+import { persistor,store } from '@/store/index'
 
 export default function LayoutProvider({ children }: { children: React.ReactNode }) {
   return (

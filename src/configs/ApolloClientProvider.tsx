@@ -1,6 +1,6 @@
 'use client'
-import React from 'react'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import React from 'react'
 
 const client = new ApolloClient({
   uri: 'https://graphql.anilist.co',

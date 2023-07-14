@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
-import { AnimeDetailContainer } from './AnimeDetail.styled'
-import { Rating } from 'react-simple-star-rating'
 import StarRatings from 'react-star-ratings'
-import InfoItem from './InfoItem'
-import Genre from './Genre'
-import { AnimeDetailDataTypes } from '@/types/animeList'
-import { infoList } from '../contants'
-import { AnimeCardDescriptionText } from '@/components/AnimeCard/AnimeCard.styled'
-import AnimeDetailLoading from './AnimeDetailLoading'
+
 import AddCollectionIcon from '@/assets/icons/AddCollectionIcon'
 import RemoveCollectionIcon from '@/assets/icons/RemoveCollectionIcon'
+import { AnimeDetailDataTypes } from '@/types/animeList'
+
+import { AnimeDetailContainer } from './AnimeDetail.styled'
+import AnimeDetailLoading from './AnimeDetailLoading'
+import Genre from './Genre'
+import InfoItem from './InfoItem'
+import { infoList } from '../contants'
 
 const AnimeDetail = ({ data, isLoading }: { data: AnimeDetailDataTypes; isLoading: boolean }) => {
-  if (isLoading || !data) return <AnimeDetailLoading />
   const [isCollect, setCollect] = useState(false)
+  
+  if (isLoading || !data) return <AnimeDetailLoading />
 
   return (
     <AnimeDetailContainer>
@@ -42,13 +43,13 @@ const AnimeDetail = ({ data, isLoading }: { data: AnimeDetailDataTypes; isLoadin
       >
         {isCollect ? (
           <RemoveCollectionIcon
-            width={'24px'}
+            width="24px"
             height='24px'
             color='#fff'
           />
         ) : (
           <AddCollectionIcon
-            width={'24px'}
+            width="24px"
             height='24px'
             color='#fff'
           />
@@ -77,7 +78,7 @@ const AnimeDetail = ({ data, isLoading }: { data: AnimeDetailDataTypes; isLoadin
         <p
           className='description'
           dangerouslySetInnerHTML={{ __html: data?.description }}
-        ></p>
+        />
       </div>
     </AnimeDetailContainer>
   )
