@@ -1,18 +1,18 @@
-import styled from "@emotion/styled"
+import styled from '@emotion/styled'
 
 export const NavBar = styled.div`
   diplay: flex !important;
   align-items: center !important;
   gap: 16px;
   widht: 100%;
-  background: #0D70DF;
+  background: #0d70df;
   padding: 8px;
 `
 
 export const AppTitle = styled.h2`
   font-size: 28px;
   font-weight: 600;
-  color: #FFF;
+  color: #fff;
 `
 
 export const ListItemCard = styled.div`
@@ -23,7 +23,7 @@ export const ListItemCard = styled.div`
   align-items: start;
   gap: 12px;
   background-color: #222222;
-  border-bottom:#f9f9f9 1px solid;
+  border-bottom: #f9f9f9 1px solid;
   color: white;
   position: relative;
 
@@ -34,18 +34,18 @@ export const ListItemCard = styled.div`
 
 export const InfoText = styled.span`
   font-size: 14px;
-  color: #B5B5B5;
+  color: #b5b5b5;
 `
 
-export const Image = styled.img<{width?: string, height?: string}>`
-  width:  ${props => props.width ? props.width : "100px"};
-  height: ${props => props.height ? props.height : "120px"};
+export const Image = styled.img<{ width?: string; height?: string }>`
+  width: ${(props) => (props.width ? props.width : '100px')};
+  height: ${(props) => (props.height ? props.height : '120px')};
 `
 
-export const VerticalInfoWrapper = styled.div<{gap?: string, width?: string, height?: string}>`
+export const VerticalInfoWrapper = styled.div<{ gap?: string; width?: string; height?: string }>`
   display: flex;
   flex-direction: column;
-  gap: ${props => props?.gap || '8px'};
-  width: ${props => props?.width || '100%'};
-  height: ${props => props?.height || '100%'};
+  gap: ${(props) => props?.gap || '8px'};
+  width: ${(props) => props?.width || '100%'};
+  height: ${(props) => props?.height || '100%'};
 `

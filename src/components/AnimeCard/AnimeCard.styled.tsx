@@ -8,7 +8,7 @@ export const AnimeCardDiv = styled.div`
   align-items: start;
   gap: 12px;
   background-color: #222222;
-  border-bottom:#f9f9f9 1px solid;
+  border-bottom: #f9f9f9 1px solid;
   color: white;
   position: relative;
 
@@ -36,20 +36,20 @@ export const AnimeCardMetaInfoWrapper = styled.div`
   align-items: center;
   gap: 0 5%;
   width: 100%;
-  color: #B5B5B5;
+  color: #b5b5b5;
 `
 export const AnimeCardMetaInfoText = styled.span`
   font-size: 14px;
-  color: #B5B5B5;
+  color: #b5b5b5;
 `
 
 export const AnimeCardDescriptionText = styled.p`
   font-size: 12px;
-  color: #B5B5B5;
-  
+  color: #b5b5b5;
+
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
-  white-space: wrap; 
+  white-space: wrap;
 `

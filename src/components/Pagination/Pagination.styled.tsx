@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
 export const PaginationStyled = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const PaginationStyled = styled.div`
   gap: 8px;
   padding: 12px;
   color: white;
-  
+
   .item {
     color: #fff;
     border: #fff 1px solid;

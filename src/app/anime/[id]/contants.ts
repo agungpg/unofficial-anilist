@@ -1,26 +1,26 @@
 export const infoList = [
   {
-    key: "status",
-    label: "Status"
+    key: 'status',
+    label: 'Status',
   },
   {
-    key: "studio",
-    label: "Studio"
+    key: 'studio',
+    label: 'Studio',
   },
   {
-    key: "releaseDate",
-    label: "Release Date"
+    key: 'releaseDate',
+    label: 'Release Date',
   },
   {
-    key: "updatedAt",
-    label: "Last Update"
+    key: 'updatedAt',
+    label: 'Last Update',
   },
   {
-    key: "totalEpisodes",
-    label: "Total Episodes"
+    key: 'totalEpisodes',
+    label: 'Total Episodes',
   },
   {
-    key: "duration",
-    label: "Duration"
+    key: 'duration',
+    label: 'Duration',
   },
 ]
