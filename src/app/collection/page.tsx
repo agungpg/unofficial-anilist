@@ -1,67 +1,58 @@
 'use client'
-import { useQuery } from '@apollo/client'
-import { useEffect, useState } from 'react'
-
-import AnimeList from '@/components/AnimeList/AnimeList'
-import Pagination from '@/components/Pagination/Pagination'
-import { GET_ANIMELIST } from '@/queries'
-import { mapAnimeListItemData } from '@/utils/anime'
+import { useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 
 import CollectionCard from './(components)/CollectionCard'
-import { AppTitle, NavBar } from '../styeled'
-import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../../types/animeList'
+import ModalCreateCollection from './(components)/ModalCreateCollection'
+import { collectStateType, createCollection } from './CollectionSlice'
+import { AppTitle, FlexWrapper, NavBar } from '../styeled'
 
-export default function Home() {
-  const [pageInfo, setPageInfo] = useState<PageInfoType>({
-    total: 0,
-    currentPage: 1,
-    lastPage: 1,
-    hasNextPage: false,
-    perPage: 10,
-    isSetFromBE: false,
-  })
-
-  const [list, setList] = useState<AnimeListItemTypes[]>([])
-
-  const { loading, data } = useQuery(GET_ANIMELIST, {
-    variables: {
-      page: pageInfo.currentPage,
-      perPage: pageInfo.perPage,
-      isAdult: false,
-    },
-  })
-
-  useEffect(() => {
-    if (data) {
-      setList(data.result.list.map((item: AnimeListDataItemResponseType) => mapAnimeListItemData(item)))
-      if (!pageInfo.isSetFromBE) setPageInfo({ ...data.result.pageInfo, isSetFromBE: true } as PageInfoType)
-    }
-  }, [data])
+function CollectionList({ collections }: { collections: collectStateType[] }) {
+  const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
 
   return (
-    <main className='flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between  lg:py-10 md:py-10'>
-      <div className='container'>
-        <NavBar>
+    <>
+      <NavBar>
+        <FlexWrapper>
           <AppTitle>COLLECTION LIST</AppTitle>
-        </NavBar>
-        <CollectionCard />
-        <AnimeList
-          data={list}
-          isLoading={loading}
+          <button
+            onClick={() => setIsModalFormColOpen(true)}
+            style={{ color: '#fff' }}
+          >
+            Add New
+          </button>
+        </FlexWrapper>
+      </NavBar>
+      {collections.map((col) => (
+        <CollectionCard
+          key={col.name}
+          onEdit={(name) => {
+            console.log('onEdit collection: ', name)
+          }}
+          onDelete={(name) => {
+            console.log('delete collection: ', name)
+          }}
+          data={col}
         />
-        {pageInfo.total > 1 && (
-          <Pagination
-            totalPage={pageInfo.total}
-            currentPage={pageInfo.currentPage}
-            onPageChange={(page: number) =>
-              setPageInfo((prevPageInfo) => ({
-                ...prevPageInfo,
-                currentPage: page,
-              }))
-            }
-          />
-        )}
-      </div>
-    </main>
+      ))}
+      <ModalCreateCollection
+        isOpen={isModalFormColOpen}
+        closeModal={() => setIsModalFormColOpen(false)}
+      />
+    </>
   )
 }
+
+function mapDispatchToProps(
+  dispatch: (arg0: { payload: { collection: collectStateType }; type: 'collectionList/createCollection' }) => any
+) {
+  return {
+    createCollection: (payload: { collection: collectStateType }) => dispatch(createCollection(payload)),
+  }
+}
+
+function mapStateToProps(state: any) {
+  return { collections: state.collections }
+}
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(CollectionList))
