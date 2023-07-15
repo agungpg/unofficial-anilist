@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { persistReducer,persistStore } from 'redux-persist'
+import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // Choose the storage solution you want to use
 
-import collectionSlice from '@/app/collection/CollectionSlice'
+import rootReducer from './root-reducer'
 
 const persistConfig = {
-  key: 'root',
+  key: 'root-anilist',
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, collectionSlice)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,

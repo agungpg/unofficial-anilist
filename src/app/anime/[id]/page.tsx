@@ -13,8 +13,8 @@ import AnimeDetail from './(components)/AnimeDetail'
 
 export default function DETAIL() {
   const params = useParams()
-  console.log('router: ', params)
   const [detail, setDetail] = useState<any>(null)
+
   const { loading, error, data } = useQuery(GET_ANIMEDETAIL, {
     variables: {
       id: params?.id || 0,
@@ -30,11 +30,10 @@ export default function DETAIL() {
     }
   }, [data])
 
-  console.log('data: ', detail)
   return (
     <div>
       <NavBar className='flex'>
-        <Link href="/">
+        <Link href='/'>
           <BackIcon
             width='32px'
             height='32px'

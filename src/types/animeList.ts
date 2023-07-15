@@ -1,5 +1,5 @@
 export interface AnimeListItemTypes {
-  id: string
+  id: number
   title: string
   releaseDate: string
   status: string

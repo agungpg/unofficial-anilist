@@ -3,9 +3,7 @@ import React from 'react'
 
 import InfoItem from '@/app/anime/[id]/(components)/InfoItem'
 import { Image, ListItemCard, VerticalInfoWrapper } from '@/app/styeled'
-import {
-  AnimeCardTitle,
-} from '@/components/AnimeCard/AnimeCard.styled'
+import { AnimeCardTitle } from '@/components/AnimeCard/AnimeCard.styled'
 
 const coverDefault = '@/assets/images/collection-cover-default.jpg'
 

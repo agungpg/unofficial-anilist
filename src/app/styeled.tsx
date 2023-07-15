@@ -15,14 +15,14 @@ export const AppTitle = styled.h2`
   color: #fff;
 `
 
-export const ListItemCard = styled.div`
-  padding: 12px;
-  min-height: 170px;
-  width: 100%;
+export const ListItemCard = styled.div<{ height?: string; width?: string; padding?: string; backgroundColor?: string }>`
+  padding: ${(props) => props.padding || '12px'};
+  height: ${(props) => props.height || '170px'};
+  width: ${(props) => props.width || '100%'};
   display: flex;
   align-items: start;
   gap: 12px;
-  background-color: #222222;
+  background-color: ${(props) => props.backgroundColor || '#222222'};
   border-bottom: #f9f9f9 1px solid;
   color: white;
   position: relative;
@@ -48,4 +48,40 @@ export const VerticalInfoWrapper = styled.div<{ gap?: string; width?: string; he
   gap: ${(props) => props?.gap || '8px'};
   width: ${(props) => props?.width || '100%'};
   height: ${(props) => props?.height || '100%'};
+`
+export const FlexWrapper = styled.div<{
+  gap?: string
+  width?: string
+  height?: string
+  direction?: string
+  alignItems?: string
+  justifyContent?: string
+  wrap?: string
+  margin?: string
+  padding?: string
+}>`
+  display: flex !important;
+  flex-direction: ${(props) => props.direction || 'row'};
+  align-items: ${(props) => props.alignItems || 'center'};
+  justify-content: ${(props) => props.justifyContent || 'space-between'};
+  gap: ${(props) => props.gap || '0'};
+  ${(props) => props.wrap && `flex-wrap: ${props.wrap};`}
+  width: ${(props) => props.width || '100%'};
+  height: ${(props) => props.height || '100%'};
+  margin: ${(props) => props.margin || '0'};
+  padding: ${(props) => props.padding || '0'};
+`
+
+export const Text = styled.span<{
+  fontFamily?: string
+  fontSize?: string
+  color?: string
+  fontStyle?: string
+  fontWeight?: string
+}>`
+  font-size: ${(props) => (props.fontSize ? `${props.fontSize}` : '14px')};
+  color: ${(props) => (props.color ? `${props.color}` : '#b5b5b5')};
+  ${(props) => (props.fontFamily ? `font-family: ${props.fontFamily}` : '')}
+  ${(props) => (props.fontWeight ? `font-weight: ${props.fontWeight}` : '')}
+ ${(props) => (props.fontStyle ? `font-style: ${props.fontStyle}` : '')}
 `
