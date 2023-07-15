@@ -6,6 +6,7 @@ import coverDefault from '@/assets/images/collection-cover-default.jpg'
 import { AnimeCardTitle } from '@/components/AnimeCard/AnimeCard.styled'
 
 const CollectionCardOption = ({ data, selected, onSelect }: any) => {
+  const coverImg = data?.animeList[0]?.coverImage || coverDefault
   return (
     <ListItemCard
       height='84px'
@@ -15,7 +16,7 @@ const CollectionCardOption = ({ data, selected, onSelect }: any) => {
       <Image
         width='60px'
         height='60px'
-        src={data?.coverImage || coverDefault}
+        src={coverImg}
       />
       <FlexWrapper
         margin='0 0 0 10px'

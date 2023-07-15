@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import StarRatings from 'react-star-ratings'
 
 import ModalCollectionList from '@/app/collection/(components)/ModalCollectionList'
+import ModalCreateCollection from '@/app/collection/(components)/ModalCreateCollection'
 import { collectStateType } from '@/app/collection/CollectionSlice'
 import { FlexWrapper, Text } from '@/app/styeled'
 import AddCollectionIcon from '@/assets/icons/AddCollectionIcon'
@@ -25,6 +26,7 @@ const AnimeDetail = ({
   collections?: collectStateType[]
 }) => {
   const [isModalOpen, setIsModelOpen] = useState(false)
+  const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
   const [collectionsName, setCollectionsName] = useState<string[]>([])
 
   useEffect(() => {
@@ -33,6 +35,11 @@ const AnimeDetail = ({
     const colName = findCollectionNameByAnimeId(collections, data.id)
     if (colName) setCollectionsName(colName)
   }, [collections, data])
+
+  const addNewCollection = () => {
+    setIsModelOpen(false)
+    setIsModalFormColOpen(true)
+  }
 
   if (isLoading || !data) return <AnimeDetailLoading />
 
@@ -107,19 +114,25 @@ const AnimeDetail = ({
               ))}
             </FlexWrapper>
           </FlexWrapper>
-          <div className='sub-info-wrapper'>
-            <FlexWrapper
-              direction='column'
-              gap='2px'
-              alignItems='start'
+          <FlexWrapper
+            direction='column'
+            gap='2px'
+            alignItems='start'
+          >
+            <Text
+              fontSize='16px'
+              color='#fff'
+              fontWeight='600'
             >
-              <Text
-                fontSize='16px'
-                color='#fff'
-                fontWeight='600'
-              >
-                Collections
-              </Text>
+              Collections
+            </Text>
+            <FlexWrapper
+              direction='row'
+              gap='4px'
+              justifyContent='left'
+              alignItems='center'
+              wrap='wrap'
+            >
               {collectionsName.map((item) => (
                 <Genre
                   key={item}
@@ -127,7 +140,7 @@ const AnimeDetail = ({
                 />
               ))}
             </FlexWrapper>
-          </div>
+          </FlexWrapper>
           <p
             className='description'
             dangerouslySetInnerHTML={{ __html: data?.description }}
@@ -138,7 +151,12 @@ const AnimeDetail = ({
         collectionsNameSelected={collectionsName}
         data={data}
         isOpen={isModalOpen}
+        onAddNewCollection={addNewCollection}
         closeModal={() => setIsModelOpen(false)}
+      />
+      <ModalCreateCollection
+        isOpen={isModalFormColOpen}
+        closeModal={() => setIsModalFormColOpen(false)}
       />
     </>
   )

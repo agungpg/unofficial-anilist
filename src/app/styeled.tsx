@@ -59,6 +59,7 @@ export const FlexWrapper = styled.div<{
   wrap?: string
   margin?: string
   padding?: string
+  overflow?: string
 }>`
   display: flex !important;
   flex-direction: ${(props) => props.direction || 'row'};
@@ -70,6 +71,7 @@ export const FlexWrapper = styled.div<{
   height: ${(props) => props.height || '100%'};
   margin: ${(props) => props.margin || '0'};
   padding: ${(props) => props.padding || '0'};
+  overflow: ${(props) => props.overflow || 'none'};
 `
 
 export const Text = styled.span<{

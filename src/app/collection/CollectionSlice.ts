@@ -4,7 +4,6 @@ import { AnimeListItemTypes } from '@/types/animeList'
 
 export type collectStateType = {
   name: string
-  coverImage: string
   createdAt: string
   updatedAt: string
   animeList: AnimeListItemTypes[]
@@ -13,7 +12,6 @@ export type collectStateType = {
 const initialCollectState: collectStateType[] = [
   {
     name: 'naruto movie',
-    coverImage: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx22-8Qg3NZXH6asP.png',
     createdAt: new Date().toUTCString(),
     updatedAt: new Date().toUTCString(),
     animeList: [
@@ -59,17 +57,11 @@ const collectionSlice = createSlice({
       })
     },
     createCollection: (state: collectStateType[], action) => {
-      const { collectionList, animeList } = action.payload
-
-      return state.map((collection) => {
-        if (collectionList.includes(collection.name)) {
-          return {
-            ...collection,
-            animeList: collection.animeList.concat(animeList),
-          }
-        }
-        return collection
-      })
+      const { collection } = action.payload
+      console.log('createCollection :', collection)
+      state = [...state, collection]
+      console.log('createCollection after:', state[1])
+      return state
     },
     removeFromCollection: (state, action) => {
       return state.filter((collection) => collection.name !== action.payload.name)
@@ -77,5 +69,5 @@ const collectionSlice = createSlice({
   },
 })
 
-export const { addToCollection, removeFromCollection } = collectionSlice.actions
+export const { addToCollection, removeFromCollection, createCollection } = collectionSlice.actions
 export default collectionSlice.reducer

@@ -29,6 +29,7 @@ function ModalCollectionList({
   collections,
   addToCollection,
   collectionsNameSelected,
+  onAddNewCollection,
 }: {
   collections: collectStateType[]
   isOpen: boolean
@@ -36,6 +37,7 @@ function ModalCollectionList({
   closeModal: () => void
   addToCollection: (payload: any) => void
   collectionsNameSelected?: string[]
+  onAddNewCollection: () => void
 }) {
   const [collectionSelected, setCollectionSelected] = useState<string[]>([])
 
@@ -84,7 +86,7 @@ function ModalCollectionList({
   useEffect(() => {
     if (collectionsNameSelected) setCollectionSelected(collectionsNameSelected)
   }, [collectionsNameSelected])
-
+  console.log('collectionsL ', collections)
   return (
     <Modal
       ariaHideApp={false}
@@ -109,6 +111,8 @@ function ModalCollectionList({
           alignItems='left'
           direction='column'
           gap='8px'
+          overflow='auto'
+          height='400px'
         >
           {collections.map((col: any) => {
             const isSelected = isCollectionSelected(col.name)
@@ -123,7 +127,7 @@ function ModalCollectionList({
           })}
         </FlexWrapper>
         <FlexWrapper direction='row'>
-          <button>Add New</button>
+          <button onClick={onAddNewCollection}>Add New</button>
           <button onClick={onSave}>SAVE</button>
         </FlexWrapper>
       </FlexWrapper>

@@ -12,3 +12,7 @@ export const findCollectionNameByAnimeId = (collections: collectStateType[], ani
     return result
   }, [])
 }
+export const validateNoSpecialChar = (value: string) => {
+  const regex = /^[a-zA-Z0-9\s]+$/
+  return regex.test(value)
+}
