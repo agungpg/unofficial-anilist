@@ -58,10 +58,12 @@ const collectionSlice = createSlice({
     },
     createCollection: (state: collectStateType[], action) => {
       const { collection } = action.payload
-      console.log('createCollection :', collection)
       state = [...state, collection]
-      console.log('createCollection after:', state[1])
       return state
+    },
+    removeCollection: (state: collectStateType[], action) => {
+      const { collectionName } = action.payload
+      return state.filter((collect) => collect.name != collectionName)
     },
     removeFromCollection: (state, action) => {
       return state.filter((collection) => collection.name !== action.payload.name)
@@ -69,5 +71,5 @@ const collectionSlice = createSlice({
   },
 })
 
-export const { addToCollection, removeFromCollection, createCollection } = collectionSlice.actions
+export const { addToCollection, removeFromCollection, createCollection, removeCollection } = collectionSlice.actions
 export default collectionSlice.reducer

@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
-import React, { useState } from 'react'
+import React from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
 import { FlexWrapper, Text } from '@/app/styeled'
-import { validateNoSpecialChar } from '@/utils/common'
+import WarnigIcon from '@/assets/icons/WarningIcon'
 
 import { collectStateType, createCollection } from '../CollectionSlice'
 
@@ -34,52 +34,14 @@ const CollectionTextInput = styled.input`
 function ModalCreateCollection({
   isOpen,
   closeModal,
-  collections,
-  createCollection,
+  onConfirm,
+  title,
 }: {
   isOpen: boolean
   closeModal: () => void
-  collections: collectStateType[]
-  createCollection: (payload: { collection: collectStateType }) => void
+  onConfirm: () => void
+  title?: string
 }) {
-  const [name, setName] = useState<string>('')
-  const [error, setError] = useState<string>('')
-
-  const onSave = () => {
-    const isValid = validation()
-    if (!isValid) return
-
-    createCollection({
-      collection: {
-        name,
-        createdAt: new Date().toUTCString(),
-        updatedAt: new Date().toUTCString(),
-        animeList: [],
-      },
-    })
-    closeModal()
-  }
-
-  const validation = () => {
-    setError('')
-    if (!name) {
-      setError('Name is required.')
-      return false
-    }
-    const noSpecialChar = validateNoSpecialChar(name)
-    if (!noSpecialChar) {
-      setError('Name can not contains special characters.')
-      return false
-    }
-    const collectionNameIndex = collections.findIndex((collection: collectStateType) => collection.name == name)
-    if (collectionNameIndex > -1) {
-      setError('Collection name is already exist')
-      return false
-    }
-
-    return true
-  }
-
   return (
     <Modal
       ariaHideApp={false}
@@ -90,36 +52,53 @@ function ModalCreateCollection({
       <FlexWrapper
         direction='column'
         gap='16px'
+        width='300px'
       >
         <FlexWrapper
-          justifyContent='space-between'
+          justifyContent='center'
           alignItems='center'
-          wrap='wrap'
         >
-          <h3>Add New Collection</h3>
-          <button onClick={closeModal}>X</button>
+          <WarnigIcon
+            width={100}
+            height={100}
+          />
         </FlexWrapper>
+        {title && (
+          <Text
+            color='#000'
+            fontWeight='500'
+            fontSize='18px'
+          >
+            {title}
+          </Text>
+        )}
         <FlexWrapper
           justifyContent='space-between'
           alignItems='left'
           direction='column'
           gap='4px'
-        >
-          <CollectionTextInput
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          {error && (
+        />
+        <FlexWrapper direction='row'>
+          <button onClick={closeModal}>
+            {' '}
             <Text
-              fontSize='14px'
-              color='#ED4337'
+              color='#000'
+              fontWeight='500'
+              fontSize='18px'
             >
-              {error}
+              CANCEL
             </Text>
-          )}
-        </FlexWrapper>
-        <FlexWrapper direction='row-reverse'>
-          <button onClick={onSave}>SAVE</button>
+          </button>
+          <button onClick={onConfirm}>
+            {' '}
+            <Text
+              color='#ED4337'
+              fontWeight='500'
+              fontSize='18px'
+            >
+              YES
+            </Text>
+          </button>
         </FlexWrapper>
       </FlexWrapper>
     </Modal>

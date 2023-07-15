@@ -60,6 +60,30 @@ export const FlexWrapper = styled.div<{
   margin?: string
   padding?: string
   overflow?: string
+
+  smGap?: string
+  smDirection?: string
+  smAlignItems?: string
+  smJustifyContent?: string
+  smWrap?: string
+  smWidth?: string
+  smHeight?: string
+
+  mdGap?: string
+  mdDirection?: string
+  mdAlignItems?: string
+  mdJustifyContent?: string
+  mdWrap?: string
+  mdWidth?: string
+  mdHeight?: string
+
+  lgGap?: string
+  lgDirection?: string
+  lgAlignItems?: string
+  lgJustifyContent?: string
+  lgWrap?: string
+  lgWidth?: string
+  lgHeight?: string
 }>`
   display: flex !important;
   flex-direction: ${(props) => props.direction || 'row'};
@@ -72,6 +96,36 @@ export const FlexWrapper = styled.div<{
   margin: ${(props) => props.margin || '0'};
   padding: ${(props) => props.padding || '0'};
   overflow: ${(props) => props.overflow || 'none'};
+
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    ${(props) => props.smDirection && `flex-direction: ${props.smDirection};`}
+    ${(props) => props.smAlignItems && `align-items: ${props.smAlignItems};`}
+    ${(props) => props.smJustifyContent && `justify-content: ${props.smJustifyContent};`}
+    ${(props) => props.smGap && `gap: ${props.smGap};`}
+    ${(props) => props.smWidth && `width: ${props.smWidth};`}
+    ${(props) => props.smHeight && `height: ${props.smHeight};`}
+  }
+
+  /* Extra medium devices (phones, 600px and down) */
+  @media only screen and (max-width: 768px) {
+    ${(props) => props.mdDirection && `flex-direction: ${props.mdDirection};`}
+    ${(props) => props.mdAlignItems && `align-items: ${props.mdAlignItems};`}
+    ${(props) => props.mdJustifyContent && `justify-content: ${props.mdJustifyContent};`}
+    ${(props) => props.mdGap && `gap: ${props.mdGap};`}
+    ${(props) => props.mdWidth && `width: ${props.mdWidth};`}
+    ${(props) => props.mdHeight && `height: ${props.mdHeight};`}
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (max-width: 992px) {
+    ${(props) => props.lgDirection && `flex-direction: ${props.lgDirection};`}
+    ${(props) => props.lgAlignItems && `align-items: ${props.lgAlignItems};`}
+    ${(props) => props.lgJustifyContent && `justify-content: ${props.lgJustifyContent};`}
+    ${(props) => props.lgGap && `gap: ${props.lgGap};`}
+    ${(props) => props.lgWidth && `width: ${props.lgWidth};`}
+    ${(props) => props.lgHeight && `height: ${props.lgHeight};`}
+  }
 `
 
 export const Text = styled.span<{
