@@ -29,7 +29,7 @@ const CollectionCard = ({
         direction='column'
         gap='8px'
       >
-        <Link href={`/collection/${data?.name}`}>
+        <Link href={`/collection/${data?.name?.replaceAll(' ', '-')}`}>
           {data?.animeList.length > 0 ? (
             <CustomImg src={data?.animeList[0].coverImage} />
           ) : (
@@ -60,7 +60,7 @@ const CollectionCard = ({
           width='100%'
           gap='8px'
         >
-          <Link href={`/collection/${data?.name}`}>
+          <Link href={`/collection/${data?.name?.replaceAll(' ', '-')}`}>
             <AnimeCardTitle>{data?.name}</AnimeCardTitle>
           </Link>
           <VerticalInfoWrapper gap='0'>

@@ -60,6 +60,7 @@ export const FlexWrapper = styled.div<{
   margin?: string
   padding?: string
   overflow?: string
+  backgroundColor?: string
 
   smGap?: string
   smDirection?: string
@@ -68,6 +69,7 @@ export const FlexWrapper = styled.div<{
   smWrap?: string
   smWidth?: string
   smHeight?: string
+  smOverflow?: string
 
   mdGap?: string
   mdDirection?: string
@@ -76,6 +78,7 @@ export const FlexWrapper = styled.div<{
   mdWrap?: string
   mdWidth?: string
   mdHeight?: string
+  mdOverflow?: string
 
   lgGap?: string
   lgDirection?: string
@@ -84,6 +87,7 @@ export const FlexWrapper = styled.div<{
   lgWrap?: string
   lgWidth?: string
   lgHeight?: string
+  lgOverflow?: string
 }>`
   display: flex !important;
   flex-direction: ${(props) => props.direction || 'row'};
@@ -96,6 +100,7 @@ export const FlexWrapper = styled.div<{
   margin: ${(props) => props.margin || '0'};
   padding: ${(props) => props.padding || '0'};
   overflow: ${(props) => props.overflow || 'none'};
+  ${(props) => props.backgroundColor && `background-color: ${props.backgroundColor};`}
 
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
@@ -105,26 +110,29 @@ export const FlexWrapper = styled.div<{
     ${(props) => props.smGap && `gap: ${props.smGap};`}
     ${(props) => props.smWidth && `width: ${props.smWidth};`}
     ${(props) => props.smHeight && `height: ${props.smHeight};`}
+    ${(props) => props.smOverflow && `overflow: ${props.smOverflow};`}
   }
 
   /* Extra medium devices (phones, 600px and down) */
-  @media only screen and (max-width: 768px) {
+  @media (min-width: 601px) and (max-width: 768px) {
     ${(props) => props.mdDirection && `flex-direction: ${props.mdDirection};`}
     ${(props) => props.mdAlignItems && `align-items: ${props.mdAlignItems};`}
     ${(props) => props.mdJustifyContent && `justify-content: ${props.mdJustifyContent};`}
     ${(props) => props.mdGap && `gap: ${props.mdGap};`}
     ${(props) => props.mdWidth && `width: ${props.mdWidth};`}
     ${(props) => props.mdHeight && `height: ${props.mdHeight};`}
+    ${(props) => props.mdOverflow && `overflow: ${props.mdOverflow};`}
   }
 
   /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (max-width: 992px) {
+  @media (min-width: 769px) and (max-width: 992px) {
     ${(props) => props.lgDirection && `flex-direction: ${props.lgDirection};`}
     ${(props) => props.lgAlignItems && `align-items: ${props.lgAlignItems};`}
     ${(props) => props.lgJustifyContent && `justify-content: ${props.lgJustifyContent};`}
     ${(props) => props.lgGap && `gap: ${props.lgGap};`}
     ${(props) => props.lgWidth && `width: ${props.lgWidth};`}
     ${(props) => props.lgHeight && `height: ${props.lgHeight};`}
+    ${(props) => props.lgOverflow && `overflow: ${props.lgOverflow};`}
   }
 `
 
