@@ -11,8 +11,23 @@ import { mapAnimeDetailData } from '@/utils/anime'
 
 import AnimeDetail from './(components)/AnimeDetail'
 import { AnimeListDataItemResponseType } from '@/types/animeList'
+import { client } from '@/configs/ApolloClientProvider'
 
-export function generateStaticParams() {
+const getAllAnimeList = async (page: number) => {
+  const { data, loading, error } = await client.query({
+    query: GET_ANIMELIST,
+    variables: {
+      page: page,
+      perPage: 10,
+      isAdult: false
+    },
+  });
+
+  return data
+}
+
+export async function generateStaticParams() {
+    const data = await Promise.all(Array.from({length: 50}, (x, i) => i).map(idx => getAllAnimeList(idx+1)))
   return [{ id: '1' }, { id: '2' }, { id: '3' }]
 }
 
