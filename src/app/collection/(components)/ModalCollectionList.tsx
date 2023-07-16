@@ -107,7 +107,7 @@ function ModalCollectionList({
           <button onClick={closeModal}>X</button>
         </FlexWrapper>
         <FlexWrapper
-          justifyContent='space-between'
+          justifyContent='flex-start'
           alignItems='left'
           direction='column'
           gap='8px'

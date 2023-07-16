@@ -1,4 +1,3 @@
-import styled from '@emotion/styled'
 import React from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
@@ -6,7 +5,7 @@ import { connect } from 'react-redux'
 import { FlexWrapper, Text } from '@/app/styeled'
 import WarnigIcon from '@/assets/icons/WarningIcon'
 
-import { collectStateType, createCollection } from '../CollectionSlice'
+import { collectStateType, createCollection } from '../app/collection/CollectionSlice'
 
 const customStyles = {
   content: {
@@ -21,15 +20,6 @@ const customStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
 }
-
-const CollectionTextInput = styled.input`
-  width: 100%;
-  min-width: 300px;
-  height: 40px;
-  border: #ddd 1px solid;
-  border-radius: 4px;
-  padding: 8px;
-`
 
 function ModalCreateCollection({
   isOpen,

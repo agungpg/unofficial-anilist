@@ -1,28 +1,52 @@
 'use client'
+import moment from 'moment'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import React from 'react'
 import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 
-import AnimeCard from '@/components/AnimeCard/AnimeCard'
 import InfoItem from '@/components/InfoItem'
+import ModalDeleteConfirmation from '@/components/ModalDeleteConfirmation'
+import { AnimeListItemTypes } from '@/types/animeList'
 
-import { collectStateType, removeCollection } from '../CollectionSlice'
+import CollectionAnimeCard from '../(components)/CollectionAnimeCard'
+import { collectStateType, removeAnimeFromCollection, removeCollection } from '../CollectionSlice'
 import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled'
 import defaultCover from '../../../assets/images/collection-default.png'
 function CollectionList({
   collections,
+  removeAnimeFromCollection,
 }: {
   collections: collectStateType[]
+  removeAnimeFromCollection: (payload: { animeId: number; collectionName: string }) => void
 }) {
   const [collection, setCollection] = useState<collectStateType>()
   const params = useParams()
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState<boolean>(false)
+  const [animeSelected, setAnimeSelected] = useState<AnimeListItemTypes | null>(null)
+
   useEffect(() => {
     const col = collections.find((col) => col.name.replaceAll(' ', '-') == params.id)
 
     if (col) setCollection(col)
   }, [params, collections])
 
+  const onDelete = (anime: AnimeListItemTypes) => {
+    setAnimeSelected(anime)
+    setIsModalDeleteOpen(true)
+  }
+
+  const onDeleteConfirm = () => {
+    if (!animeSelected?.id) return
+
+    removeAnimeFromCollection({
+      animeId: animeSelected.id,
+      collectionName: collection?.name || '',
+    })
+    setIsModalDeleteOpen(false)
+    setAnimeSelected(null)
+  }
   return (
     <>
       <NavBar>
@@ -64,14 +88,20 @@ function CollectionList({
             {collection?.name || ''}
           </Text>
           <InfoItem
+            textAlign='center'
+            isVertical
             label='Create Date'
-            value={collection?.createdAt || '-'}
+            value={moment(collection?.createdAt).format('DD MMM YYYY') || '-'}
           />
           <InfoItem
+            textAlign='center'
+            isVertical
             label='Last Update'
-            value={collection?.updatedAt || '-'}
+            value={moment(collection?.updatedAt).format('DD MMM YYYY') || '-'}
           />
           <InfoItem
+            textAlign='center'
+            isVertical
             label='Total'
             value={String(collection?.animeList?.length || 0)}
           />
@@ -85,18 +115,32 @@ function CollectionList({
           width='73% !important'
           direction='column'
         >
-          {collection?.animeList?.map((anime) => <AnimeCard data={anime} />)}
+          {collection?.animeList?.map((anime) => (
+            <CollectionAnimeCard
+              onDelete={() => onDelete(anime)}
+              data={anime}
+              key={anime.title}
+            />
+          ))}
         </FlexWrapper>
       </FlexWrapper>
+      <ModalDeleteConfirmation
+        isOpen={isModalDeleteOpen}
+        closeModal={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+        onConfirm={onDeleteConfirm}
+        title={`Are you sure want to delete "${animeSelected?.title}"?`}
+      />
     </>
   )
 }
 
-function mapDispatchToProps(
-  dispatch: (arg0: { payload: { collectionName: string }; type: 'collectionList/removeCollection' }) => any
-) {
+function mapDispatchToProps(dispatch: Dispatch) {
   return {
     removeCollection: (payload: { collectionName: string }) => dispatch(removeCollection(payload)),
+    removeAnimeFromCollection: (payload: { animeId: number; collectionName: string }) =>
+      dispatch(removeAnimeFromCollection(payload)),
   }
 }
 

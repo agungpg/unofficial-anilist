@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import StarRatings from 'react-star-ratings'
@@ -134,10 +135,12 @@ const AnimeDetail = ({
               wrap='wrap'
             >
               {collectionsName.map((item) => (
-                <Genre
+                <Link
                   key={item}
-                  name={item}
-                />
+                  href={`/collection/${item.replaceAll(' ', '-')}`}
+                >
+                  <Genre name={item} />
+                </Link>
               ))}
             </FlexWrapper>
           </FlexWrapper>

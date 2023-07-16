@@ -65,11 +65,14 @@ const collectionSlice = createSlice({
       const { collectionName } = action.payload
       return state.filter((collect) => collect.name != collectionName)
     },
-    removeFromCollection: (state, action) => {
-      return state.filter((collection) => collection.name !== action.payload.name)
+    removeAnimeFromCollection: (state, action) => {
+      const { animeId, collectionName } = action.payload
+      const collectionIdx = state.findIndex((col) => col.name == collectionName)
+      state[collectionIdx].animeList = state[collectionIdx].animeList.filter((anime) => anime.id != animeId)
     },
   },
 })
 
-export const { addToCollection, removeFromCollection, createCollection, removeCollection } = collectionSlice.actions
+export const { addToCollection, removeAnimeFromCollection, createCollection, removeCollection } =
+  collectionSlice.actions
 export default collectionSlice.reducer

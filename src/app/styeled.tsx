@@ -61,6 +61,7 @@ export const FlexWrapper = styled.div<{
   padding?: string
   overflow?: string
   backgroundColor?: string
+  border?: string
 
   smGap?: string
   smDirection?: string
@@ -101,6 +102,7 @@ export const FlexWrapper = styled.div<{
   padding: ${(props) => props.padding || '0'};
   overflow: ${(props) => props.overflow || 'none'};
   ${(props) => props.backgroundColor && `background-color: ${props.backgroundColor};`}
+  ${(props) => props.border && `border: ${props.border};`}
 
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
@@ -142,10 +144,12 @@ export const Text = styled.span<{
   color?: string
   fontStyle?: string
   fontWeight?: string
+  textAlign?: string
 }>`
   font-size: ${(props) => (props.fontSize ? `${props.fontSize}` : '14px')};
   color: ${(props) => (props.color ? `${props.color}` : '#b5b5b5')};
   ${(props) => (props.fontFamily ? `font-family: ${props.fontFamily}` : '')}
   ${(props) => (props.fontWeight ? `font-weight: ${props.fontWeight}` : '')}
  ${(props) => (props.fontStyle ? `font-style: ${props.fontStyle}` : '')}
+ ${(props) => (props.textAlign ? `text-align: ${props.textAlign}` : '')}
 `

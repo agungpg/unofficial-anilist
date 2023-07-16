@@ -4,9 +4,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import CollectionCard from './(components)/CollectionCard'
-import ModalDeleteConfirmation from './(components)/ModalDeleteConfirmation'
 import { collectStateType, removeCollection } from './CollectionSlice'
 import { AppTitle, FlexWrapper, NavBar } from '../styeled'
+import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
 
 function CollectionList({
   collections,
@@ -52,10 +52,6 @@ function CollectionList({
           data={col}
         />
       ))}
-      {/* <ModalCreateCollection
-        isOpen={isModalFormColOpen}
-        closeModal={() => setIsModalFormColOpen(false)}
-      /> */}
       <ModalDeleteConfirmation
         onConfirm={onDeleteConfirm}
         isOpen={isModalFormColOpen && !!colNameSelected}
