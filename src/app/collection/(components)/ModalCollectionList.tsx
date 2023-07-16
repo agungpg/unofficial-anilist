@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
-import { FlexWrapper } from '@/app/styeled'
+import { FlexWrapper, Text } from '@/app/styeled'
 import { AnimeListItemTypes } from '@/types/animeList'
 
 import CollectionCardOption from './CollectionCardOption'
@@ -103,8 +103,22 @@ function ModalCollectionList({
           alignItems='center'
           wrap='wrap'
         >
-          <h3>List Collection</h3>
-          <button onClick={closeModal}>X</button>
+          <Text
+            fontWeight='600'
+            fontSize='18px'
+            color='#000'
+          >
+            List Collection
+          </Text>
+          <button onClick={closeModal}>
+            <Text
+              fontWeight='400'
+              fontSize='18px'
+              color='#000'
+            >
+              X
+            </Text>
+          </button>
         </FlexWrapper>
         <FlexWrapper
           justifyContent='flex-start'
@@ -127,8 +141,24 @@ function ModalCollectionList({
           })}
         </FlexWrapper>
         <FlexWrapper direction='row'>
-          <button onClick={onAddNewCollection}>Add New</button>
-          <button onClick={onSave}>SAVE</button>
+          <button onClick={onAddNewCollection}>
+            <Text
+              fontWeight='400'
+              fontSize='16px'
+              color='#000'
+            >
+              ADD NEW
+            </Text>
+          </button>
+          <button onClick={onSave}>
+            <Text
+              fontWeight='400'
+              fontSize='16px'
+              color='#000'
+            >
+              SAVE
+            </Text>
+          </button>
         </FlexWrapper>
       </FlexWrapper>
     </Modal>

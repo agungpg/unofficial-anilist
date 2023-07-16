@@ -15,18 +15,12 @@ export default function DETAIL() {
   const [detail, setDetail] = useState<any>(null)
   const searchParams = useSearchParams()
 
-  const { loading, data, error, refetch } = useQuery(GET_ANIMEDETAIL, {
+  const { loading, data, error } = useQuery(GET_ANIMEDETAIL, {
     variables: {
       id: searchParams.get('id'),
       isAdult: false,
     },
   })
-  
-  // useEffect(() => {
-  //   if (searchParams.get('id')) {
-  //     refetch()
-  //   }
-  // }, [searchParams.get('id')])
 
   useEffect(() => {
     if (searchParams.get('id') && data && !error) {

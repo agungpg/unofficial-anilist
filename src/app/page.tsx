@@ -42,7 +42,14 @@ export default function Home() {
     <main className='flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between  lg:py-10 md:py-10'>
       <div className='container'>
         <NavBar>
-          <FlexWrapper alignItems='center'>
+          <FlexWrapper
+            wrap='wrap'
+            gap='12px'
+            padding='8px'
+            justifyContent='space-between'
+            smJustifyContent='space-evenly'
+            alignItems='center'
+          >
             <AppTitle>UNOFFICIAL ANILIST</AppTitle>
             <Link href='/collection'>
               <Button>List Collection</Button>

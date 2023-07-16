@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 import { AnimeDetailDataResponseType, AnimeListDataItemResponseType, reviewEdge } from '../types/animeList'
 
 export const mapAnimeListItemData = ({
@@ -12,7 +14,9 @@ export const mapAnimeListItemData = ({
   status,
   description,
   title: title.romaji,
-  releaseDate: (startDate.day > 9 ? startDate.day : '0' + startDate.day) + '/' + startDate.month + '/' + startDate.year,
+  releaseDate: moment(
+    (startDate.day > 9 ? startDate.day : '0' + startDate.day) + '/' + startDate.month + '/' + startDate.year
+  ).format('DD MMM YYYY'),
   coverImage: coverImage.medium,
 })
 
@@ -33,10 +37,12 @@ export const mapAnimeDetailData = ({
   id,
   status,
   description,
-  updatedAt: timeStamptoDate(updatedAt),
+  updatedAt: moment(updatedAt).format('DD MMM YYYY'),
   genres,
   title: title.romaji,
-  releaseDate: (startDate.day > 9 ? startDate.day : '0' + startDate.day) + '/' + startDate.month + '/' + startDate.year,
+  releaseDate: moment(
+    (startDate.day > 9 ? startDate.day : '0' + startDate.day) + '/' + startDate.month + '/' + startDate.year
+  ).format('DD MMM YYYY'),
   coverImage: coverImage.medium,
   studio: studios.edges.find((stud) => stud.isMain)?.node?.name || '-',
   duration: duration + ' minutes',
