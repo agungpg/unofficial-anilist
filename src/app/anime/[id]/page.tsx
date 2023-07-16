@@ -12,18 +12,12 @@ import { mapAnimeDetailData } from '@/utils/anime'
 import AnimeDetail from './(components)/AnimeDetail'
 import { AnimeListDataItemResponseType } from '@/types/animeList'
 
-export async function generateStaticParams() {
-  // const products = await fetch('https://.../products').then((res) => res.json())
- 
-  return [1,2,3,4].map((item) => ({
-    id: item,
-  }))
+export function generateStaticParams() {
+  return [{ id: '1' }, { id: '2' }, { id: '3' }]
 }
- 
 
 
 export default function DETAIL({params: {id}}: {params: {id: string}}) {
-  const params = useParams()
   const [detail, setDetail] = useState<any>(null)
 
   const { loading, error, data } = useQuery(GET_ANIMEDETAIL, {
