@@ -1260,13 +1260,27 @@ function DETAIL({ params: { id } }) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Layout)
+/* harmony export */   "default": () => (/* binding */ Layout),
+/* harmony export */   generateStaticParams: () => (/* binding */ generateStaticParams)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 
 
+function generateStaticParams() {
+    return [
+        {
+            id: "1"
+        },
+        {
+            id: "2"
+        },
+        {
+            id: "3"
+        }
+    ];
+}
 function Layout({ children }) {
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("main", {
         className: "flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between lg:py-10 md:py-10",
