@@ -229,44 +229,6 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_re
 
 /***/ }),
 
-/***/ 3032:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _app_styeled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8556);
-
-
-
-const InfoItem = ({ label, value })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_app_styeled__WEBPACK_IMPORTED_MODULE_2__/* .InfoText */ .XU, {
-        className: "item-info-wrapper",
-        children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "point"
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("b", {
-                children: label
-            }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-                className: "description",
-                children: [
-                    ": ",
-                    value
-                ]
-            })
-        ]
-    });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().memo(InfoItem));
-
-
-/***/ }),
-
 /***/ 5332:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -281,11 +243,15 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(6786);
+// EXTERNAL MODULE: ./node_modules/next/navigation.js
+var navigation = __webpack_require__(9483);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
 var react_default = /*#__PURE__*/__webpack_require__.n(react_);
 // EXTERNAL MODULE: ./node_modules/react-redux/lib/index.js
 var lib = __webpack_require__(1560);
+// EXTERNAL MODULE: ./src/assets/icons/BackIcon.tsx
+var BackIcon = __webpack_require__(7330);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1621);
 var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
@@ -328,7 +294,7 @@ var collection_default = __webpack_require__(2315);
 
 
 
-const CollectionCard = ({ data, onDelete, onEdit })=>{
+const CollectionCard = ({ data, onDelete })=>{
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* ListItemCard */.oI, {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
@@ -403,6 +369,8 @@ const CollectionCard = ({ data, onDelete, onEdit })=>{
 };
 /* harmony default export */ const _components_CollectionCard = (/*#__PURE__*/react_default().memo(CollectionCard));
 
+// EXTERNAL MODULE: ./src/app/collection/(components)/ModalCreateCollection.tsx
+var ModalCreateCollection = __webpack_require__(27);
 // EXTERNAL MODULE: ./src/app/collection/CollectionSlice.ts
 var CollectionSlice = __webpack_require__(9747);
 // EXTERNAL MODULE: ./src/components/ModalDeleteConfirmation.tsx + 1 modules
@@ -416,27 +384,25 @@ var ModalDeleteConfirmation = __webpack_require__(7119);
 
 
 
+
+
+
 function CollectionList() {
-    // {
-    //   collections,
-    //   removeCollection,
-    // }: {
-    //   collections: collectStateType[]
-    //   removeCollection: (payload: { collectionName: string }) => void
-    // }
+    const [IsModalDeleteConfirm, setIsModalDeleteConfirm] = (0,react_.useState)(false);
     const [isModalFormColOpen, setIsModalFormColOpen] = (0,react_.useState)(false);
     const [colNameSelected, setColNameSelected] = (0,react_.useState)("");
     const dispatch = (0,lib.useDispatch)();
+    const router = (0,navigation.useRouter)();
     const collections = (0,lib.useSelector)((state)=>state.collections);
     const onDelete = (colName)=>{
         setColNameSelected(colName);
-        setIsModalFormColOpen(true);
+        setIsModalDeleteConfirm(true);
     };
     const onDeleteConfirm = ()=>{
         dispatch((0,CollectionSlice/* removeCollection */.C5)({
             collectionName: colNameSelected
         }));
-        setIsModalFormColOpen(false);
+        setIsModalDeleteConfirm(false);
         setColNameSelected("");
     };
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
@@ -444,31 +410,47 @@ function CollectionList() {
             /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
                     children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
-                            children: "COLLECTION LIST"
+                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
+                            width: "80%",
+                            justifyContent: "flex-start",
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Button */.zx, {
+                                    onClick: router.back,
+                                    border: "none",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(BackIcon/* default */.Z, {
+                                        width: "32px",
+                                        height: "32px",
+                                        color: "#fff"
+                                    })
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
+                                    children: "COLLECTION LIST"
+                                })
+                            ]
                         }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Button */.zx, {
                             onClick: ()=>setIsModalFormColOpen(true),
-                            style: {
-                                color: "#fff"
-                            },
                             children: "Add New"
                         })
                     ]
                 })
             }),
             collections.map((col)=>/*#__PURE__*/ jsx_runtime_.jsx(_components_CollectionCard, {
-                    onEdit: (name)=>{
-                        console.log("onEdit collection: ", name);
-                    },
+                    // onEdit={(name) => {
+                    //   console.log('onEdit collection: ', name)
+                    // }}
                     onDelete: onDelete,
                     data: col
                 }, col.name)),
             /*#__PURE__*/ jsx_runtime_.jsx(ModalDeleteConfirmation/* default */.Z, {
                 onConfirm: onDeleteConfirm,
-                isOpen: isModalFormColOpen && !!colNameSelected,
-                closeModal: ()=>setIsModalFormColOpen(false),
+                isOpen: IsModalDeleteConfirm && !!colNameSelected,
+                closeModal: ()=>setIsModalDeleteConfirm(false),
                 title: `Yakin ingin menghapus collection "${colNameSelected}"?`
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(ModalCreateCollection/* default */.Z, {
+                isOpen: isModalFormColOpen,
+                closeModal: ()=>setIsModalFormColOpen(false)
             })
         ]
     });
@@ -502,6 +484,14 @@ const __default__ = proxy.default;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
 
+/***/ }),
+
+/***/ 9483:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(4595)
+
+
 /***/ })
 
 };
@@ -511,7 +501,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,251,509,119], () => (__webpack_exec__(1001)));
+var __webpack_exports__ = __webpack_require__.X(0, [610,251,509,119,536], () => (__webpack_exec__(1001)));
 module.exports = __webpack_exports__;
 
 })();

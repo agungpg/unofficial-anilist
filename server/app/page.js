@@ -236,6 +236,9 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: ./node_modules/@apollo/client/main.cjs
 var main = __webpack_require__(6174);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1621);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
 var react_default = /*#__PURE__*/__webpack_require__.n(react_);
@@ -357,6 +360,7 @@ var styeled = __webpack_require__(8556);
 
 
 
+
 function Home() {
     const [pageInfo, setPageInfo] = (0,react_.useState)({
         total: 0,
@@ -391,8 +395,24 @@ function Home() {
             className: "container",
             children: [
                 /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
-                        children: "UNOFFICIAL ANILIST"
+                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
+                        wrap: "wrap",
+                        gap: "12px",
+                        padding: "8px",
+                        justifyContent: "space-between",
+                        smJustifyContent: "space-evenly",
+                        alignItems: "center",
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
+                                children: "UNOFFICIAL ANILIST"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                                href: "/collection",
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Button */.zx, {
+                                    children: "List Collection"
+                                })
+                            })
+                        ]
                     })
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx(AnimeList_AnimeList, {
@@ -411,6 +431,33 @@ function Home() {
         })
     });
 }
+
+
+/***/ }),
+
+/***/ 7553:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Gh: () => (/* binding */ findCollectionNameByAnimeId),
+/* harmony export */   XF: () => (/* binding */ validateNoSpecialChar),
+/* harmony export */   hS: () => (/* binding */ arrayRange)
+/* harmony export */ });
+const arrayRange = (start, stop, step)=>Array.from({
+        length: (stop - start) / step + 1
+    }, (value, index)=>start + index * step);
+const findCollectionNameByAnimeId = (collections, animeId)=>{
+    return collections.reduce((result, collection)=>{
+        const isAnimeExist = collection.animeList.findIndex((anime)=>anime.id == animeId);
+        if (isAnimeExist > -1) result.push(collection.name);
+        return result;
+    }, []);
+};
+const validateNoSpecialChar = (value)=>{
+    const regex = /^[a-zA-Z0-9\s]+$/;
+    return regex.test(value);
+};
 
 
 /***/ }),
@@ -448,7 +495,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,492,509,136,632], () => (__webpack_exec__(8091)));
+var __webpack_exports__ = __webpack_require__.X(0, [610,370,492,509,625,632], () => (__webpack_exec__(8091)));
 module.exports = __webpack_exports__;
 
 })();

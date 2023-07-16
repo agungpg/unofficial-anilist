@@ -225,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 5884:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5640))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3948))
 
 /***/ }),
 
@@ -236,45 +236,7 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_re
 
 /***/ }),
 
-/***/ 3032:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _app_styeled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8556);
-
-
-
-const InfoItem = ({ label, value })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_app_styeled__WEBPACK_IMPORTED_MODULE_2__/* .InfoText */ .XU, {
-        className: "item-info-wrapper",
-        children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "point"
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("b", {
-                children: label
-            }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-                className: "description",
-                children: [
-                    ": ",
-                    value
-                ]
-            })
-        ]
-    });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().memo(InfoItem));
-
-
-/***/ }),
-
-/***/ 5640:
+/***/ 3948:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -290,39 +252,22 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: ./node_modules/@apollo/client/main.cjs
 var main = __webpack_require__(6174);
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(1621);
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./node_modules/next/navigation.js
+var navigation = __webpack_require__(9483);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
 var react_default = /*#__PURE__*/__webpack_require__.n(react_);
 // EXTERNAL MODULE: ./src/app/styeled.tsx
 var styeled = __webpack_require__(8556);
-;// CONCATENATED MODULE: ./src/assets/icons/BackIcon.tsx
-
-
-const BackIcon = ({ width, height, color })=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
-        width: width || "32px",
-        height: height || "32px",
-        viewBox: "0 0 1024 1024",
-        xmlns: "http://www.w3.org/2000/svg",
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx("path", {
-                fill: color || "#000000",
-                d: "M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("path", {
-                fill: color || "#000000",
-                d: "m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
-            })
-        ]
-    });
-/* harmony default export */ const icons_BackIcon = (/*#__PURE__*/react_default().memo(BackIcon));
-
+// EXTERNAL MODULE: ./src/assets/icons/BackIcon.tsx
+var BackIcon = __webpack_require__(7330);
 // EXTERNAL MODULE: ./src/queries/index.ts
 var queries = __webpack_require__(8322);
 // EXTERNAL MODULE: ./src/utils/anime.ts
 var anime = __webpack_require__(6949);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1621);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: ./node_modules/react-redux/lib/index.js
 var lib = __webpack_require__(1560);
 // EXTERNAL MODULE: ./node_modules/react-star-ratings/build/index.js
@@ -449,7 +394,6 @@ function ModalCollectionList({ isOpen, closeModal, data, collections, addToColle
     }, [
         collectionsNameSelected
     ]);
-    console.log("collectionsL ", collections);
     return /*#__PURE__*/ jsx_runtime_.jsx((react_modal_lib_default()), {
         ariaHideApp: false,
         isOpen: isOpen,
@@ -464,12 +408,20 @@ function ModalCollectionList({ isOpen, closeModal, data, collections, addToColle
                     alignItems: "center",
                     wrap: "wrap",
                     children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                        /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
+                            fontWeight: "600",
+                            fontSize: "18px",
+                            color: "#000",
                             children: "List Collection"
                         }),
                         /*#__PURE__*/ jsx_runtime_.jsx("button", {
                             onClick: closeModal,
-                            children: "X"
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
+                                fontWeight: "400",
+                                fontSize: "18px",
+                                color: "#000",
+                                children: "X"
+                            })
                         })
                     ]
                 }),
@@ -494,11 +446,21 @@ function ModalCollectionList({ isOpen, closeModal, data, collections, addToColle
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx("button", {
                             onClick: onAddNewCollection,
-                            children: "Add New"
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
+                                fontWeight: "400",
+                                fontSize: "16px",
+                                color: "#000",
+                                children: "ADD NEW"
+                            })
                         }),
                         /*#__PURE__*/ jsx_runtime_.jsx("button", {
                             onClick: onSave,
-                            children: "SAVE"
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
+                                fontWeight: "400",
+                                fontSize: "16px",
+                                color: "#000",
+                                children: "SAVE"
+                            })
                         })
                     ]
                 })
@@ -518,137 +480,8 @@ function mapStateToProps(state) {
 }
 /* harmony default export */ const _components_ModalCollectionList = (/*#__PURE__*/react_default().memo((0,lib.connect)(mapStateToProps, mapDispatchToProps)(ModalCollectionList)));
 
-// EXTERNAL MODULE: ./node_modules/@emotion/styled/dist/emotion-styled.esm.js + 19 modules
-var emotion_styled_esm = __webpack_require__(7563);
-// EXTERNAL MODULE: ./src/utils/common.ts
-var common = __webpack_require__(7553);
-;// CONCATENATED MODULE: ./src/app/collection/(components)/ModalCreateCollection.tsx
-
-
-
-
-
-
-
-
-const ModalCreateCollection_customStyles = {
-    content: {
-        top: "50%",
-        left: "50%",
-        right: "auto",
-        bottom: "auto",
-        marginRight: "-50%",
-        transform: "translate(-50%, -50%)"
-    },
-    overlay: {
-        backgroundColor: "rgba(0, 0, 0, 0.7)"
-    }
-};
-const CollectionTextInput = emotion_styled_esm/* default */.Z.input`
-  width: 100%;
-  min-width: 300px;
-  height: 40px;
-  border: #ddd 1px solid;
-  border-radius: 4px;
-  padding: 8px;
-`;
-function ModalCreateCollection({ isOpen, closeModal, collections, createCollection }) {
-    const [name, setName] = (0,react_.useState)("");
-    const [error, setError] = (0,react_.useState)("");
-    const onSave = ()=>{
-        const isValid = validation();
-        if (!isValid) return;
-        createCollection({
-            collection: {
-                name,
-                createdAt: new Date().toUTCString(),
-                updatedAt: new Date().toUTCString(),
-                animeList: []
-            }
-        });
-        closeModal();
-    };
-    const validation = ()=>{
-        setError("");
-        if (!name) {
-            setError("Name is required.");
-            return false;
-        }
-        const noSpecialChar = (0,common/* validateNoSpecialChar */.XF)(name);
-        if (!noSpecialChar) {
-            setError("Name can not contains special characters.");
-            return false;
-        }
-        const collectionNameIndex = collections.findIndex((collection)=>collection.name == name);
-        if (collectionNameIndex > -1) {
-            setError("Collection name is already exist");
-            return false;
-        }
-        return true;
-    };
-    return /*#__PURE__*/ jsx_runtime_.jsx((react_modal_lib_default()), {
-        ariaHideApp: false,
-        isOpen: isOpen,
-        style: ModalCreateCollection_customStyles,
-        contentLabel: "Example Modal",
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
-            direction: "column",
-            gap: "16px",
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    wrap: "wrap",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("h3", {
-                            children: "Add New Collection"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                            onClick: closeModal,
-                            children: "X"
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
-                    justifyContent: "space-between",
-                    alignItems: "left",
-                    direction: "column",
-                    gap: "4px",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(CollectionTextInput, {
-                            value: name,
-                            onChange: (e)=>setName(e.target.value)
-                        }),
-                        error && /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
-                            fontSize: "14px",
-                            color: "#ED4337",
-                            children: error
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx(styeled/* FlexWrapper */.A0, {
-                    direction: "row-reverse",
-                    children: /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                        onClick: onSave,
-                        children: "SAVE"
-                    })
-                })
-            ]
-        })
-    });
-}
-function ModalCreateCollection_mapDispatchToProps(dispatch) {
-    return {
-        createCollection: (payload)=>dispatch((0,CollectionSlice/* createCollection */.BL)(payload))
-    };
-}
-function ModalCreateCollection_mapStateToProps(state) {
-    return {
-        collections: state.collections
-    };
-}
-/* harmony default export */ const _components_ModalCreateCollection = (/*#__PURE__*/react_default().memo((0,lib.connect)(ModalCreateCollection_mapStateToProps, ModalCreateCollection_mapDispatchToProps)(ModalCreateCollection)));
-
+// EXTERNAL MODULE: ./src/app/collection/(components)/ModalCreateCollection.tsx
+var ModalCreateCollection = __webpack_require__(27);
 ;// CONCATENATED MODULE: ./src/assets/icons/AddCollectionIcon.tsx
 
 
@@ -681,6 +514,10 @@ const AddCollectionIcon = ({ width, height, color })=>/*#__PURE__*/ (0,jsx_runti
     });
 /* harmony default export */ const icons_AddCollectionIcon = (/*#__PURE__*/react_default().memo(AddCollectionIcon));
 
+// EXTERNAL MODULE: ./src/utils/common.ts
+var common = __webpack_require__(7553);
+// EXTERNAL MODULE: ./node_modules/@emotion/styled/dist/emotion-styled.esm.js + 19 modules
+var emotion_styled_esm = __webpack_require__(7563);
 ;// CONCATENATED MODULE: ./src/app/anime/(components)/AnimeDetail.styled.tsx
 
 const AnimeDetailContainer = emotion_styled_esm/* default */.Z.div`
@@ -1099,12 +936,13 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                                 direction: "column",
                                 gap: "2px",
                                 alignItems: "start",
+                                smAlignItems: "center",
                                 children: [
                                     /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
                                         fontSize: "16px",
                                         color: "#fff",
                                         fontWeight: "600",
-                                        children: "Genre"
+                                        children: "Genres"
                                     }),
                                     /*#__PURE__*/ jsx_runtime_.jsx(styeled/* FlexWrapper */.A0, {
                                         wrap: "wrap",
@@ -1112,6 +950,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                                         justifyContent: "left",
                                         gap: "4px",
                                         alignItems: "start",
+                                        smJustifyContent: "center",
                                         children: data.genres.map((item)=>/*#__PURE__*/ jsx_runtime_.jsx(_components_Genre, {
                                                 name: item
                                             }, item))
@@ -1122,6 +961,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                                 direction: "column",
                                 gap: "2px",
                                 alignItems: "start",
+                                smAlignItems: "center",
                                 children: [
                                     /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
                                         fontSize: "16px",
@@ -1133,6 +973,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                                         direction: "row",
                                         gap: "4px",
                                         justifyContent: "left",
+                                        smJustifyContent: "center",
                                         alignItems: "center",
                                         wrap: "wrap",
                                         children: collectionsName.map((item)=>/*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
@@ -1144,11 +985,25 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                                     })
                                 ]
                             }),
-                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                                className: "description",
-                                dangerouslySetInnerHTML: {
-                                    __html: data?.description
-                                }
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
+                                direction: "column",
+                                gap: "2px",
+                                alignItems: "start",
+                                smAlignItems: "center",
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
+                                        fontSize: "16px",
+                                        color: "#fff",
+                                        fontWeight: "600",
+                                        children: "Synopsis"
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                        className: "description",
+                                        dangerouslySetInnerHTML: {
+                                            __html: data?.description
+                                        }
+                                    })
+                                ]
                             })
                         ]
                     })
@@ -1161,7 +1016,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                 onAddNewCollection: addNewCollection,
                 closeModal: ()=>setIsModelOpen(false)
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(_components_ModalCreateCollection, {
+            /*#__PURE__*/ jsx_runtime_.jsx(ModalCreateCollection/* default */.Z, {
                 isOpen: isModalFormColOpen,
                 closeModal: ()=>setIsModalFormColOpen(false)
             })
@@ -1185,31 +1040,35 @@ function AnimeDetail_mapStateToProps(state) {
 
 
 
-function DETAIL({ searchParams }) {
+function DETAIL() {
     const [detail, setDetail] = (0,react_.useState)(null);
-    const { loading, error, data } = (0,main.useQuery)(queries/* GET_ANIMEDETAIL */.e, {
+    const searchParams = (0,navigation.useSearchParams)();
+    const router = (0,navigation.useRouter)();
+    const { loading, data, error } = (0,main.useQuery)(queries/* GET_ANIMEDETAIL */.e, {
         variables: {
-            id: searchParams.id || 0,
+            id: searchParams.get("id"),
             isAdult: false
         }
     });
     (0,react_.useEffect)(()=>{
-        if (data) {
-            console.log("data detail: ", data);
+        if (searchParams.get("id") && data && !error) {
             const dataTransform = (0,anime/* mapAnimeDetailData */.U)(data.Media);
             setDetail(dataTransform);
         }
     }, [
-        data
+        data,
+        error,
+        searchParams.get("id")
     ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* NavBar */.l2, {
                 className: "flex",
                 children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                        href: "/",
-                        children: /*#__PURE__*/ jsx_runtime_.jsx(icons_BackIcon, {
+                    /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Button */.zx, {
+                        onClick: router.back,
+                        border: "none",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(BackIcon/* default */.Z, {
                             width: "32px",
                             height: "32px",
                             color: "#fff"
@@ -1290,7 +1149,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,251,492,633,509,136], () => (__webpack_exec__(1615)));
+var __webpack_exports__ = __webpack_require__.X(0, [610,370,251,492,153,509,536,625], () => (__webpack_exec__(1615)));
 module.exports = __webpack_exports__;
 
 })();

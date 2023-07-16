@@ -202,7 +202,8 @@ const { addToCollection, removeAnimeFromCollection, createCollection, removeColl
 /* harmony export */   dC: () => (/* binding */ AppTitle),
 /* harmony export */   l2: () => (/* binding */ NavBar),
 /* harmony export */   oI: () => (/* binding */ ListItemCard),
-/* harmony export */   xv: () => (/* binding */ Text)
+/* harmony export */   xv: () => (/* binding */ Text),
+/* harmony export */   zx: () => (/* binding */ Button)
 /* harmony export */ });
 /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7563);
 
@@ -305,6 +306,14 @@ const Text = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.sp
   ${(props)=>props.fontWeight ? `font-weight: ${props.fontWeight}` : ""}
  ${(props)=>props.fontStyle ? `font-style: ${props.fontStyle}` : ""}
  ${(props)=>props.textAlign ? `text-align: ${props.textAlign}` : ""}
+`;
+const Button = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.b`
+  background-color: ${(props)=>props.bgColor ? `${props.bgColor}` : "none"};
+  border: ${(props)=>props.border ? `${props.border}` : "1px solid #fff"};
+  padding: ${(props)=>props.padding ? `${props.padding}` : " 8px 12px"};
+  color: ${(props)=>props.color ? `${props.color}` : "#fff"};
+  border-radius: ${(props)=>props.borderRadius ? `${props.borderRadius}` : "4px"};
+  cursor: pointer;
 `;
 
 
