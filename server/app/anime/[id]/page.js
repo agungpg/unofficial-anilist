@@ -303,8 +303,6 @@ var main = __webpack_require__(6174);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1621);
 var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-// EXTERNAL MODULE: ./node_modules/next/navigation.js
-var navigation = __webpack_require__(9483);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
 var react_default = /*#__PURE__*/__webpack_require__.n(react_);
@@ -1197,20 +1195,20 @@ function AnimeDetail_mapStateToProps(state) {
 
 
 
-
-async function generateStaticParams() {
-    // const products = await fetch('https://.../products').then((res) => res.json())
+function generateStaticParams() {
     return [
-        1,
-        2,
-        3,
-        4
-    ].map((item)=>({
-            id: item
-        }));
+        {
+            id: "1"
+        },
+        {
+            id: "2"
+        },
+        {
+            id: "3"
+        }
+    ];
 }
 function DETAIL({ params: { id } }) {
-    const params = (0,navigation.useParams)();
     const [detail, setDetail] = (0,react_.useState)(null);
     const { loading, error, data } = (0,main.useQuery)(queries/* GET_ANIMEDETAIL */.e, {
         variables: {
@@ -1318,7 +1316,7 @@ const e0 = proxy["generateStaticParams"];
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,251,492,153,509,136], () => (__webpack_exec__(3616)));
+var __webpack_exports__ = __webpack_require__.X(0, [610,251,492,633,509,136], () => (__webpack_exec__(3616)));
 module.exports = __webpack_exports__;
 
 })();
