@@ -1,6 +1,7 @@
 'use client'
 import { useQuery } from '@apollo/client'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 import { AppTitle, NavBar } from '@/app/styeled'
@@ -10,24 +11,32 @@ import { mapAnimeDetailData } from '@/utils/anime'
 
 import AnimeDetail from './(components)/AnimeDetail'
 
-export default function DETAIL({ searchParams }: { searchParams: { id: string } }) {
+export default function DETAIL() {
   const [detail, setDetail] = useState<any>(null)
-  console.log("searchParams: ", searchParams)
-  if(!searchParams?.id) return <></>
-  const { loading, data, error } = useQuery(GET_ANIMEDETAIL, {
+  const [isIdExist, setIsIdExist] = useState<any>(false)
+  const searchParams = useSearchParams()
+
+  const { loading, data, error, refetch } = useQuery(GET_ANIMEDETAIL, {
+    skip: isIdExist,
     variables: {
-      id: searchParams?.id,
+      id: searchParams?.get('id'),
       isAdult: false,
     },
   })
 
   useEffect(() => {
-    if (data && !error) {
+    if (searchParams?.get('id') && data && !error) {
       const dataTransform = mapAnimeDetailData(data.Media)
       setDetail(dataTransform)
     }
-  }, [data, error])
+  }, [data, error, searchParams?.get('id')])
 
+  useEffect(() => {
+    if (searchParams?.get('id')) {
+      setIsIdExist(true)
+      refetch()
+    }
+  }, [searchParams?.get('id')])
   return (
     <div>
       <NavBar className='flex'>

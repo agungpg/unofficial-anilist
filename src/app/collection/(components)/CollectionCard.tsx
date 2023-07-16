@@ -12,9 +12,8 @@ import dcoverDefault from '../../../assets/images/collection-default.png'
 
 const CollectionCard = ({
   data,
-  onDelete,
-} // onEdit,
-: {
+  onDelete, // onEdit,
+}: {
   data: collectStateType
   onDelete: (name: string) => void
   // onEdit: (name: string) => void
