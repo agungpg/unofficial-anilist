@@ -1185,6 +1185,8 @@ function AnimeDetail_mapStateToProps(state) {
 }
 /* harmony default export */ const _components_AnimeDetail = (/*#__PURE__*/react_default().memo((0,lib.connect)(AnimeDetail_mapStateToProps)(AnimeDetail)));
 
+// EXTERNAL MODULE: ./src/configs/ApolloClientProvider.tsx
+var ApolloClientProvider = __webpack_require__(7252);
 ;// CONCATENATED MODULE: ./src/app/anime/[id]/page.tsx
 /* __next_internal_client_entry_do_not_use__ generateStaticParams,default auto */ 
 
@@ -1195,7 +1197,22 @@ function AnimeDetail_mapStateToProps(state) {
 
 
 
-function generateStaticParams() {
+
+const getAllAnimeList = async (page)=>{
+    const { data, loading, error } = await ApolloClientProvider/* client */.L.query({
+        query: queries/* GET_ANIMELIST */.N,
+        variables: {
+            page: page,
+            perPage: 10,
+            isAdult: false
+        }
+    });
+    return data;
+};
+async function generateStaticParams() {
+    const data = await Promise.all(Array.from({
+        length: 50
+    }, (x, i)=>i).map((idx)=>getAllAnimeList(idx + 1)));
     return [
         {
             id: "1"

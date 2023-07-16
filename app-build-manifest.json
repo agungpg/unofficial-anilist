@@ -18,9 +18,9 @@
       "static/chunks/main-app-cbce3e08a0289a3a.js",
       "static/chunks/517-ef32553ba4da972e.js",
       "static/chunks/87-71d19117919132f0.js",
-      "static/chunks/513-d8ea37b0da2bd6af.js",
+      "static/chunks/586-4a58a382cdb390b6.js",
       "static/css/d0d482fd905c79ce.css",
-      "static/chunks/app/layout-d6c1972e7a643498.js"
+      "static/chunks/app/layout-e954481486cc5a9a.js"
     ],
     "/collection/page": [
       "static/chunks/webpack-b0957b6db0695e33.js",
@@ -59,9 +59,10 @@
       "static/chunks/735-53f67f991851dc2a.js",
       "static/chunks/94-ed5fbfc237e39eef.js",
       "static/chunks/87-71d19117919132f0.js",
+      "static/chunks/586-4a58a382cdb390b6.js",
       "static/chunks/545-37f4e95aa5ebfacc.js",
       "static/css/36840340f3f01bb9.css",
-      "static/chunks/app/anime/[id]/page-f339eed3aacd4040.js"
+      "static/chunks/app/anime/[id]/page-ffcff21147168a05.js"
     ],
     "/anime/[id]/layout": [
       "static/chunks/webpack-b0957b6db0695e33.js",
