@@ -13,11 +13,9 @@ import AnimeDetail from './(components)/AnimeDetail'
 
 export default function DETAIL() {
   const [detail, setDetail] = useState<any>(null)
-  const [isIdExist, setIsIdExist] = useState<any>(false)
   const searchParams = useSearchParams()
 
   const { loading, data, error, refetch } = useQuery(GET_ANIMEDETAIL, {
-    skip: isIdExist,
     variables: {
       id: searchParams?.get('id'),
       isAdult: false,
@@ -33,7 +31,6 @@ export default function DETAIL() {
 
   useEffect(() => {
     if (searchParams?.get('id')) {
-      setIsIdExist(true)
       refetch()
     }
   }, [searchParams?.get('id')])
