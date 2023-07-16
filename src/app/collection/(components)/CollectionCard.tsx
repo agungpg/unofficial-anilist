@@ -12,11 +12,12 @@ import dcoverDefault from '../../../assets/images/collection-default.png'
 
 const CollectionCard = ({
   data,
-  onDelete, // onEdit,
+  onDelete,
+  onEdit,
 }: {
   data: collectStateType
   onDelete: (name: string) => void
-  // onEdit: (name: string) => void
+  onEdit?: (name: string) => void
 }) => {
   return (
     <ListItemCard>
@@ -39,7 +40,11 @@ const CollectionCard = ({
           <button onClick={() => onDelete(data?.name)}>
             <DeleteIcon fill='#fff' />
           </button>
-          <button onClick={() => onDelete(data?.name)}>
+          <button
+            onClick={() => {
+              if (onEdit) onEdit(data?.name)
+            }}
+          >
             <EditIcon fill='#fff' />
           </button>
         </FlexWrapper>

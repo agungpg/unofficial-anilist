@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
-import { FlexWrapper, Text } from '@/app/styeled'
+import { Button, FlexWrapper, Text } from '@/app/styeled'
 import { validateNoSpecialChar } from '@/utils/common'
 
-import { collectStateType, createCollection } from '../CollectionSlice'
+import { collectStateType, createCollection, editCollection } from '../CollectionSlice'
 
 const customStyles = {
   content: {
@@ -31,34 +31,47 @@ const CollectionTextInput = styled.input`
   padding: 8px;
 `
 
-function ModalCreateCollection({
-  isOpen,
-  closeModal,
-  collections,
-  createCollection,
-}: {
-  isOpen: boolean
-  closeModal: () => void
-  collections: collectStateType[]
-  createCollection: (payload: { collection: collectStateType }) => void
-}) {
+function ModalFormCollection(
+  { isOpen, closeModal, collections, createCollection, collectionName, editCollection }: any
+  // {
+  //   isOpen: boolean
+  //   closeModal: () => void
+  //   collections: collectStateType[]
+  //   createCollection?: (payload: { collection: collectStateType }) => void
+  //   editCollection: (payload: { collectionNameOrigin: string; collectionNameNew: string }) => void
+  //   collectionName?: string
+  // }
+) {
   const [name, setName] = useState<string>('')
   const [error, setError] = useState<string>('')
+  const [nameOrigin, setNameOrigin] = useState<string>('')
 
   const onSave = () => {
     const isValid = validation()
     if (!isValid) return
 
-    createCollection({
-      collection: {
-        name,
-        createdAt: new Date().toUTCString(),
-        updatedAt: new Date().toUTCString(),
-        animeList: [],
-      },
-    })
+    if (nameOrigin) {
+      editCollection({
+        collectionNameOrigin: nameOrigin,
+        collectionNameNew: name,
+      })
+    } else {
+      createCollection({
+        collection: {
+          name,
+          createdAt: new Date().toUTCString(),
+          updatedAt: new Date().toUTCString(),
+          animeList: [],
+        },
+      })
+    }
     closeModal()
   }
+
+  useEffect(() => {
+    setNameOrigin(collectionName || '')
+    setName(collectionName || '')
+  }, [collectionName])
 
   const validation = () => {
     setError('')
@@ -96,8 +109,19 @@ function ModalCreateCollection({
           alignItems='center'
           wrap='wrap'
         >
-          <h3>Add New Collection</h3>
-          <button onClick={closeModal}>X</button>
+          <Text
+            color='#000'
+            fontSize='18px'
+            fontWeight='600'
+          >
+            {collectionName ? 'Edit' : 'Add New'} Collection
+          </Text>
+          <Button
+            color='#000'
+            onClick={closeModal}
+          >
+            X
+          </Button>
         </FlexWrapper>
         <FlexWrapper
           justifyContent='space-between'
@@ -106,6 +130,7 @@ function ModalCreateCollection({
           gap='4px'
         >
           <CollectionTextInput
+            defaultValue={nameOrigin}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -119,22 +144,27 @@ function ModalCreateCollection({
           )}
         </FlexWrapper>
         <FlexWrapper direction='row-reverse'>
-          <button onClick={onSave}>SAVE</button>
+          <Button
+            color='#000'
+            border='#000 1px solid'
+            onClick={onSave}
+          >
+            SAVE
+          </Button>
         </FlexWrapper>
       </FlexWrapper>
     </Modal>
   )
 }
 
-function mapDispatchToProps(
-  dispatch: (arg0: { payload: { collection: collectStateType }; type: 'collectionList/createCollection' }) => any
-) {
+function mapDispatchToProps(dispatch: any) {
   return {
     createCollection: (payload: { collection: collectStateType }) => dispatch(createCollection(payload)),
+    editCollection: (payload: { collection: collectStateType }) => dispatch(editCollection(payload)),
   }
 }
 
 function mapStateToProps(state: any) {
   return { collections: state.collections }
 }
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(ModalCreateCollection))
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(ModalFormCollection))

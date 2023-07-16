@@ -61,6 +61,14 @@ const collectionSlice = createSlice({
       state = [...state, collection]
       return state
     },
+    editCollection: (state: collectStateType[], action) => {
+      const { collectionNameOrigin, collectionNameNew } = action.payload
+      state = state.map((col) => ({
+        ...col,
+        name: col.name == collectionNameOrigin ? collectionNameNew : col.name,
+      }))
+      return state
+    },
     removeCollection: (state: collectStateType[], action) => {
       const { collectionName } = action.payload
       return state.filter((collect) => collect.name != collectionName)
@@ -73,6 +81,6 @@ const collectionSlice = createSlice({
   },
 })
 
-export const { addToCollection, removeAnimeFromCollection, createCollection, removeCollection } =
+export const { addToCollection, removeAnimeFromCollection, createCollection, removeCollection, editCollection } =
   collectionSlice.actions
 export default collectionSlice.reducer

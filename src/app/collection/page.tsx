@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import BackIcon from '@/assets/icons/BackIcon'
 
 import CollectionCard from './(components)/CollectionCard'
-import ModalCreateCollection from './(components)/ModalCreateCollection'
+import ModalFormCollection from './(components)/ModalFormCollection'
 import CollectionDetail from './[id]/page'
 import { collectStateType, removeCollection } from './CollectionSlice'
 import { AppTitle, Button, FlexWrapper, NavBar } from '../styeled'
@@ -33,6 +33,16 @@ function CollectionList() {
     setIsModalDeleteConfirm(false)
     setColNameSelected('')
   }
+  const onEdit = (name: string) => {
+    setColNameSelected(name)
+    setIsModalFormColOpen(true)
+  }
+
+  const onModalFormClose = () => {
+    setIsModalFormColOpen(false)
+    setColNameSelected('')
+  }
+
   if (name) return <CollectionDetail />
 
   return (
@@ -61,9 +71,7 @@ function CollectionList() {
       {collections.map((col: collectStateType) => (
         <CollectionCard
           key={col.name}
-          // onEdit={(name) => {
-          //   console.log('onEdit collection: ', name)
-          // }}
+          onEdit={onEdit}
           onDelete={onDelete}
           data={col}
         />
@@ -75,9 +83,10 @@ function CollectionList() {
         title={`Yakin ingin menghapus collection "${colNameSelected}"?`}
       />
 
-      <ModalCreateCollection
+      <ModalFormCollection
+        collectionName={colNameSelected}
         isOpen={isModalFormColOpen}
-        closeModal={() => setIsModalFormColOpen(false)}
+        closeModal={onModalFormClose}
       />
     </>
   )

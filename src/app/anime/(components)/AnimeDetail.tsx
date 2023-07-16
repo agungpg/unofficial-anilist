@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import StarRatings from 'react-star-ratings'
 
 import ModalCollectionList from '@/app/collection/(components)/ModalCollectionList'
-import ModalCreateCollection from '@/app/collection/(components)/ModalCreateCollection'
+import ModalCreateCollection from '@/app/collection/(components)/ModalFormCollection'
 import { collectStateType } from '@/app/collection/CollectionSlice'
 import { FlexWrapper, Text } from '@/app/styeled'
 import AddCollectionIcon from '@/assets/icons/AddCollectionIcon'
