@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,6 +8,7 @@ import BackIcon from '@/assets/icons/BackIcon'
 
 import CollectionCard from './(components)/CollectionCard'
 import ModalCreateCollection from './(components)/ModalCreateCollection'
+import CollectionDetail from './[id]/page'
 import { collectStateType, removeCollection } from './CollectionSlice'
 import { AppTitle, Button, FlexWrapper, NavBar } from '../styeled'
 import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
@@ -19,6 +20,8 @@ function CollectionList() {
   const dispatch = useDispatch()
   const router = useRouter()
   const collections = useSelector((state: any) => state.collections)
+  const searchParams = useSearchParams()
+  const name = searchParams.get('name')
 
   const onDelete = (colName: string) => {
     setColNameSelected(colName)
@@ -30,6 +33,7 @@ function CollectionList() {
     setIsModalDeleteConfirm(false)
     setColNameSelected('')
   }
+  if (name) return <CollectionDetail />
 
   return (
     <>

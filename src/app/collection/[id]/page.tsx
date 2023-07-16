@@ -148,6 +148,7 @@
 // export default connect(mapStateToProps, mapDispatchToProps)(CollectionDetail)
 
 import moment from 'moment'
+import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -160,18 +161,20 @@ import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice'
 import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled'
 import defaultCover from '../../../assets/images/collection-default.png'
 
-function CollectionDetail({ params: { id } }: { params: { id: string } }) {
+function CollectionDetail() {
   const [collection, setCollection] = useState<collectStateType>()
   const dispatch = useDispatch()
+  const searchParams = useSearchParams()
+  const name = searchParams.get('name')
   const collections = useSelector((state: any) => state.collections)
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState<boolean>(false)
   const [animeSelected, setAnimeSelected] = useState<AnimeListItemTypes | null>(null)
 
   useEffect(() => {
-    const col = collections.find((col: collectStateType) => col.name.replaceAll(' ', '-') === id)
+    const col = collections.find((col: collectStateType) => col.name.replaceAll(' ', '-') === name)
 
     if (col) setCollection(col)
-  }, [id, collections])
+  }, [name, collections])
 
   const onDelete = (anime: AnimeListItemTypes) => {
     setAnimeSelected(anime)

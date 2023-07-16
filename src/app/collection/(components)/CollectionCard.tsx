@@ -27,7 +27,7 @@ const CollectionCard = ({
         direction='column'
         gap='8px'
       >
-        <Link href={`/collection/${data?.name?.replaceAll(' ', '-')}`}>
+        <Link href={`/collection?name=${data?.name?.replaceAll(' ', '-')}`}>
           <CustomImg src={data?.animeList.length > 0 ? data?.animeList[0].coverImage : dcoverDefault.src} />
         </Link>
         <FlexWrapper
@@ -49,7 +49,7 @@ const CollectionCard = ({
           width='100%'
           gap='8px'
         >
-          <Link href={`/collection/${data?.name?.replaceAll(' ', '-')}`}>
+          <Link href={`/collection?name=${data?.name?.replaceAll(' ', '-')}`}>
             <AnimeCardTitle>{data?.name}</AnimeCardTitle>
           </Link>
           <VerticalInfoWrapper gap='0'>
