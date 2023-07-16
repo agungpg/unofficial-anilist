@@ -28,9 +28,15 @@ const getAllAnimeList = async (page: number) => {
 
 export async function generateStaticParams() {
     const data = await Promise.all(Array.from({length: 50}, (x, i) => i).map(idx => getAllAnimeList(idx+1)))
-  return [{ id: '1' }, { id: '2' }, { id: '3' }]
-}
-
+    
+    const paramsList =data?.reduce((result, item) => {
+      const arr = item.result.list.map((anime: any) => ({id: anime.id}))
+      result = [...result, ...arr]
+      return result
+    }, [])
+    console.log("paramsList: ", paramsList)
+  return paramsList
+  }
 
 export default function DETAIL({params: {id}}: {params: {id: string}}) {
   const [detail, setDetail] = useState<any>(null)
