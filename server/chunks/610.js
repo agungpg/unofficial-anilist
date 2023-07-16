@@ -26144,8 +26144,8 @@ if (true) {
 
 // Exports
 module.exports = {
-	"style": {"fontFamily":"'__Inter_20951f', '__Inter_Fallback_20951f'","fontStyle":"normal"},
-	"className": "__className_20951f"
+	"style": {"fontFamily":"'__Inter_984c9b', '__Inter_Fallback_984c9b'","fontStyle":"normal"},
+	"className": "__className_984c9b"
 };
 
 
@@ -26167,7 +26167,7 @@ Object.defineProperty(exports, "addBasePath", ({
 }));
 const _addpathprefix = __webpack_require__(893);
 const _normalizetrailingslash = __webpack_require__(8909);
-const basePath =  false || "";
+const basePath = "/unofficial-anilist" || 0;
 function addBasePath(path, required) {
     return (0, _normalizetrailingslash.normalizePathTrailingSlash)( false ? 0 : (0, _addpathprefix.addPathPrefix)(path, basePath));
 }
@@ -30634,7 +30634,7 @@ Object.defineProperty(exports, "getDomainLocale", ({
         return getDomainLocale;
     }
 }));
-const basePath = (/* unused pure expression or super */ null && ( false || ""));
+const basePath = (/* unused pure expression or super */ null && ("/unofficial-anilist" || 0));
 function getDomainLocale(path, locale, locales, domainLocales) {
     if (false) {} else {
         return false;

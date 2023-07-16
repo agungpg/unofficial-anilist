@@ -244,7 +244,7 @@ const __default__ = proxy.default;
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/collection-default.5c53a23a.png","height":248,"width":203,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAIAAAC6ZnJRAAAAu0lEQVR42gGwAE//ALevr9TEu/Lv6qiimdDS0JF1dLS2twCjkpOTg3vc2dUADACoqaehenqkoJsAlYmLaSIww7q6TiAAsKakqISEuK2rANvU1KicnODe3smumOja08C3ucfGyQDW1NTHwr/g3t+8t8f28vPUycjb2NoAsqKmehQAwb7DmXi33tHYkoV/koyRALWeoHBAKsnCwodii8O/zKuYd5mGagDcy8i6hXbm39+CeZfNydO4uLGurKaGjG42Wz5+YAAAAABJRU5ErkJggg==","blurWidth":7,"blurHeight":8});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/unofficial-anilist/_next/static/media/collection-default.5c53a23a.png","height":248,"width":203,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAIAAAC6ZnJRAAAAu0lEQVR42gGwAE//ALevr9TEu/Lv6qiimdDS0JF1dLS2twCjkpOTg3vc2dUADACoqaehenqkoJsAlYmLaSIww7q6TiAAsKakqISEuK2rANvU1KicnODe3smumOja08C3ucfGyQDW1NTHwr/g3t+8t8f28vPUycjb2NoAsqKmehQAwb7DmXi33tHYkoV/koyRALWeoHBAKsnCwodii8O/zKuYd5mGagDcy8i6hXbm39+CeZfNydO4uLGurKaGjG42Wz5+YAAAAABJRU5ErkJggg==","blurWidth":7,"blurHeight":8});
 
 /***/ })
 

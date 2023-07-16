@@ -5740,7 +5740,7 @@ Object.defineProperty(exports, "hasBasePath", ({
     }
 }));
 const _pathhasprefix = __webpack_require__(4614);
-const basePath =  false || "";
+const basePath = "/unofficial-anilist" || 0;
 function hasBasePath(path) {
     return (0, _pathhasprefix.pathHasPrefix)(path, basePath);
 }
@@ -5921,7 +5921,7 @@ Object.defineProperty(exports, "removeBasePath", ({
     }
 }));
 const _hasbasepath = __webpack_require__(5289);
-const basePath =  false || "";
+const basePath = "/unofficial-anilist" || 0;
 function removeBasePath(path) {
     if (false) {}
     path = path.slice(basePath.length);
@@ -8300,7 +8300,7 @@ class Router {
         // if auto prerendered and dynamic route wait to update asPath
         // until after mount to prevent hydration mismatch
         const autoExportDynamic = (0, _isdynamic.isDynamicRoute)(pathname) && self.__NEXT_DATA__.autoExport;
-        this.basePath =  false || "";
+        this.basePath = "/unofficial-anilist" || 0;
         this.sub = subscription;
         this.clc = null;
         this._wrapApp = wrapApp;
