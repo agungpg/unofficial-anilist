@@ -6,10 +6,34 @@ import React, { useEffect, useState } from 'react'
 
 import { AppTitle, NavBar } from '@/app/styeled'
 import BackIcon from '@/assets/icons/BackIcon'
-import { GET_ANIMEDETAIL } from '@/queries'
+import { GET_ANIMEDETAIL, GET_ANIMELIST } from '@/queries'
 import { mapAnimeDetailData } from '@/utils/anime'
 
 import AnimeDetail from './(components)/AnimeDetail'
+import { AnimeListDataItemResponseType } from '@/types/animeList'
+
+export async function generateStaticParams() {
+  const data = await fetch('https://graphql.anilist.co', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: GET_ANIMELIST,
+    variables: {
+      page: 1,
+      perPage: 200,
+      isAdult: false,
+    },
+  }),
+})
+.then((res) => res.json())
+ 
+  return data.result.list.map((anime: AnimeListDataItemResponseType) => ({
+    id: anime.id,
+  }))
+}
+ 
 
 export default function DETAIL() {
   const params = useParams()
