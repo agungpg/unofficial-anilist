@@ -7,8 +7,10 @@ import Pagination from '@/components/Pagination/Pagination'
 import { GET_ANIMELIST } from '@/queries'
 import { mapAnimeListItemData } from '@/utils/anime'
 
-import { AppTitle, NavBar } from './styeled'
+import { AppTitle, FlexWrapper, Text, NavBar, Button } from './styeled'
 import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../types/animeList'
+import Link from 'next/link'
+import CollectionListIcon from '@/assets/images/collection-list.png'
 
 export default function Home() {
   const [pageInfo, setPageInfo] = useState<PageInfoType>({
@@ -41,7 +43,15 @@ export default function Home() {
     <main className='flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between  lg:py-10 md:py-10'>
       <div className='container'>
         <NavBar>
-          <AppTitle>UNOFFICIAL ANILIST</AppTitle>
+          <FlexWrapper alignItems='center'>
+
+            <AppTitle>UNOFFICIAL ANILIST</AppTitle>
+            <Link href={'/collection'}>
+              <Button>
+                List Collection
+              </Button>
+            </Link>
+          </FlexWrapper>
         </NavBar>
         <AnimeList
           data={list}
