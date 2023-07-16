@@ -164,7 +164,7 @@ module.exports = require("next/dist/shared/lib/utils");
 
 /***/ }),
 
-/***/ 964:
+/***/ 3616:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -344,7 +344,7 @@ var react_modal_lib_default = /*#__PURE__*/__webpack_require__.n(react_modal_lib
 // EXTERNAL MODULE: ./src/app/anime/[id]/(components)/InfoItem.tsx
 var InfoItem = __webpack_require__(4011);
 ;// CONCATENATED MODULE: ./src/assets/images/collection-cover-default.jpg
-/* harmony default export */ const collection_cover_default = ({"src":"/unofficial-anilist/_next/static/media/collection-cover-default.48befa1c.jpg","height":998,"width":1500,"blurDataURL":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAAUACAMBIgACEQEDEQH/xAAoAAEBAAAAAAAAAAAAAAAAAAAABQEBAQAAAAAAAAAAAAAAAAAABAX/2gAMAwEAAhADEAAAAJ4fO//EABsQAAICAwEAAAAAAAAAAAAAAAECBBEAAyHR/9oACAEBAAE/ADBbZCIEh1PGsD3t5//EABoRAAEFAQAAAAAAAAAAAAAAAAIAAQMhQSL/2gAIAQIBAT8AKIOaxtX/xAAaEQEAAQUAAAAAAAAAAAAAAAABMQADEyEi/9oACAEDAQE/AM93fRKwV//Z","blurWidth":8,"blurHeight":5});
+/* harmony default export */ const collection_cover_default = ({"src":"/_next/static/media/collection-cover-default.48befa1c.jpg","height":998,"width":1500,"blurDataURL":"data:image/jpeg;base64,/9j/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAFAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAfEAABAwMFAAAAAAAAAAAAAAACAAERAwQhBRIVgbH/xAAVAQEBAAAAAAAAAAAAAAAAAAAEBf/EABkRAAIDAQAAAAAAAAAAAAAAAAABAgMhof/aAAwDAQACEQMRAD8AhcOVfRCdrswzuhhnPs9oiJ7rjhPV803vEf/Z","blurWidth":8,"blurHeight":5});
 // EXTERNAL MODULE: ./src/components/AnimeCard/AnimeCard.styled.tsx
 var AnimeCard_styled = __webpack_require__(1419);
 ;// CONCATENATED MODULE: ./src/app/collection/(components)/CollectionCardOption.tsx
@@ -1303,7 +1303,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,251,492,153,509,136], () => (__webpack_exec__(964)));
+var __webpack_exports__ = __webpack_require__.X(0, [610,251,492,153,509,136], () => (__webpack_exec__(3616)));
 module.exports = __webpack_exports__;
 
 })();

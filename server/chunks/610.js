@@ -26144,8 +26144,8 @@ if (true) {
 
 // Exports
 module.exports = {
-	"style": {"fontFamily":"'__Inter_984c9b', '__Inter_Fallback_984c9b'","fontStyle":"normal"},
-	"className": "__className_984c9b"
+	"style": {"fontFamily":"'__Inter_20951f', '__Inter_Fallback_20951f'","fontStyle":"normal"},
+	"className": "__className_20951f"
 };
 
 
@@ -26167,7 +26167,7 @@ Object.defineProperty(exports, "addBasePath", ({
 }));
 const _addpathprefix = __webpack_require__(893);
 const _normalizetrailingslash = __webpack_require__(8909);
-const basePath = "/unofficial-anilist" || 0;
+const basePath =  false || "";
 function addBasePath(path, required) {
     return (0, _normalizetrailingslash.normalizePathTrailingSlash)( false ? 0 : (0, _addpathprefix.addPathPrefix)(path, basePath));
 }
@@ -30634,7 +30634,7 @@ Object.defineProperty(exports, "getDomainLocale", ({
         return getDomainLocale;
     }
 }));
-const basePath = (/* unused pure expression or super */ null && ("/unofficial-anilist" || 0));
+const basePath = (/* unused pure expression or super */ null && ( false || ""));
 function getDomainLocale(path, locale, locales, domainLocales) {
     if (false) {} else {
         return false;
@@ -30970,7 +30970,15 @@ const normalizePathTrailingSlash = (path)=>{
         return path;
     }
     const { pathname, query, hash } = (0, _parsepath.parsePath)(path);
-    if (false) {}
+    if (true) {
+        if (/\.[^/]+\/?$/.test(pathname)) {
+            return "" + (0, _removetrailingslash.removeTrailingSlash)(pathname) + query + hash;
+        } else if (pathname.endsWith("/")) {
+            return "" + pathname + query + hash;
+        } else {
+            return pathname + "/" + query + hash;
+        }
+    }
     return "" + (0, _removetrailingslash.removeTrailingSlash)(pathname) + query + hash;
 };
 if ((typeof exports.default === "function" || typeof exports.default === "object" && exports.default !== null) && typeof exports.default.__esModule === "undefined") {

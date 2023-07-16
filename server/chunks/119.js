@@ -244,7 +244,7 @@ const __default__ = proxy.default;
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/unofficial-anilist/_next/static/media/collection-default.5c53a23a.png","height":248,"width":203,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAIAAAC6ZnJRAAAAu0lEQVR42gGwAE//ALevr9TEu/Lv6qiimdDS0JF1dLS2twCjkpOTg3vc2dUADACoqaehenqkoJsAlYmLaSIww7q6TiAAsKakqISEuK2rANvU1KicnODe3smumOja08C3ucfGyQDW1NTHwr/g3t+8t8f28vPUycjb2NoAsqKmehQAwb7DmXi33tHYkoV/koyRALWeoHBAKsnCwodii8O/zKuYd5mGagDcy8i6hXbm39+CeZfNydO4uLGurKaGjG42Wz5+YAAAAABJRU5ErkJggg==","blurWidth":7,"blurHeight":8});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/collection-default.5c53a23a.png","height":248,"width":203,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAMAAAAC2hU0AAAAbFBMVEWHdHONhYDh2dHp3+He3N2XkKSmlp18a2W7wsGwo6OKbaebgopWKRePgWeqpK6JdFTFt6ZqdXTSxsWCX2Waa2u4opFmODs0NBwwHh1nPUX06+J+YT9OKjvAr7zNxc9+V05hRnCYkJjJno2sh4rZ8sRAAAAACXBIWXMAAA7zAAAO8wEcU5k6AAAAQUlEQVR4nAXBBQLAIAwEsANaSoG5u/3/j0sAsZMZG8iiM3pF2nUbOgYFqteW4C8fnSmR8hMPAb7sb64K2NfxGcIPWwkC7CvDtiAAAAAASUVORK5CYII=","blurWidth":7,"blurHeight":8});
 
 /***/ })
 
