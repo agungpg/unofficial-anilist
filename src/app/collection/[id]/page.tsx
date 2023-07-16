@@ -161,11 +161,6 @@ import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice'
 import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled'
 import defaultCover from '../../../assets/images/collection-default.png'
 
-export function generateStaticParams() {
-  return [{ id: 'naruto-movie' }, { id: '2' }, { id: '3' }]
-}
-
-
 function CollectionDetail({params: {id}}: {params: {id: string}}) {
   const [collection, setCollection] = useState<collectStateType>()
   const dispatch = useDispatch()
