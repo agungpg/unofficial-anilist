@@ -7,7 +7,6 @@ import Pagination from '@/components/Pagination/Pagination'
 import { GET_ANIMELIST } from '@/queries'
 import { mapAnimeListItemData } from '@/utils/anime'
 
-import CollectionCard from './collection/(components)/CollectionCard'
 import { AppTitle, NavBar } from './styeled'
 import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../types/animeList'
 
@@ -44,7 +43,6 @@ export default function Home() {
         <NavBar>
           <AppTitle>UNOFFICIAL ANILIST</AppTitle>
         </NavBar>
-        <CollectionCard />
         <AnimeList
           data={list}
           isLoading={loading}

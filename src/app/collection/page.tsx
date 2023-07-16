@@ -1,22 +1,26 @@
 'use client'
 import { useState } from 'react'
 import React from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 
 import CollectionCard from './(components)/CollectionCard'
 import { collectStateType, removeCollection } from './CollectionSlice'
 import { AppTitle, FlexWrapper, NavBar } from '../styeled'
 import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
 
-function CollectionList({
-  collections,
-  removeCollection,
-}: {
-  collections: collectStateType[]
-  removeCollection: (payload: { collectionName: string }) => void
-}) {
+function CollectionList(
+  // {
+  //   collections,
+  //   removeCollection,
+  // }: {
+  //   collections: collectStateType[]
+  //   removeCollection: (payload: { collectionName: string }) => void
+  // }
+) {
   const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
   const [colNameSelected, setColNameSelected] = useState<string>('')
+  const dispatch = useDispatch();
+  const collections = useSelector((state: any) => state.collections);
 
   const onDelete = (colName: string) => {
     setColNameSelected(colName)
@@ -24,7 +28,7 @@ function CollectionList({
   }
 
   const onDeleteConfirm = () => {
-    removeCollection({ collectionName: colNameSelected })
+    dispatch(removeCollection({ collectionName: colNameSelected }))
     setIsModalFormColOpen(false)
     setColNameSelected('')
   }
@@ -42,7 +46,7 @@ function CollectionList({
           </button>
         </FlexWrapper>
       </NavBar>
-      {collections.map((col) => (
+      {collections.map((col: collectStateType) => (
         <CollectionCard
           key={col.name}
           onEdit={(name) => {
@@ -62,15 +66,16 @@ function CollectionList({
   )
 }
 
-function mapDispatchToProps(
-  dispatch: (arg0: { payload: { collectionName: string }; type: 'collectionList/removeCollection' }) => any
-) {
-  return {
-    removeCollection: (payload: { collectionName: string }) => dispatch(removeCollection(payload)),
-  }
-}
+export default React.memo(CollectionList)
+// function mapDispatchToProps(
+//   dispatch: any
+// ) {
+//   return {
+//     removeCollection: (payload: { collectionName: string }) => dispatch(removeCollection(payload)),
+//   }
+// }
 
-function mapStateToProps(state: any) {
-  return { collections: state.collections }
-}
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(CollectionList))
+// function mapStateToProps(state: any) {
+//   return { collections: state.collections }
+// }
+// export default React.memo(connect(mapStateToProps, mapDispatchToProps)(CollectionList))
