@@ -28,7 +28,6 @@ export const mapAnimeDetailData = ({
   updatedAt,
   genres,
   episodes,
-  averageScore,
   reviews,
 }: AnimeDetailDataResponseType) => ({
   id,

@@ -1,5 +1,6 @@
 'use client'
 import { useQuery } from '@apollo/client'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import AnimeList from '@/components/AnimeList/AnimeList'
@@ -7,10 +8,8 @@ import Pagination from '@/components/Pagination/Pagination'
 import { GET_ANIMELIST } from '@/queries'
 import { mapAnimeListItemData } from '@/utils/anime'
 
-import { AppTitle, FlexWrapper, Text, NavBar, Button } from './styeled'
+import { AppTitle, Button, FlexWrapper, NavBar } from './styeled'
 import { AnimeListDataItemResponseType, AnimeListItemTypes, PageInfoType } from '../types/animeList'
-import Link from 'next/link'
-import CollectionListIcon from '@/assets/images/collection-list.png'
 
 export default function Home() {
   const [pageInfo, setPageInfo] = useState<PageInfoType>({
@@ -44,12 +43,9 @@ export default function Home() {
       <div className='container'>
         <NavBar>
           <FlexWrapper alignItems='center'>
-
             <AppTitle>UNOFFICIAL ANILIST</AppTitle>
-            <Link href={'/collection'}>
-              <Button>
-                List Collection
-              </Button>
+            <Link href='/collection'>
+              <Button>List Collection</Button>
             </Link>
           </FlexWrapper>
         </NavBar>

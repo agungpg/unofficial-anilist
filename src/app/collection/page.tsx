@@ -9,13 +9,6 @@ import { AppTitle, FlexWrapper, NavBar } from '../styeled'
 import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
 
 function CollectionList() {
-  // {
-  //   collections,
-  //   removeCollection,
-  // }: {
-  //   collections: collectStateType[]
-  //   removeCollection: (payload: { collectionName: string }) => void
-  // }
   const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
   const [colNameSelected, setColNameSelected] = useState<string>('')
   const dispatch = useDispatch()
@@ -48,9 +41,9 @@ function CollectionList() {
       {collections.map((col: collectStateType) => (
         <CollectionCard
           key={col.name}
-          onEdit={(name) => {
-            console.log('onEdit collection: ', name)
-          }}
+          // onEdit={(name) => {
+          //   console.log('onEdit collection: ', name)
+          // }}
           onDelete={onDelete}
           data={col}
         />

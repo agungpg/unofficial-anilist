@@ -13,7 +13,7 @@ import AnimeDetail from './(components)/AnimeDetail'
 export default function DETAIL({ searchParams }: { searchParams: { id: string } }) {
   const [detail, setDetail] = useState<any>(null)
 
-  const { loading, error, data } = useQuery(GET_ANIMEDETAIL, {
+  const { loading, data } = useQuery(GET_ANIMEDETAIL, {
     variables: {
       id: searchParams.id || 0,
       isAdult: false,
@@ -22,7 +22,6 @@ export default function DETAIL({ searchParams }: { searchParams: { id: string } 
 
   useEffect(() => {
     if (data) {
-      console.log('data detail: ', data)
       const dataTransform = mapAnimeDetailData(data.Media)
       setDetail(dataTransform)
     }

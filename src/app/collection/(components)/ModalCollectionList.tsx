@@ -86,7 +86,7 @@ function ModalCollectionList({
   useEffect(() => {
     if (collectionsNameSelected) setCollectionSelected(collectionsNameSelected)
   }, [collectionsNameSelected])
-  console.log('collectionsL ', collections)
+
   return (
     <Modal
       ariaHideApp={false}

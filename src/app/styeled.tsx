@@ -154,7 +154,13 @@ export const Text = styled.span<{
  ${(props) => (props.textAlign ? `text-align: ${props.textAlign}` : '')}
 `
 
-export const Button = styled.b<{bgColor?: string; border?: string; padding?: string; color?: string; borderRadius?: string}>`
+export const Button = styled.b<{
+  bgColor?: string
+  border?: string
+  padding?: string
+  color?: string
+  borderRadius?: string
+}>`
   background-color: none;
   border: 1px solid #fff;
   padding: 8px 12px;
