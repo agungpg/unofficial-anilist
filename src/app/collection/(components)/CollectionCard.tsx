@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -30,16 +29,7 @@ const CollectionCard = ({
         gap='8px'
       >
         <Link href={`/collection/${data?.name?.replaceAll(' ', '-')}`}>
-          {data?.animeList.length > 0 ? (
-            <CustomImg src={data?.animeList[0].coverImage} />
-          ) : (
-            <Image
-              src={dcoverDefault}
-              alt='default cover'
-              width={100}
-              height={120}
-            />
-          )}
+            <CustomImg src={data?.animeList.length > 0 ? data?.animeList[0].coverImage : dcoverDefault.src} />
         </Link>
         <FlexWrapper
           alignItems='center'
