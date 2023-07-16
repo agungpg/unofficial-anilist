@@ -16,11 +16,11 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_
 /***/ 8121:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9160))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8433))
 
 /***/ }),
 
-/***/ 9160:
+/***/ 8433:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -38,8 +38,25 @@ var jsx_runtime_ = __webpack_require__(6786);
 var lib = __webpack_require__(1560);
 // EXTERNAL MODULE: ./node_modules/redux-persist/lib/integration/react.js
 var react = __webpack_require__(7370);
-// EXTERNAL MODULE: ./src/configs/ApolloClientProvider.tsx
-var ApolloClientProvider = __webpack_require__(7252);
+// EXTERNAL MODULE: ./node_modules/@apollo/client/main.cjs
+var main = __webpack_require__(6174);
+// EXTERNAL MODULE: external "next/dist/compiled/react"
+var react_ = __webpack_require__(8038);
+;// CONCATENATED MODULE: ./src/configs/ApolloClientProvider.tsx
+/* __next_internal_client_entry_do_not_use__ client,default auto */ 
+
+
+const client = new main.ApolloClient({
+    uri: "https://graphql.anilist.co",
+    cache: new main.InMemoryCache()
+});
+function ApolloClientProvider({ children }) {
+    return /*#__PURE__*/ jsx_runtime_.jsx(main.ApolloProvider, {
+        client: client,
+        children: children
+    });
+}
+
 // EXTERNAL MODULE: ./node_modules/@reduxjs/toolkit/dist/redux-toolkit.cjs.production.min.js
 var redux_toolkit_cjs_production_min = __webpack_require__(668);
 // EXTERNAL MODULE: ./node_modules/redux-persist/lib/index.js
@@ -82,7 +99,7 @@ function LayoutProvider({ children }) {
         children: /*#__PURE__*/ jsx_runtime_.jsx(react/* PersistGate */.r, {
             loading: null,
             persistor: persistor,
-            children: /*#__PURE__*/ jsx_runtime_.jsx(ApolloClientProvider/* default */.Z, {
+            children: /*#__PURE__*/ jsx_runtime_.jsx(ApolloClientProvider, {
                 children: children
             })
         })
@@ -358,37 +375,6 @@ const AnimeCardDescriptionText = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* 
   -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
   white-space: wrap;
 `;
-
-
-/***/ }),
-
-/***/ 7252:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   L: () => (/* binding */ client),
-/* harmony export */   Z: () => (/* binding */ ApolloClientProvider)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6174);
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apollo_client__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* __next_internal_client_entry_do_not_use__ client,default auto */ 
-
-
-const client = new _apollo_client__WEBPACK_IMPORTED_MODULE_2__.ApolloClient({
-    uri: "https://graphql.anilist.co",
-    cache: new _apollo_client__WEBPACK_IMPORTED_MODULE_2__.InMemoryCache()
-});
-function ApolloClientProvider({ children }) {
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_apollo_client__WEBPACK_IMPORTED_MODULE_2__.ApolloProvider, {
-        client: client,
-        children: children
-    });
-}
 
 
 /***/ }),

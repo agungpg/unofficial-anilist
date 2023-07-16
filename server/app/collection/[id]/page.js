@@ -247,8 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ page),
-  generateStaticParams: () => (/* binding */ generateStaticParams)
+  "default": () => (/* binding */ page)
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
@@ -319,7 +318,7 @@ var CollectionSlice = __webpack_require__(9747);
 // EXTERNAL MODULE: ./src/assets/images/collection-default.png
 var collection_default = __webpack_require__(2315);
 ;// CONCATENATED MODULE: ./src/app/collection/[id]/page.tsx
-/* __next_internal_client_entry_do_not_use__ generateStaticParams,default auto */ 
+/* __next_internal_client_entry_do_not_use__ default auto */ 
 // import moment from 'moment'
 // import { useParams } from 'next/navigation'
 // import { useEffect, useState } from 'react'
@@ -466,19 +465,6 @@ var collection_default = __webpack_require__(2315);
 
 
 
-function generateStaticParams() {
-    return [
-        {
-            id: "naruto-movie"
-        },
-        {
-            id: "2"
-        },
-        {
-            id: "3"
-        }
-    ];
-}
 function CollectionDetail({ params: { id } }) {
     const [collection, setCollection] = (0,react_.useState)();
     const dispatch = (0,lib.useDispatch)();
@@ -602,8 +588,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   $$typeof: () => (/* binding */ $$typeof),
 /* harmony export */   __esModule: () => (/* binding */ __esModule),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   generateStaticParams: () => (/* binding */ e0)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
 
@@ -615,8 +600,6 @@ const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy
 // is a client boundary.
 const { __esModule, $$typeof } = proxy;
 const __default__ = proxy.default;
-
-const e0 = proxy["generateStaticParams"];
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);

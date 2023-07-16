@@ -1,6 +1,6 @@
 {
   "/page": "/",
   "/collection/page": "/collection",
-  "/collection/[id]/page": "/collection/[id]",
-  "/anime/[id]/page": "/anime/[id]"
+  "/anime/page": "/anime",
+  "/collection/[id]/page": "/collection/[id]"
 }

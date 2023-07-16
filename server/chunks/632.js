@@ -25,7 +25,7 @@ exports.modules = {
 const AnimeCard = ({ data })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_AnimeCard_styled__WEBPACK_IMPORTED_MODULE_4__/* .AnimeCardDiv */ .gk, {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                href: `/anime/${data.id}`,
+                href: `/anime?id=${data.id}`,
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_AnimeCard_styled__WEBPACK_IMPORTED_MODULE_4__/* .AnimeCardCover */ .Hv, {
                     src: data?.coverImage
                 })
@@ -34,7 +34,7 @@ const AnimeCard = ({ data })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORT
                 gap: "4px",
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                        href: `/anime/${data.id}`,
+                        href: `/anime?id=${data.id}`,
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_AnimeCard_styled__WEBPACK_IMPORTED_MODULE_4__/* .AnimeCardTitle */ .jK, {
                             children: data?.title
                         })

@@ -229,7 +229,7 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_re
 
 /***/ }),
 
-/***/ 4011:
+/***/ 3032:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -289,8 +289,8 @@ var lib = __webpack_require__(1560);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1621);
 var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-// EXTERNAL MODULE: ./src/app/anime/[id]/(components)/InfoItem.tsx
-var InfoItem = __webpack_require__(4011);
+// EXTERNAL MODULE: ./src/app/anime/(components)/InfoItem.tsx
+var InfoItem = __webpack_require__(3032);
 // EXTERNAL MODULE: ./src/app/styeled.tsx
 var styeled = __webpack_require__(8556);
 // EXTERNAL MODULE: ./src/assets/icons/DeleteIcon.tsx
