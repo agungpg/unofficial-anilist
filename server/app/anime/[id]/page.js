@@ -1213,20 +1213,22 @@ async function generateStaticParams() {
     const data = await Promise.all(Array.from({
         length: 50
     }, (x, i)=>i).map((idx)=>getAllAnimeList(idx + 1)));
-    return [
-        {
-            id: "1"
-        },
-        {
-            id: "2"
-        },
-        {
-            id: "3"
-        }
-    ];
+    const paramsList = data?.reduce((result, item)=>{
+        const arr = item.result.list.map((anime)=>({
+                id: anime.id
+            }));
+        result = [
+            ...result,
+            ...arr
+        ];
+        return result;
+    }, []);
+    console.log("paramsList: ", paramsList);
+    return paramsList;
 }
 function DETAIL({ params: { id } }) {
     const [detail, setDetail] = (0,react_.useState)(null);
+    const [test, setTest] = (0,react_.useState)(null);
     const { loading, error, data } = (0,main.useQuery)(queries/* GET_ANIMEDETAIL */.e, {
         variables: {
             id: id || 0,
@@ -1242,6 +1244,19 @@ function DETAIL({ params: { id } }) {
     }, [
         data
     ]);
+    // useEffect(() => {
+    //   (async () => {
+    //     const test = await Promise.all(Array.from({length: 2}, (x, i) => i).map(idx => getAllAnimeList(idx+1)))
+    //   const list = (test || [])?.reduce((result, item) => {
+    //     const arr = item.result.list.map((anime: any) => ({id: anime.id}))
+    //     result = [...result, ...arr]
+    //     return result
+    //   }, [])
+    //     // console.log("test.concat(test2): ", test.concat(test2))
+    //     console.log("list: ", list)
+    //     console.log("list2: ", test)
+    //   })()
+    // }, [])
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* NavBar */.l2, {
