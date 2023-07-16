@@ -1,26 +1,25 @@
 'use client'
 import { useState } from 'react'
 import React from 'react'
-import { connect, useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import CollectionCard from './(components)/CollectionCard'
 import { collectStateType, removeCollection } from './CollectionSlice'
 import { AppTitle, FlexWrapper, NavBar } from '../styeled'
 import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
 
-function CollectionList(
-  // {
-  //   collections,
-  //   removeCollection,
-  // }: {
-  //   collections: collectStateType[]
-  //   removeCollection: (payload: { collectionName: string }) => void
-  // }
-) {
+function CollectionList() {
+// {
+//   collections,
+//   removeCollection,
+// }: {
+//   collections: collectStateType[]
+//   removeCollection: (payload: { collectionName: string }) => void
+// }
   const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
   const [colNameSelected, setColNameSelected] = useState<string>('')
-  const dispatch = useDispatch();
-  const collections = useSelector((state: any) => state.collections);
+  const dispatch = useDispatch()
+  const collections = useSelector((state: any) => state.collections)
 
   const onDelete = (colName: string) => {
     setColNameSelected(colName)

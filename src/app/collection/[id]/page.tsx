@@ -147,52 +147,51 @@
 // }
 // export default connect(mapStateToProps, mapDispatchToProps)(CollectionDetail)
 
+import moment from 'moment'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import moment from 'moment';
-import { useRouter } from 'next/router';
+import InfoItem from '@/components/InfoItem'
+import ModalDeleteConfirmation from '@/components/ModalDeleteConfirmation'
+import { AnimeListItemTypes } from '@/types/animeList'
 
-import InfoItem from '@/components/InfoItem';
-import ModalDeleteConfirmation from '@/components/ModalDeleteConfirmation';
-import CollectionAnimeCard from '../(components)/CollectionAnimeCard';
-import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice';
-import { AnimeListItemTypes } from '@/types/animeList';
-
-import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled';
-import defaultCover from '../../../assets/images/collection-default.png';
+import CollectionAnimeCard from '../(components)/CollectionAnimeCard'
+import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice'
+import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled'
+import defaultCover from '../../../assets/images/collection-default.png'
 
 function CollectionDetail() {
-  const [collection, setCollection] = useState<collectStateType>();
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const collections = useSelector((state: any) => state.collections);
-  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState<boolean>(false);
-  const [animeSelected, setAnimeSelected] = useState<AnimeListItemTypes | null>(null);
+  const [collection, setCollection] = useState<collectStateType>()
+  const router = useRouter()
+  const dispatch = useDispatch()
+  const collections = useSelector((state: any) => state.collections)
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState<boolean>(false)
+  const [animeSelected, setAnimeSelected] = useState<AnimeListItemTypes | null>(null)
 
   useEffect(() => {
-    const col = collections.find((col: collectStateType) => col.name.replaceAll(' ', '-') === router.query.id);
+    const col = collections.find((col: collectStateType) => col.name.replaceAll(' ', '-') === router.query.id)
 
-    if (col) setCollection(col);
-  }, [router.query.id, collections]);
+    if (col) setCollection(col)
+  }, [router.query.id, collections])
 
   const onDelete = (anime: AnimeListItemTypes) => {
-    setAnimeSelected(anime);
-    setIsModalDeleteOpen(true);
-  };
+    setAnimeSelected(anime)
+    setIsModalDeleteOpen(true)
+  }
 
   const onDeleteConfirm = () => {
-    if (!animeSelected?.id) return;
+    if (!animeSelected?.id) return
 
     dispatch(
       removeAnimeFromCollection({
         animeId: animeSelected.id,
         collectionName: collection?.name || '',
       })
-    );
-    setIsModalDeleteOpen(false);
-    setAnimeSelected(null);
-  };
+    )
+    setIsModalDeleteOpen(false)
+    setAnimeSelected(null)
+  }
 
   return (
     <>
@@ -222,8 +221,16 @@ function CollectionDetail() {
           justifyContent='center'
           alignItems='center'
         >
-          <Image height='200px' width='160px' src={defaultCover.src} />
-          <Text color='#fff' fontSize='24px' fontWeight='bold'>
+          <Image
+            height='200px'
+            width='160px'
+            src={defaultCover.src}
+          />
+          <Text
+            color='#fff'
+            fontSize='24px'
+            fontWeight='bold'
+          >
             {collection?.name || ''}
           </Text>
           <InfoItem
@@ -270,7 +277,7 @@ function CollectionDetail() {
         title={`Are you sure you want to delete "${animeSelected?.title}"?`}
       />
     </>
-  );
+  )
 }
 
-export default CollectionDetail;
+export default CollectionDetail

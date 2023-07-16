@@ -29,7 +29,7 @@ const CollectionCard = ({
         gap='8px'
       >
         <Link href={`/collection/${data?.name?.replaceAll(' ', '-')}`}>
-            <CustomImg src={data?.animeList.length > 0 ? data?.animeList[0].coverImage : dcoverDefault.src} />
+          <CustomImg src={data?.animeList.length > 0 ? data?.animeList[0].coverImage : dcoverDefault.src} />
         </Link>
         <FlexWrapper
           alignItems='center'
