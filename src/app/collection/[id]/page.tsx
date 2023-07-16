@@ -148,7 +148,6 @@
 // export default connect(mapStateToProps, mapDispatchToProps)(CollectionDetail)
 
 import moment from 'moment'
-import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -161,7 +160,7 @@ import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice'
 import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled'
 import defaultCover from '../../../assets/images/collection-default.png'
 
-function CollectionDetail({params: {id}}: {params: {id: string}}) {
+function CollectionDetail({ params: { id } }: { params: { id: string } }) {
   const [collection, setCollection] = useState<collectStateType>()
   const dispatch = useDispatch()
   const collections = useSelector((state: any) => state.collections)

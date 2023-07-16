@@ -15,11 +15,11 @@ import { AnimeCardPropsType } from '../../types/animeList'
 
 const AnimeCard = ({ data }: AnimeCardPropsType) => (
   <AnimeCardDiv>
-    <Link href={`/anime/${data.id}`}>
+    <Link href={`/anime?id=${data.id}`}>
       <AnimeCardCover src={data?.coverImage} />
     </Link>
     <VerticalInfoWrapper gap='4px'>
-      <Link href={`/anime/${data.id}`}>
+      <Link href={`/anime?id=${data.id}`}>
         <AnimeCardTitle>{data?.title}</AnimeCardTitle>
       </Link>
       <AnimeCardMetaInfoWrapper>

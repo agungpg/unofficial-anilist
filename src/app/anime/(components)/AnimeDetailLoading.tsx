@@ -5,7 +5,7 @@ import StarRatings from 'react-star-ratings'
 import { DescriptionLineLoading } from '@/components/Loading/Loading'
 
 import { AnimeDetailContainer, DetailBodyInfoWrapper, GenresWrapper, InfoWrapper } from './AnimeDetail.styled'
-import { infoList } from '../contants'
+import { infoList } from '../constants'
 
 const AnimeDetailLoading = () => {
   return (

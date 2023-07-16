@@ -9,13 +9,13 @@ import { AppTitle, FlexWrapper, NavBar } from '../styeled'
 import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
 
 function CollectionList() {
-// {
-//   collections,
-//   removeCollection,
-// }: {
-//   collections: collectStateType[]
-//   removeCollection: (payload: { collectionName: string }) => void
-// }
+  // {
+  //   collections,
+  //   removeCollection,
+  // }: {
+  //   collections: collectStateType[]
+  //   removeCollection: (payload: { collectionName: string }) => void
+  // }
   const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
   const [colNameSelected, setColNameSelected] = useState<string>('')
   const dispatch = useDispatch()

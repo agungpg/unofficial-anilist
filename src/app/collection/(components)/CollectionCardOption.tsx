@@ -1,6 +1,6 @@
 import React from 'react'
 
-import InfoItem from '@/app/anime/[id]/(components)/InfoItem'
+import InfoItem from '@/app/anime/(components)/InfoItem'
 import { FlexWrapper, Image, ListItemCard } from '@/app/styeled'
 import coverDefault from '@/assets/images/collection-cover-default.jpg'
 import { AnimeCardTitle } from '@/components/AnimeCard/AnimeCard.styled'

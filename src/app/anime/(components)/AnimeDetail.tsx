@@ -15,7 +15,7 @@ import { AnimeDetailContainer } from './AnimeDetail.styled'
 import AnimeDetailLoading from './AnimeDetailLoading'
 import Genre from './Genre'
 import InfoItem from './InfoItem'
-import { infoList } from '../contants'
+import { infoList } from '../constants'
 
 const AnimeDetail = ({
   data,

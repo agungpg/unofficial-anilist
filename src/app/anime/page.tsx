@@ -1,22 +1,21 @@
 'use client'
 import { useQuery } from '@apollo/client'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 import { AppTitle, NavBar } from '@/app/styeled'
 import BackIcon from '@/assets/icons/BackIcon'
 import { GET_ANIMEDETAIL } from '@/queries'
 import { mapAnimeDetailData } from '@/utils/anime'
-import AnimeDetail from './[id]/(components)/AnimeDetail'
 
+import AnimeDetail from './(components)/AnimeDetail'
 
-export default function DETAIL({params}: {params: {id: string}}) {
+export default function DETAIL({ searchParams }: { searchParams: { id: string } }) {
   const [detail, setDetail] = useState<any>(null)
-  console.log("params: ", params)
+
   const { loading, error, data } = useQuery(GET_ANIMEDETAIL, {
     variables: {
-      id: params.id || 0,
+      id: searchParams.id || 0,
       isAdult: false,
     },
   })
