@@ -12,7 +12,8 @@ import AnimeDetail from './(components)/AnimeDetail'
 
 export default function DETAIL({ searchParams }: { searchParams: { id: string } }) {
   const [detail, setDetail] = useState<any>(null)
-
+  console.log("searchParams: ", searchParams)
+  if(!searchParams?.id) return <></>
   const { loading, data, error } = useQuery(GET_ANIMEDETAIL, {
     variables: {
       id: searchParams?.id,
