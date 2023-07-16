@@ -13,24 +13,10 @@ import AnimeDetail from './(components)/AnimeDetail'
 import { AnimeListDataItemResponseType } from '@/types/animeList'
 
 export async function generateStaticParams() {
-  const data = await fetch('https://graphql.anilist.co', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    query: GET_ANIMELIST,
-    variables: {
-      page: 1,
-      perPage: 200,
-      isAdult: false,
-    },
-  }),
-})
-.then((res) => res.json())
+
  
-  return data.result.list.map((anime: AnimeListDataItemResponseType) => ({
-    id: anime.id,
+  return [1,2,3,4,5,6].map((item) => ({
+    id: item,
   }))
 }
  
