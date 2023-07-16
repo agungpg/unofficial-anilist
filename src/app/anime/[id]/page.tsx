@@ -13,21 +13,22 @@ import AnimeDetail from './(components)/AnimeDetail'
 import { AnimeListDataItemResponseType } from '@/types/animeList'
 
 export async function generateStaticParams() {
-
+  // const products = await fetch('https://.../products').then((res) => res.json())
  
-  return [1,2,3,4,5,6].map((item) => ({
+  return [1,2,3,4].map((item) => ({
     id: item,
   }))
 }
  
 
-export default function DETAIL() {
+
+export default function DETAIL({params: {id}}: {params: {id: string}}) {
   const params = useParams()
   const [detail, setDetail] = useState<any>(null)
 
   const { loading, error, data } = useQuery(GET_ANIMEDETAIL, {
     variables: {
-      id: params?.id || 0,
+      id: id || 0,
       isAdult: false,
     },
   })
