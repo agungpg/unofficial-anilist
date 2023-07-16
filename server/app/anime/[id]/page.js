@@ -292,7 +292,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ DETAIL)
+  "default": () => (/* binding */ DETAIL),
+  generateStaticParams: () => (/* binding */ generateStaticParams)
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
@@ -1187,7 +1188,7 @@ function AnimeDetail_mapStateToProps(state) {
 /* harmony default export */ const _components_AnimeDetail = (/*#__PURE__*/react_default().memo((0,lib.connect)(AnimeDetail_mapStateToProps)(AnimeDetail)));
 
 ;// CONCATENATED MODULE: ./src/app/anime/[id]/page.tsx
-/* __next_internal_client_entry_do_not_use__ default auto */ 
+/* __next_internal_client_entry_do_not_use__ generateStaticParams,default auto */ 
 
 
 
@@ -1197,12 +1198,23 @@ function AnimeDetail_mapStateToProps(state) {
 
 
 
-function DETAIL() {
+async function generateStaticParams() {
+    // const products = await fetch('https://.../products').then((res) => res.json())
+    return [
+        1,
+        2,
+        3,
+        4
+    ].map((item)=>({
+            id: item
+        }));
+}
+function DETAIL({ params: { id } }) {
     const params = (0,navigation.useParams)();
     const [detail, setDetail] = (0,react_.useState)(null);
     const { loading, error, data } = (0,main.useQuery)(queries/* GET_ANIMEDETAIL */.e, {
         variables: {
-            id: params?.id || 0,
+            id: id || 0,
             isAdult: false
         }
     });
@@ -1278,7 +1290,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   $$typeof: () => (/* binding */ $$typeof),
 /* harmony export */   __esModule: () => (/* binding */ __esModule),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   generateStaticParams: () => (/* binding */ e0)
 /* harmony export */ });
 /* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
 
@@ -1290,6 +1303,8 @@ const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy
 // is a client boundary.
 const { __esModule, $$typeof } = proxy;
 const __default__ = proxy.default;
+
+const e0 = proxy["generateStaticParams"];
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
