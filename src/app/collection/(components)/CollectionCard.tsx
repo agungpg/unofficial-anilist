@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-import InfoItem from '@/app/anime/[id]/(components)/InfoItem'
+import InfoItem from '@/app/anime/(components)/InfoItem'
 import { FlexWrapper, Image as CustomImg, ListItemCard, VerticalInfoWrapper } from '@/app/styeled'
 import DeleteIcon from '@/assets/icons/DeleteIcon'
 import EditIcon from '@/assets/icons/EditIcon'
