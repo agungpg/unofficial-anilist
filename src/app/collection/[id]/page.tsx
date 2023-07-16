@@ -161,19 +161,23 @@ import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice'
 import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled'
 import defaultCover from '../../../assets/images/collection-default.png'
 
-function CollectionDetail() {
+export function generateStaticParams() {
+  return [{ id: 'naruto-movie' }, { id: '2' }, { id: '3' }]
+}
+
+
+function CollectionDetail({params: {id}}: {params: {id: string}}) {
   const [collection, setCollection] = useState<collectStateType>()
-  const router = useRouter()
   const dispatch = useDispatch()
   const collections = useSelector((state: any) => state.collections)
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState<boolean>(false)
   const [animeSelected, setAnimeSelected] = useState<AnimeListItemTypes | null>(null)
 
   useEffect(() => {
-    const col = collections.find((col: collectStateType) => col.name.replaceAll(' ', '-') === router.query.id)
+    const col = collections.find((col: collectStateType) => col.name.replaceAll(' ', '-') === id)
 
     if (col) setCollection(col)
-  }, [router.query.id, collections])
+  }, [id, collections])
 
   const onDelete = (anime: AnimeListItemTypes) => {
     setAnimeSelected(anime)
