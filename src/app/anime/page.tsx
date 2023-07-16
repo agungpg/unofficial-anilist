@@ -17,23 +17,24 @@ export default function DETAIL() {
 
   const { loading, data, error, refetch } = useQuery(GET_ANIMEDETAIL, {
     variables: {
-      id: searchParams?.get('id'),
+      id: searchParams.get('id'),
       isAdult: false,
     },
   })
+  
+  // useEffect(() => {
+  //   if (searchParams.get('id')) {
+  //     refetch()
+  //   }
+  // }, [searchParams.get('id')])
 
   useEffect(() => {
-    if (searchParams?.get('id') && data && !error) {
+    if (searchParams.get('id') && data && !error) {
       const dataTransform = mapAnimeDetailData(data.Media)
       setDetail(dataTransform)
     }
-  }, [data, error, searchParams?.get('id')])
+  }, [data, error, searchParams.get('id')])
 
-  useEffect(() => {
-    if (searchParams?.get('id')) {
-      refetch()
-    }
-  }, [searchParams?.get('id')])
   return (
     <div>
       <NavBar className='flex'>
