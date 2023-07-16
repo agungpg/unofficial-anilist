@@ -92,13 +92,14 @@ const AnimeDetail = ({
             direction='column'
             gap='2px'
             alignItems='start'
+            smAlignItems='center'
           >
             <Text
               fontSize='16px'
               color='#fff'
               fontWeight='600'
             >
-              Genre
+              Genres
             </Text>
             <FlexWrapper
               wrap='wrap'
@@ -106,6 +107,7 @@ const AnimeDetail = ({
               justifyContent='left'
               gap='4px'
               alignItems='start'
+              smJustifyContent='center'
             >
               {data.genres.map((item) => (
                 <Genre
@@ -119,6 +121,7 @@ const AnimeDetail = ({
             direction='column'
             gap='2px'
             alignItems='start'
+            smAlignItems='center'
           >
             <Text
               fontSize='16px'
@@ -131,6 +134,7 @@ const AnimeDetail = ({
               direction='row'
               gap='4px'
               justifyContent='left'
+              smJustifyContent='center'
               alignItems='center'
               wrap='wrap'
             >
@@ -144,10 +148,24 @@ const AnimeDetail = ({
               ))}
             </FlexWrapper>
           </FlexWrapper>
-          <p
-            className='description'
-            dangerouslySetInnerHTML={{ __html: data?.description }}
-          />
+          <FlexWrapper
+            direction='column'
+            gap='2px'
+            alignItems='start'
+            smAlignItems='center'
+          >
+            <Text
+              fontSize='16px'
+              color='#fff'
+              fontWeight='600'
+            >
+              Synopsis
+            </Text>
+            <p
+              className='description'
+              dangerouslySetInnerHTML={{ __html: data?.description }}
+            />
+          </FlexWrapper>
         </div>
       </AnimeDetailContainer>
       <ModalCollectionList

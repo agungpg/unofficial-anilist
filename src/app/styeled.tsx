@@ -161,9 +161,10 @@ export const Button = styled.b<{
   color?: string
   borderRadius?: string
 }>`
-  background-color: none;
-  border: 1px solid #fff;
-  padding: 8px 12px;
-  color: #fff;
-  border-radius: 4px;
+  background-color: ${(props) => (props.bgColor ? `${props.bgColor}` : 'none')};
+  border: ${(props) => (props.border ? `${props.border}` : '1px solid #fff')};
+  padding: ${(props) => (props.padding ? `${props.padding}` : ' 8px 12px')};
+  color: ${(props) => (props.color ? `${props.color}` : '#fff')};
+  border-radius: ${(props) => (props.borderRadius ? `${props.borderRadius}` : '4px')};
+  cursor: pointer;
 `

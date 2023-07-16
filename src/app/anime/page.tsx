@@ -1,10 +1,9 @@
 'use client'
 import { useQuery } from '@apollo/client'
-import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-import { AppTitle, NavBar } from '@/app/styeled'
+import { AppTitle, Button, NavBar } from '@/app/styeled'
 import BackIcon from '@/assets/icons/BackIcon'
 import { GET_ANIMEDETAIL } from '@/queries'
 import { mapAnimeDetailData } from '@/utils/anime'
@@ -14,6 +13,7 @@ import AnimeDetail from './(components)/AnimeDetail'
 export default function DETAIL() {
   const [detail, setDetail] = useState<any>(null)
   const searchParams = useSearchParams()
+  const router = useRouter()
 
   const { loading, data, error } = useQuery(GET_ANIMEDETAIL, {
     variables: {
@@ -32,13 +32,16 @@ export default function DETAIL() {
   return (
     <div>
       <NavBar className='flex'>
-        <Link href='/'>
+        <Button
+          onClick={router.back}
+          border='none'
+        >
           <BackIcon
             width='32px'
             height='32px'
             color='#fff'
           />
-        </Link>
+        </Button>
         <AppTitle>ANIME DETAIL</AppTitle>
       </NavBar>
       <AnimeDetail
