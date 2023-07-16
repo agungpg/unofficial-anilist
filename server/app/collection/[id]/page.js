@@ -60,14 +60,6 @@ module.exports = require("next/dist/shared/lib/app-router-context");
 
 /***/ }),
 
-/***/ 5353:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/bloom-filter");
-
-/***/ }),
-
 /***/ 199:
 /***/ ((module) => {
 
@@ -76,51 +68,11 @@ module.exports = require("next/dist/shared/lib/hash");
 
 /***/ }),
 
-/***/ 6819:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/head-manager-context");
-
-/***/ }),
-
 /***/ 9569:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/hooks-client-context");
-
-/***/ }),
-
-/***/ 2169:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path");
-
-/***/ }),
-
-/***/ 5705:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/is-plain-object");
-
-/***/ }),
-
-/***/ 8240:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/mitt");
-
-/***/ }),
-
-/***/ 1188:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path");
 
 /***/ }),
 
@@ -140,43 +92,11 @@ module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix");
 
 /***/ }),
 
-/***/ 442:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/compare-states");
-
-/***/ }),
-
-/***/ 6773:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info");
-
-/***/ }),
-
 /***/ 2336:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/router/utils/format-url");
-
-/***/ }),
-
-/***/ 6971:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-route");
-
-/***/ }),
-
-/***/ 69:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info");
 
 /***/ }),
 
@@ -188,27 +108,11 @@ module.exports = require("next/dist/shared/lib/router/utils/handle-smooth-scroll
 
 /***/ }),
 
-/***/ 6438:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/interpolate-as");
-
-/***/ }),
-
 /***/ 8735:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/router/utils/is-bot");
-
-/***/ }),
-
-/***/ 3681:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/is-dynamic");
 
 /***/ }),
 
@@ -220,35 +124,11 @@ module.exports = require("next/dist/shared/lib/router/utils/is-local-url");
 
 /***/ }),
 
-/***/ 1959:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/omit");
-
-/***/ }),
-
 /***/ 8231:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/router/utils/parse-path");
-
-/***/ }),
-
-/***/ 1856:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url");
-
-/***/ }),
-
-/***/ 4614:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix");
 
 /***/ }),
 
@@ -265,30 +145,6 @@ module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slas
 
 "use strict";
 module.exports = require("next/dist/shared/lib/router/utils/resolve-href");
-
-/***/ }),
-
-/***/ 4648:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites");
-
-/***/ }),
-
-/***/ 9966:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/route-matcher");
-
-/***/ }),
-
-/***/ 3869:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/shared/lib/router/utils/route-regex");
 
 /***/ }),
 
@@ -391,7 +247,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ page)
+  "default": () => (/* binding */ page),
+  generateStaticParams: () => (/* binding */ generateStaticParams)
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
@@ -399,8 +256,6 @@ var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: ./node_modules/moment/moment.js
 var moment = __webpack_require__(1053);
 var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
-// EXTERNAL MODULE: ./node_modules/next/router.js
-var next_router = __webpack_require__(778);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
 var react_default = /*#__PURE__*/__webpack_require__.n(react_);
@@ -464,7 +319,7 @@ var CollectionSlice = __webpack_require__(9747);
 // EXTERNAL MODULE: ./src/assets/images/collection-default.png
 var collection_default = __webpack_require__(2315);
 ;// CONCATENATED MODULE: ./src/app/collection/[id]/page.tsx
-/* __next_internal_client_entry_do_not_use__ default auto */ 
+/* __next_internal_client_entry_do_not_use__ generateStaticParams,default auto */ 
 // import moment from 'moment'
 // import { useParams } from 'next/navigation'
 // import { useEffect, useState } from 'react'
@@ -611,19 +466,30 @@ var collection_default = __webpack_require__(2315);
 
 
 
-
-function CollectionDetail() {
+function generateStaticParams() {
+    return [
+        {
+            id: "naruto-movie"
+        },
+        {
+            id: "2"
+        },
+        {
+            id: "3"
+        }
+    ];
+}
+function CollectionDetail({ params: { id } }) {
     const [collection, setCollection] = (0,react_.useState)();
-    const router = (0,next_router.useRouter)();
     const dispatch = (0,lib.useDispatch)();
     const collections = (0,lib.useSelector)((state)=>state.collections);
     const [isModalDeleteOpen, setIsModalDeleteOpen] = (0,react_.useState)(false);
     const [animeSelected, setAnimeSelected] = (0,react_.useState)(null);
     (0,react_.useEffect)(()=>{
-        const col = collections.find((col)=>col.name.replaceAll(" ", "-") === router.query.id);
+        const col = collections.find((col)=>col.name.replaceAll(" ", "-") === id);
         if (col) setCollection(col);
     }, [
-        router.query.id,
+        id,
         collections
     ]);
     const onDelete = (anime)=>{
@@ -736,7 +602,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   $$typeof: () => (/* binding */ $$typeof),
 /* harmony export */   __esModule: () => (/* binding */ __esModule),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   generateStaticParams: () => (/* binding */ e0)
 /* harmony export */ });
 /* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
 
@@ -748,6 +615,8 @@ const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy
 // is a client boundary.
 const { __esModule, $$typeof } = proxy;
 const __default__ = proxy.default;
+
+const e0 = proxy["generateStaticParams"];
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
@@ -761,7 +630,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,251,162,509,119,632], () => (__webpack_exec__(5302)));
+var __webpack_exports__ = __webpack_require__.X(0, [610,251,370,509,119,632], () => (__webpack_exec__(5302)));
 module.exports = __webpack_exports__;
 
 })();
