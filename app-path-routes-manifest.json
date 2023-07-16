@@ -1,5 +1,6 @@
 {
-  "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
+  "/collection/page": "/collection",
+  "/collection/[id]/page": "/collection/[id]",
   "/anime/[id]/page": "/anime/[id]"
 }

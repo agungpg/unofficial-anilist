@@ -164,23 +164,7 @@ module.exports = require("next/dist/shared/lib/utils");
 
 /***/ }),
 
-/***/ 1017:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("path");
-
-/***/ }),
-
-/***/ 7310:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("url");
-
-/***/ }),
-
-/***/ 8872:
+/***/ 8091:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -206,24 +190,12 @@ __webpack_require__.r(__webpack_exports__);
         {
         children: ['__PAGE__', {}, {
           page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7751)), "/Users/agungpg/projects/test/tokopedia/unofficial-anilist/src/app/page.tsx"],
-          metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
-    apple: [],
-    openGraph: [],
-    twitter: [],
-    manifest: undefined
-  }
+          
         }]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2051)), "/Users/agungpg/projects/test/tokopedia/unofficial-anilist/src/app/layout.tsx"],
-          metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2819))).default(props))],
-    apple: [],
-    openGraph: [],
-    twitter: [],
-    manifest: undefined
-  }
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4567)), "/Users/agungpg/projects/test/tokopedia/unofficial-anilist/src/app/layout.tsx"],
+          
         }
       ]
       }.children;
@@ -244,11 +216,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 1418:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2089))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7201))
 
 /***/ }),
 
-/***/ 2089:
+/***/ 7201:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -262,266 +234,36 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(6786);
-// EXTERNAL MODULE: ./node_modules/@emotion/styled/dist/emotion-styled.esm.js + 19 modules
-var emotion_styled_esm = __webpack_require__(7563);
+// EXTERNAL MODULE: ./node_modules/@apollo/client/main.cjs
+var main = __webpack_require__(6174);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(8038);
 var react_default = /*#__PURE__*/__webpack_require__.n(react_);
-;// CONCATENATED MODULE: ./src/utils/composeAnimeListData.ts
-/* harmony default export */ const composeAnimeListData = (({ id, title, description, startDate, status, coverImage })=>({
-        id,
-        status,
-        description,
-        title: title.romaji,
-        releaseDate: (startDate.day > 9 ? startDate.day : "0" + startDate.day) + "/" + startDate.month + "/" + startDate.year,
-        coverImage: coverImage.medium
-    }));
-
-// EXTERNAL MODULE: ./node_modules/@apollo/client/main.cjs
-var main = __webpack_require__(6174);
-;// CONCATENATED MODULE: ./src/components/AnimeCard/AnimeCard.styled.tsx
-
-const AnimeCardDiv = emotion_styled_esm/* default */.Z.div`
-  padding: 12px;
-  min-height: 170px;
-  width: 100%;
-  display: flex;
-  align-items: start;
-  gap: 12px;
-  background-color: #222222;
-  border-bottom:#f9f9f9 1px solid;
-  color: white;
-  position: relative;
-
-  @media only screen and (max-width: 768px) {
-    max-height: 270px;
-  }
-`;
-const AnimeCardCover = emotion_styled_esm/* default */.Z.img`
-  width: 100px;
-  height: 100%;
-  max-height: 120px;
-`;
-const AnimeCardInfoWrapper = emotion_styled_esm/* default */.Z.div`
-  width: 100%;
-  height: 100%;
-`;
-const AnimeCardTitle = emotion_styled_esm/* default */.Z.h3`
-  font-size: 18px;
-  font-weight: bold;
-`;
-const AnimeCardMetaInfoWrapper = emotion_styled_esm/* default */.Z.div`
-  display: flex;
-  align-items: center;
-  gap: 5%;
-  width: 100%;
-  color: #B5B5B5;
-`;
-const AnimeCardMetaInfoText = emotion_styled_esm/* default */.Z.span`
-  font-size: 14px;
-  color: #B5B5B5;
-`;
-const AnimeCardDescriptionText = emotion_styled_esm/* default */.Z.span`
-  font-size: 12px;
-  color: #B5B5B5;
-  
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
-  white-space: pre-wrap; 
-`;
-
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(6088);
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-;// CONCATENATED MODULE: ./src/components/AnimeCard/AnimeCard.tsx
-
-
-
-
-const AnimeCard = ({ data })=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)(AnimeCardDiv, {
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                href: `/anime/${data.id}`,
-                children: /*#__PURE__*/ jsx_runtime_.jsx(AnimeCardCover, {
-                    src: data?.coverImage
-                })
-            }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(AnimeCardInfoWrapper, {
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                        href: `/anime/${data.id}`,
-                        children: /*#__PURE__*/ jsx_runtime_.jsx(AnimeCardTitle, {
-                            children: data?.title || "One Piece"
-                        })
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(AnimeCardMetaInfoWrapper, {
-                        children: [
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(AnimeCardMetaInfoText, {
-                                children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx("b", {
-                                        children: "Release Date"
-                                    }),
-                                    ": ",
-                                    data?.releaseDate || "July 2015"
-                                ]
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(AnimeCardMetaInfoText, {
-                                children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx("b", {
-                                        children: "Status"
-                                    }),
-                                    ": ",
-                                    data?.status || "On Going"
-                                ]
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx(AnimeCardDescriptionText, {
-                        dangerouslySetInnerHTML: {
-                            __html: data?.description
-                        }
-                    })
-                ]
-            })
-        ]
-    });
-/* harmony default export */ const AnimeCard_AnimeCard = (/*#__PURE__*/react_default().memo(AnimeCard));
-
-// EXTERNAL MODULE: ./node_modules/react-loading-skeleton/dist/index.js
-var dist = __webpack_require__(340);
-// EXTERNAL MODULE: ./node_modules/react-loading-skeleton/dist/skeleton.css
-var skeleton = __webpack_require__(7749);
-;// CONCATENATED MODULE: ./src/components/Loading/Loading.tsx
-
-
-
-
-
-const AnimeLoadingCard = ()=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)(AnimeCardDiv, {
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(dist/* default */.Z, {
-                style: {
-                    height: "130px",
-                    width: "100px",
-                    borderRadius: 0
-                }
-            }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(AnimeCardInfoWrapper, {
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx(dist/* default */.Z, {
-                        style: {
-                            height: "18px",
-                            width: "30%",
-                            borderRadius: "8px"
-                        }
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx(dist/* default */.Z, {
-                        style: {
-                            height: "16px",
-                            width: "20%",
-                            borderRadius: "8px"
-                        }
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: "gap-y-[0px] mt-2",
-                        children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx(dist/* default */.Z, {
-                                style: {
-                                    height: "10px",
-                                    width: "95%",
-                                    borderRadius: "8px"
-                                }
-                            }),
-                            /*#__PURE__*/ jsx_runtime_.jsx(dist/* default */.Z, {
-                                style: {
-                                    height: "10px",
-                                    width: "95%",
-                                    borderRadius: "8px"
-                                }
-                            }),
-                            /*#__PURE__*/ jsx_runtime_.jsx(dist/* default */.Z, {
-                                style: {
-                                    height: "10px",
-                                    width: "95%",
-                                    borderRadius: "8px"
-                                }
-                            })
-                        ]
-                    })
-                ]
-            })
-        ]
-    });
-const AnimeLoadingList = ({ total })=>Array.from(Array(total).keys()).map((item)=>/*#__PURE__*/ jsx_runtime_.jsx(AnimeLoadingCard, {}, item * Math.random()));
-
+// EXTERNAL MODULE: ./src/components/AnimeCard/AnimeCard.tsx
+var AnimeCard = __webpack_require__(5632);
+// EXTERNAL MODULE: ./src/components/Loading/Loading.tsx
+var Loading = __webpack_require__(2500);
 ;// CONCATENATED MODULE: ./src/components/AnimeList/AnimeList.tsx
 
 
 
 
-
-
-const GET_ANIMELIST = main.gql`
-query ($id: Int, $page: Int, $perPage: Int, $search: String) {
-  result: Page (page: $page, perPage: $perPage) {
-    pageInfo {
-      total
-      currentPage
-      lastPage
-      hasNextPage
-      perPage
-    }
-    list: media (id: $id, search: $search) {
-      id
-      coverImage {
-        medium
-      }
-      title{
-        romaji
-      }
-      description
-      startDate {
-        year
-        month
-        day
-      }
-      status
-    }
-  }
-}
-`;
-const AnimeList = ({ pageInfo, setPageInfo })=>{
-    const [list, setList] = (0,react_.useState)([]);
-    const { loading, error, data } = (0,main.useQuery)(GET_ANIMELIST, {
-        variables: {
-            page: pageInfo.currentPage,
-            perPage: pageInfo.perPage
-        }
-    });
-    (0,react_.useEffect)(()=>{
-        if (data) {
-            setList(data.result.list.map((item)=>composeAnimeListData(item)));
-            if (!pageInfo.isSetFromBE) setPageInfo({
-                ...data.result.pageInfo,
-                isSetFromBE: true
-            });
-        }
-    }, [
-        data
-    ]);
-    if (loading) return /*#__PURE__*/ jsx_runtime_.jsx(AnimeLoadingList, {
+const AnimeList = ({ data, isLoading })=>{
+    if (isLoading) return /*#__PURE__*/ jsx_runtime_.jsx(Loading/* AnimeLoadingList */.Mc, {
         total: 5
     });
     return /*#__PURE__*/ jsx_runtime_.jsx(react_.Fragment, {
-        children: list.map((item)=>/*#__PURE__*/ jsx_runtime_.jsx(AnimeCard_AnimeCard, {
+        children: data.map((item)=>/*#__PURE__*/ jsx_runtime_.jsx(AnimeCard/* default */.Z, {
                 data: item
             }, item.id))
     });
 };
 /* harmony default export */ const AnimeList_AnimeList = (/*#__PURE__*/react_default().memo(AnimeList));
 
+// EXTERNAL MODULE: ./src/utils/common.ts
+var common = __webpack_require__(7553);
+// EXTERNAL MODULE: ./node_modules/@emotion/styled/dist/emotion-styled.esm.js + 19 modules
+var emotion_styled_esm = __webpack_require__(7563);
 ;// CONCATENATED MODULE: ./src/components/Pagination/Pagination.styled.tsx
 
 const PaginationStyled = emotion_styled_esm/* default */.Z.div`
@@ -531,7 +273,7 @@ const PaginationStyled = emotion_styled_esm/* default */.Z.div`
   gap: 8px;
   padding: 12px;
   color: white;
-  
+
   .item {
     color: #fff;
     border: #fff 1px solid;
@@ -546,11 +288,6 @@ const PaginationStyled = emotion_styled_esm/* default */.Z.div`
   }
 `;
 
-;// CONCATENATED MODULE: ./src/utils/common.ts
-const arrayRange = (start, stop, step)=>Array.from({
-        length: (stop - start) / step + 1
-    }, (value, index)=>start + index * step);
-
 ;// CONCATENATED MODULE: ./src/components/Pagination/Pagination.tsx
 
 
@@ -558,10 +295,10 @@ const arrayRange = (start, stop, step)=>Array.from({
 
 const Pagination = ({ totalPage, currentPage, onPageChange })=>{
     let paginationList = [];
-    if (currentPage < 2) paginationList = arrayRange(currentPage, currentPage + 3, 1);
-    else if (totalPage - 1 > currentPage) paginationList = arrayRange(currentPage - 1, currentPage + 2, 1);
+    if (currentPage < 2) paginationList = (0,common/* arrayRange */.hS)(currentPage, currentPage + 3, 1);
+    else if (totalPage - 1 > currentPage) paginationList = (0,common/* arrayRange */.hS)(currentPage - 1, currentPage + 2, 1);
     else {
-        paginationList = arrayRange(currentPage - 3, totalPage, 1);
+        paginationList = (0,common/* arrayRange */.hS)(currentPage - 3, totalPage, 1);
     }
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(PaginationStyled, {
         children: [
@@ -605,25 +342,21 @@ const Pagination = ({ totalPage, currentPage, onPageChange })=>{
 };
 /* harmony default export */ const Pagination_Pagination = (/*#__PURE__*/react_default().memo(Pagination));
 
+// EXTERNAL MODULE: ./src/queries/index.ts
+var queries = __webpack_require__(8322);
+// EXTERNAL MODULE: ./src/utils/anime.ts
+var anime = __webpack_require__(6949);
+// EXTERNAL MODULE: ./src/app/styeled.tsx
+var styeled = __webpack_require__(8556);
 ;// CONCATENATED MODULE: ./src/app/page.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
 
 
-const NavBar = emotion_styled_esm/* default */.Z.div`
-  diplay: flex;
-  align-items: center;
-  justify-content: center;
-  widht: 100%;
-  background: #0D70DF;
-`;
-const Title = emotion_styled_esm/* default */.Z.h2`
-  text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  color: #FFF;
-`;
+
+
+
 function Home() {
     const [pageInfo, setPageInfo] = (0,react_.useState)({
         total: 0,
@@ -633,19 +366,38 @@ function Home() {
         perPage: 10,
         isSetFromBE: false
     });
+    const [list, setList] = (0,react_.useState)([]);
+    const { loading, data } = (0,main.useQuery)(queries/* GET_ANIMELIST */.N, {
+        variables: {
+            page: pageInfo.currentPage,
+            perPage: pageInfo.perPage,
+            isAdult: false
+        }
+    });
+    (0,react_.useEffect)(()=>{
+        if (data) {
+            setList(data.result.list.map((item)=>(0,anime/* mapAnimeListItemData */.r)(item)));
+            if (!pageInfo.isSetFromBE) setPageInfo({
+                ...data.result.pageInfo,
+                isSetFromBE: true
+            });
+        }
+    }, [
+        data
+    ]);
     return /*#__PURE__*/ jsx_runtime_.jsx("main", {
-        className: "flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between",
+        className: "flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between  lg:py-10 md:py-10",
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
             className: "container",
             children: [
-                /*#__PURE__*/ jsx_runtime_.jsx(NavBar, {
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(Title, {
+                /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
                         children: "UNOFFICIAL ANILIST"
                     })
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx(AnimeList_AnimeList, {
-                    pageInfo: pageInfo,
-                    setPageInfo: setPageInfo
+                    data: list,
+                    isLoading: loading
                 }),
                 pageInfo.total > 1 && /*#__PURE__*/ jsx_runtime_.jsx(Pagination_Pagination, {
                     totalPage: pageInfo.total,
@@ -696,7 +448,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [697,519,599,652], () => (__webpack_exec__(8872)));
+var __webpack_exports__ = __webpack_require__.X(0, [610,492,509,136,632], () => (__webpack_exec__(8091)));
 module.exports = __webpack_exports__;
 
 })();
