@@ -118,28 +118,13 @@ function LayoutProvider({ children }) {
 /* harmony export */   C5: () => (/* binding */ removeCollection),
 /* harmony export */   ZP: () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   fd: () => (/* binding */ removeAnimeFromCollection),
+/* harmony export */   rA: () => (/* binding */ editCollection),
 /* harmony export */   xo: () => (/* binding */ addToCollection)
 /* harmony export */ });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(668);
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__);
 
-const initialCollectState = [
-    {
-        name: "naruto movie",
-        createdAt: new Date().toUTCString(),
-        updatedAt: new Date().toUTCString(),
-        animeList: [
-            {
-                coverImage: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx1-CXtrrkMpJ8Zq.png",
-                description: "Enter a world in the distant future, where Bounty Hunters roam the solar system. Spike and Jet, bounty hunting partners, set out on journeys in an ever struggling effort to win bounty rewards to survive.<br><br>\nWhile traveling, they meet up with other very interesting people. Could Faye, the beautiful and ridiculously poor gambler, Edward, the computer genius, and Ein, the engineered dog be a good addition to the group?",
-                id: 1,
-                releaseDate: "03/4/1998",
-                status: "FINISHED",
-                title: "Cowboy Bebop"
-            }
-        ]
-    }
-];
+const initialCollectState = [];
 const collectionSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
     name: "collectionList",
     initialState: initialCollectState,
@@ -173,6 +158,14 @@ const collectionSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createS
             ];
             return state;
         },
+        editCollection: (state, action)=>{
+            const { collectionNameOrigin, collectionNameNew } = action.payload;
+            state = state.map((col)=>({
+                    ...col,
+                    name: col.name == collectionNameOrigin ? collectionNameNew : col.name
+                }));
+            return state;
+        },
         removeCollection: (state, action)=>{
             const { collectionName } = action.payload;
             return state.filter((collect)=>collect.name != collectionName);
@@ -184,7 +177,7 @@ const collectionSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createS
         }
     }
 });
-const { addToCollection, removeAnimeFromCollection, createCollection, removeCollection } = collectionSlice.actions;
+const { addToCollection, removeAnimeFromCollection, createCollection, removeCollection, editCollection } = collectionSlice.actions;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (collectionSlice.reducer);
 
 
@@ -205,6 +198,7 @@ const { addToCollection, removeAnimeFromCollection, createCollection, removeColl
 /* harmony export */   xv: () => (/* binding */ Text),
 /* harmony export */   zx: () => (/* binding */ Button)
 /* harmony export */ });
+/* unused harmony export AbsoluteWrapper */
 /* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7563);
 
 const NavBar = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.div`
@@ -266,6 +260,7 @@ const FlexWrapper = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
   ${(props)=>props.backgroundColor && `background-color: ${props.backgroundColor};`}
   ${(props)=>props.border && `border: ${props.border};`}
 
+
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
     ${(props)=>props.smDirection && `flex-direction: ${props.smDirection};`}
@@ -314,6 +309,13 @@ const Button = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.
   color: ${(props)=>props.color ? `${props.color}` : "#fff"};
   border-radius: ${(props)=>props.borderRadius ? `${props.borderRadius}` : "4px"};
   cursor: pointer;
+`;
+const AbsoluteWrapper = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.div`
+  position: absolute;
+  ${(props)=>props.top ? `top: ${props.top} !important` : ""}
+  ${(props)=>props.left ? `left: ${props.left} !important;` : ""}
+  ${(props)=>props.right ? `right: ${props.right} !important;` : ""}
+  ${(props)=>props.bottom ? `bottom: ${props.bottom} !important` : ""}
 `;
 
 

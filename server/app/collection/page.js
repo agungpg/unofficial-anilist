@@ -238,7 +238,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ page)
+  "default": () => (/* binding */ collection_page)
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
@@ -294,7 +294,7 @@ var collection_default = __webpack_require__(2315);
 
 
 
-const CollectionCard = ({ data, onDelete })=>{
+const CollectionCard = ({ data, onDelete, onEdit })=>{
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* ListItemCard */.oI, {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
@@ -305,7 +305,7 @@ const CollectionCard = ({ data, onDelete })=>{
                 gap: "8px",
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                        href: `/collection/${data?.name?.replaceAll(" ", "-")}`,
+                        href: `/collection?name=${data?.name?.replaceAll(" ", "-")}`,
                         children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Image */.Ee, {
                             src: data?.animeList.length > 0 ? data?.animeList[0].coverImage : collection_default/* default */.Z.src
                         })
@@ -323,7 +323,9 @@ const CollectionCard = ({ data, onDelete })=>{
                                 })
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                                onClick: ()=>onDelete(data?.name),
+                                onClick: ()=>{
+                                    if (onEdit) onEdit(data?.name);
+                                },
                                 children: /*#__PURE__*/ jsx_runtime_.jsx(EditIcon, {
                                     fill: "#fff"
                                 })
@@ -339,7 +341,7 @@ const CollectionCard = ({ data, onDelete })=>{
                     gap: "8px",
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                            href: `/collection/${data?.name?.replaceAll(" ", "-")}`,
+                            href: `/collection?name=${data?.name?.replaceAll(" ", "-")}`,
                             children: /*#__PURE__*/ jsx_runtime_.jsx(AnimeCard_styled/* AnimeCardTitle */.jK, {
                                 children: data?.name
                             })
@@ -369,8 +371,10 @@ const CollectionCard = ({ data, onDelete })=>{
 };
 /* harmony default export */ const _components_CollectionCard = (/*#__PURE__*/react_default().memo(CollectionCard));
 
-// EXTERNAL MODULE: ./src/app/collection/(components)/ModalCreateCollection.tsx
-var ModalCreateCollection = __webpack_require__(27);
+// EXTERNAL MODULE: ./src/app/collection/(components)/ModalFormCollection.tsx
+var ModalFormCollection = __webpack_require__(7029);
+// EXTERNAL MODULE: ./src/app/collection/[id]/page.tsx + 1 modules
+var page = __webpack_require__(4943);
 // EXTERNAL MODULE: ./src/app/collection/CollectionSlice.ts
 var CollectionSlice = __webpack_require__(9747);
 // EXTERNAL MODULE: ./src/components/ModalDeleteConfirmation.tsx + 1 modules
@@ -387,13 +391,17 @@ var ModalDeleteConfirmation = __webpack_require__(7119);
 
 
 
+
 function CollectionList() {
+    const searchParams = (0,navigation.useSearchParams)();
+    const name = searchParams.get("name");
     const [IsModalDeleteConfirm, setIsModalDeleteConfirm] = (0,react_.useState)(false);
     const [isModalFormColOpen, setIsModalFormColOpen] = (0,react_.useState)(false);
     const [colNameSelected, setColNameSelected] = (0,react_.useState)("");
     const dispatch = (0,lib.useDispatch)();
     const router = (0,navigation.useRouter)();
     const collections = (0,lib.useSelector)((state)=>state.collections);
+    if (name) return /*#__PURE__*/ jsx_runtime_.jsx(page["default"], {});
     const onDelete = (colName)=>{
         setColNameSelected(colName);
         setIsModalDeleteConfirm(true);
@@ -403,6 +411,14 @@ function CollectionList() {
             collectionName: colNameSelected
         }));
         setIsModalDeleteConfirm(false);
+        setColNameSelected("");
+    };
+    const onEdit = (name)=>{
+        setColNameSelected(name);
+        setIsModalFormColOpen(true);
+    };
+    const onModalFormClose = ()=>{
+        setIsModalFormColOpen(false);
         setColNameSelected("");
     };
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
@@ -436,9 +452,7 @@ function CollectionList() {
                 })
             }),
             collections.map((col)=>/*#__PURE__*/ jsx_runtime_.jsx(_components_CollectionCard, {
-                    // onEdit={(name) => {
-                    //   console.log('onEdit collection: ', name)
-                    // }}
+                    onEdit: onEdit,
                     onDelete: onDelete,
                     data: col
                 }, col.name)),
@@ -446,16 +460,17 @@ function CollectionList() {
                 onConfirm: onDeleteConfirm,
                 isOpen: IsModalDeleteConfirm && !!colNameSelected,
                 closeModal: ()=>setIsModalDeleteConfirm(false),
-                title: `Yakin ingin menghapus collection "${colNameSelected}"?`
+                title: `Are you sure want to delete "${colNameSelected}"?`
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(ModalCreateCollection/* default */.Z, {
+            /*#__PURE__*/ jsx_runtime_.jsx(ModalFormCollection/* default */.Z, {
+                collectionName: colNameSelected,
                 isOpen: isModalFormColOpen,
-                closeModal: ()=>setIsModalFormColOpen(false)
+                closeModal: onModalFormClose
             })
         ]
     });
 }
-/* harmony default export */ const page = (/*#__PURE__*/react_default().memo(CollectionList));
+/* harmony default export */ const collection_page = (/*#__PURE__*/react_default().memo(CollectionList));
 
 
 /***/ }),
@@ -484,14 +499,6 @@ const __default__ = proxy.default;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
 
-/***/ }),
-
-/***/ 9483:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__(4595)
-
-
 /***/ })
 
 };
@@ -501,7 +508,7 @@ module.exports = __webpack_require__(4595)
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,251,509,119,536], () => (__webpack_exec__(1001)));
+var __webpack_exports__ = __webpack_require__.X(0, [932,165,509,632,906,277], () => (__webpack_exec__(1001)));
 module.exports = __webpack_exports__;
 
 })();

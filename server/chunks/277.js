@@ -1,6 +1,6 @@
 "use strict";
-exports.id = 536;
-exports.ids = [536];
+exports.id = 277;
+exports.ids = [277];
 exports.modules = {
 
 /***/ 3032:
@@ -40,7 +40,7 @@ const InfoItem = ({ label, value })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK
 
 /***/ }),
 
-/***/ 27:
+/***/ 7029:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -87,22 +87,36 @@ const CollectionTextInput = _emotion_styled__WEBPACK_IMPORTED_MODULE_1__/* ["def
   border-radius: 4px;
   padding: 8px;
 `;
-function ModalCreateCollection({ isOpen, closeModal, collections, createCollection }) {
+function ModalFormCollection({ isOpen, closeModal, collections, createCollection, collectionName, editCollection }) {
     const [name, setName] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("");
     const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("");
+    const [nameOrigin, setNameOrigin] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("");
     const onSave = ()=>{
         const isValid = validation();
         if (!isValid) return;
-        createCollection({
-            collection: {
-                name,
-                createdAt: new Date().toUTCString(),
-                updatedAt: new Date().toUTCString(),
-                animeList: []
-            }
-        });
+        if (nameOrigin) {
+            editCollection({
+                collectionNameOrigin: nameOrigin,
+                collectionNameNew: name
+            });
+        } else {
+            createCollection({
+                collection: {
+                    name,
+                    createdAt: new Date().toUTCString(),
+                    updatedAt: new Date().toUTCString(),
+                    animeList: []
+                }
+            });
+        }
         closeModal();
     };
+    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{
+        setNameOrigin(collectionName || "");
+        setName(collectionName || "");
+    }, [
+        collectionName
+    ]);
     const validation = ()=>{
         setError("");
         if (!name) {
@@ -135,10 +149,17 @@ function ModalCreateCollection({ isOpen, closeModal, collections, createCollecti
                     alignItems: "center",
                     wrap: "wrap",
                     children: [
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
-                            children: "Add New Collection"
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_app_styeled__WEBPACK_IMPORTED_MODULE_5__/* .Text */ .xv, {
+                            color: "#000",
+                            fontSize: "18px",
+                            fontWeight: "600",
+                            children: [
+                                collectionName ? "Edit" : "Add New",
+                                " Collection"
+                            ]
                         }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_styeled__WEBPACK_IMPORTED_MODULE_5__/* .Button */ .zx, {
+                            color: "#000",
                             onClick: closeModal,
                             children: "X"
                         })
@@ -151,6 +172,7 @@ function ModalCreateCollection({ isOpen, closeModal, collections, createCollecti
                     gap: "4px",
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(CollectionTextInput, {
+                            defaultValue: nameOrigin,
                             value: name,
                             onChange: (e)=>setName(e.target.value)
                         }),
@@ -163,7 +185,9 @@ function ModalCreateCollection({ isOpen, closeModal, collections, createCollecti
                 }),
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_styeled__WEBPACK_IMPORTED_MODULE_5__/* .FlexWrapper */ .A0, {
                     direction: "row-reverse",
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_styeled__WEBPACK_IMPORTED_MODULE_5__/* .Button */ .zx, {
+                        color: "#000",
+                        border: "#000 1px solid",
                         onClick: onSave,
                         children: "SAVE"
                     })
@@ -174,7 +198,8 @@ function ModalCreateCollection({ isOpen, closeModal, collections, createCollecti
 }
 function mapDispatchToProps(dispatch) {
     return {
-        createCollection: (payload)=>dispatch((0,_CollectionSlice__WEBPACK_IMPORTED_MODULE_6__/* .createCollection */ .BL)(payload))
+        createCollection: (payload)=>dispatch((0,_CollectionSlice__WEBPACK_IMPORTED_MODULE_6__/* .createCollection */ .BL)(payload)),
+        editCollection: (payload)=>dispatch((0,_CollectionSlice__WEBPACK_IMPORTED_MODULE_6__/* .editCollection */ .rA)(payload))
     };
 }
 function mapStateToProps(state) {
@@ -182,40 +207,7 @@ function mapStateToProps(state) {
         collections: state.collections
     };
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().memo((0,react_redux__WEBPACK_IMPORTED_MODULE_4__.connect)(mapStateToProps, mapDispatchToProps)(ModalCreateCollection)));
-
-
-/***/ }),
-
-/***/ 7330:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
-
-const BackIcon = ({ width, height, color })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
-        width: width || "32px",
-        height: height || "32px",
-        viewBox: "0 0 1024 1024",
-        xmlns: "http://www.w3.org/2000/svg",
-        children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
-                fill: color || "#000000",
-                d: "M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
-                fill: color || "#000000",
-                d: "m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
-            })
-        ]
-    });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().memo(BackIcon));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().memo((0,react_redux__WEBPACK_IMPORTED_MODULE_4__.connect)(mapStateToProps, mapDispatchToProps)(ModalFormCollection)));
 
 
 /***/ }),

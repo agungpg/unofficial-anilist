@@ -480,8 +480,8 @@ function mapStateToProps(state) {
 }
 /* harmony default export */ const _components_ModalCollectionList = (/*#__PURE__*/react_default().memo((0,lib.connect)(mapStateToProps, mapDispatchToProps)(ModalCollectionList)));
 
-// EXTERNAL MODULE: ./src/app/collection/(components)/ModalCreateCollection.tsx
-var ModalCreateCollection = __webpack_require__(27);
+// EXTERNAL MODULE: ./src/app/collection/(components)/ModalFormCollection.tsx
+var ModalFormCollection = __webpack_require__(7029);
 ;// CONCATENATED MODULE: ./src/assets/icons/AddCollectionIcon.tsx
 
 
@@ -1016,7 +1016,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                 onAddNewCollection: addNewCollection,
                 closeModal: ()=>setIsModelOpen(false)
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(ModalCreateCollection/* default */.Z, {
+            /*#__PURE__*/ jsx_runtime_.jsx(ModalFormCollection/* default */.Z, {
                 isOpen: isModalFormColOpen,
                 closeModal: ()=>setIsModalFormColOpen(false)
             })
@@ -1090,6 +1090,40 @@ function DETAIL() {
 
 /***/ }),
 
+/***/ 7330:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8038);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const BackIcon = ({ width, height, color })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
+        width: width || "32px",
+        height: height || "32px",
+        viewBox: "0 0 1024 1024",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                fill: color || "#000000",
+                d: "M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                fill: color || "#000000",
+                d: "m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+            })
+        ]
+    });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().memo(BackIcon));
+
+
+/***/ }),
+
 /***/ 203:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1149,7 +1183,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [610,370,251,492,153,509,536,625], () => (__webpack_exec__(1615)));
+var __webpack_exports__ = __webpack_require__.X(0, [932,165,492,633,509,277,625], () => (__webpack_exec__(1615)));
 module.exports = __webpack_exports__;
 
 })();

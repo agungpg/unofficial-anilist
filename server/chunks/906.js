@@ -1,11 +1,207 @@
-exports.id = 119;
-exports.ids = [119];
+exports.id = 906;
+exports.ids = [906];
 exports.modules = {
 
 /***/ 1043:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4139))
+
+/***/ }),
+
+/***/ 4943:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ page)
+});
+
+// EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(6786);
+// EXTERNAL MODULE: ./node_modules/moment/moment.js
+var moment = __webpack_require__(1053);
+var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
+// EXTERNAL MODULE: ./node_modules/next/navigation.js
+var navigation = __webpack_require__(9483);
+// EXTERNAL MODULE: external "next/dist/compiled/react"
+var react_ = __webpack_require__(8038);
+var react_default = /*#__PURE__*/__webpack_require__.n(react_);
+// EXTERNAL MODULE: ./node_modules/react-redux/lib/index.js
+var lib = __webpack_require__(1560);
+// EXTERNAL MODULE: ./src/assets/icons/BackIcon.tsx
+var BackIcon = __webpack_require__(7330);
+// EXTERNAL MODULE: ./src/components/AnimeCard/AnimeCard.tsx
+var AnimeCard = __webpack_require__(5632);
+// EXTERNAL MODULE: ./src/app/styeled.tsx
+var styeled = __webpack_require__(8556);
+;// CONCATENATED MODULE: ./src/components/InfoItem.tsx
+
+
+
+const InfoItem = ({ label, value, isVertical, textAlign })=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* Text */.xv, {
+        textAlign: textAlign,
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("b", {
+                children: label
+            }),
+            ": ",
+            isVertical && /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
+            value
+        ]
+    });
+/* harmony default export */ const components_InfoItem = (/*#__PURE__*/react_default().memo(InfoItem));
+
+// EXTERNAL MODULE: ./src/components/ModalDeleteConfirmation.tsx + 1 modules
+var ModalDeleteConfirmation = __webpack_require__(7119);
+// EXTERNAL MODULE: ./src/app/collection/CollectionSlice.ts
+var CollectionSlice = __webpack_require__(9747);
+// EXTERNAL MODULE: ./src/assets/images/collection-default.png
+var collection_default = __webpack_require__(2315);
+;// CONCATENATED MODULE: ./src/app/collection/[id]/page.tsx
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+
+
+
+
+
+
+
+
+function CollectionDetail() {
+    const [collection, setCollection] = (0,react_.useState)();
+    const dispatch = (0,lib.useDispatch)();
+    const router = (0,navigation.useRouter)();
+    const searchParams = (0,navigation.useSearchParams)();
+    const name = searchParams.get("name");
+    const collections = (0,lib.useSelector)((state)=>state.collections);
+    const [isModalDeleteOpen, setIsModalDeleteOpen] = (0,react_.useState)(false);
+    const [animeSelected, setAnimeSelected] = (0,react_.useState)(null);
+    (0,react_.useEffect)(()=>{
+        const col = collections.find((col)=>col.name.replaceAll(" ", "-") === name);
+        if (col) setCollection(col);
+    }, [
+        name,
+        collections
+    ]);
+    const onDelete = (anime)=>{
+        setAnimeSelected(anime);
+        setIsModalDeleteOpen(true);
+    };
+    const onDeleteConfirm = ()=>{
+        if (!animeSelected?.id) return;
+        dispatch((0,CollectionSlice/* removeAnimeFromCollection */.fd)({
+            animeId: animeSelected.id,
+            collectionName: collection?.name || ""
+        }));
+        setIsModalDeleteOpen(false);
+        setAnimeSelected(null);
+    };
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
+                    justifyContent: "left",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Button */.zx, {
+                            onClick: router.back,
+                            border: "none",
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(BackIcon/* default */.Z, {
+                                width: "32px",
+                                height: "32px",
+                                color: "#fff"
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
+                            children: "COLLECTION DETAIL"
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
+                wrap: "wrap",
+                margin: "16px 0 0 0",
+                direction: "row",
+                alignItems: "top",
+                justifyContent: "start",
+                gap: "2%",
+                children: [
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
+                        backgroundColor: "#222222",
+                        padding: "12px",
+                        smWidth: "100% !important",
+                        mdWidth: "100% !important",
+                        lgWidth: "40% !important",
+                        width: "25% !important",
+                        direction: "column",
+                        gap: "8px",
+                        height: "70%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Image */.Ee, {
+                                height: "200px",
+                                width: "160px",
+                                src: collection_default/* default */.Z.src
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
+                                color: "#fff",
+                                fontSize: "24px",
+                                fontWeight: "bold",
+                                children: collection?.name || ""
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(components_InfoItem, {
+                                textAlign: "center",
+                                isVertical: true,
+                                label: "Create Date",
+                                value: moment_default()(collection?.createdAt).format("DD MMM YYYY") || "-"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(components_InfoItem, {
+                                textAlign: "center",
+                                isVertical: true,
+                                label: "Last Update",
+                                value: moment_default()(collection?.updatedAt).format("DD MMM YYYY") || "-"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(components_InfoItem, {
+                                textAlign: "center",
+                                isVertical: true,
+                                label: "Total",
+                                value: String(collection?.animeList?.length || 0)
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(styeled/* FlexWrapper */.A0, {
+                        backgroundColor: "#222222",
+                        smWidth: "100% !important",
+                        mdWidth: "100% !important",
+                        lgWidth: "58% !important",
+                        width: "73% !important",
+                        direction: "column",
+                        children: collection?.animeList?.map((anime)=>/*#__PURE__*/ jsx_runtime_.jsx(AnimeCard/* default */.Z, {
+                                onDelete: ()=>onDelete(anime),
+                                data: anime
+                            }, anime.title))
+                    })
+                ]
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(ModalDeleteConfirmation/* default */.Z, {
+                isOpen: isModalDeleteOpen,
+                closeModal: ()=>setIsModalDeleteOpen(false),
+                onConfirm: onDeleteConfirm,
+                title: `Are you sure you want to delete "${animeSelected?.title}"?`
+            })
+        ]
+    });
+}
+/* harmony default export */ const page = (CollectionDetail);
+
 
 /***/ }),
 
@@ -36,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 9849:
+/***/ 7330:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -49,21 +245,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const DeleteIcon = ({ width, height, fill, className })=>{
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
-        width: width || 24,
-        height: height || 24,
-        fill: "none",
-        viewBox: "0 0 24 24",
-        className: className,
+const BackIcon = ({ width, height, color })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
+        width: width || "32px",
+        height: height || "32px",
+        viewBox: "0 0 1024 1024",
         xmlns: "http://www.w3.org/2000/svg",
-        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
-            d: "M7 21C6.45 21 5.979 20.804 5.587 20.412C5.195 20.02 4.99933 19.5493 5 19V6H4V4H9V3H15V4H20V6H19V19C19 19.55 18.804 20.021 18.412 20.413C18.02 20.805 17.5493 21.0007 17 21H7ZM17 6H7V19H17V6ZM9 17H11V8H9V17ZM13 17H15V8H13V17Z",
-            fill: fill || "#FF5E5E"
-        })
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                fill: color || "#000000",
+                d: "M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                fill: color || "#000000",
+                d: "m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+            })
+        ]
     });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DeleteIcon);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().memo(BackIcon));
 
 
 /***/ }),
@@ -154,7 +352,8 @@ function ModalCreateCollection({ isOpen, closeModal, onConfirm, title }) {
                 title && /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Text */.xv, {
                     color: "#000",
                     fontWeight: "500",
-                    fontSize: "18px",
+                    fontSize: "16px",
+                    textAlign: "center",
                     children: title
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx(styeled/* FlexWrapper */.A0, {
