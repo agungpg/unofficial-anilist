@@ -14,14 +14,16 @@ import { AppTitle, Button, FlexWrapper, NavBar } from '../styeled'
 import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
 
 function CollectionList() {
+  const searchParams = useSearchParams()
+  const name = searchParams.get('name')
+
   const [IsModalDeleteConfirm, setIsModalDeleteConfirm] = useState(false)
   const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
   const [colNameSelected, setColNameSelected] = useState<string>('')
   const dispatch = useDispatch()
   const router = useRouter()
   const collections = useSelector((state: any) => state.collections)
-  const searchParams = useSearchParams()
-  const name = searchParams.get('name')
+  if (name) return <CollectionDetail />
 
   const onDelete = (colName: string) => {
     setColNameSelected(colName)
@@ -42,8 +44,6 @@ function CollectionList() {
     setIsModalFormColOpen(false)
     setColNameSelected('')
   }
-
-  if (name) return <CollectionDetail />
 
   return (
     <>
@@ -80,7 +80,7 @@ function CollectionList() {
         onConfirm={onDeleteConfirm}
         isOpen={IsModalDeleteConfirm && !!colNameSelected}
         closeModal={() => setIsModalDeleteConfirm(false)}
-        title={`Yakin ingin menghapus collection "${colNameSelected}"?`}
+        title={`Are you sure want to delete "${colNameSelected}"?`}
       />
 
       <ModalFormCollection

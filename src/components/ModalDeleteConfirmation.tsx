@@ -57,7 +57,8 @@ function ModalCreateCollection({
           <Text
             color='#000'
             fontWeight='500'
-            fontSize='18px'
+            fontSize='16px'
+            textAlign='center'
           >
             {title}
           </Text>

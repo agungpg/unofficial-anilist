@@ -104,6 +104,7 @@ export const FlexWrapper = styled.div<{
   ${(props) => props.backgroundColor && `background-color: ${props.backgroundColor};`}
   ${(props) => props.border && `border: ${props.border};`}
 
+
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
     ${(props) => props.smDirection && `flex-direction: ${props.smDirection};`}
@@ -167,4 +168,12 @@ export const Button = styled.b<{
   color: ${(props) => (props.color ? `${props.color}` : '#fff')};
   border-radius: ${(props) => (props.borderRadius ? `${props.borderRadius}` : '4px')};
   cursor: pointer;
+`
+
+export const AbsoluteWrapper = styled.div<{ top?: number; left?: number; right?: number; bottom?: number }>`
+  position: absolute;
+  ${(props) => (props.top ? `top: ${props.top} !important` : '')}
+  ${(props) => (props.left ? `left: ${props.left} !important;` : '')}
+  ${(props) => (props.right ? `right: ${props.right} !important;` : '')}
+  ${(props) => (props.bottom ? `bottom: ${props.bottom} !important` : '')}
 `

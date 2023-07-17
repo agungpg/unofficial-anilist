@@ -1,21 +1,23 @@
 'use client'
 import moment from 'moment'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import BackIcon from '@/assets/icons/BackIcon'
+import AnimeCard from '@/components/AnimeCard/AnimeCard'
 import InfoItem from '@/components/InfoItem'
 import ModalDeleteConfirmation from '@/components/ModalDeleteConfirmation'
 import { AnimeListItemTypes } from '@/types/animeList'
 
-import CollectionAnimeCard from '../(components)/CollectionAnimeCard'
 import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice'
-import { AppTitle, FlexWrapper, Image, NavBar, Text } from '../../styeled'
+import { AppTitle, Button, FlexWrapper, Image, NavBar, Text } from '../../styeled'
 import defaultCover from '../../../assets/images/collection-default.png'
 
 function CollectionDetail() {
   const [collection, setCollection] = useState<collectStateType>()
   const dispatch = useDispatch()
+  const router = useRouter()
   const searchParams = useSearchParams()
   const name = searchParams.get('name')
   const collections = useSelector((state: any) => state.collections)
@@ -49,7 +51,17 @@ function CollectionDetail() {
   return (
     <>
       <NavBar>
-        <FlexWrapper>
+        <FlexWrapper justifyContent='left'>
+          <Button
+            onClick={router.back}
+            border='none'
+          >
+            <BackIcon
+              width='32px'
+              height='32px'
+              color='#fff'
+            />
+          </Button>
           <AppTitle>COLLECTION DETAIL</AppTitle>
         </FlexWrapper>
       </NavBar>
@@ -115,7 +127,7 @@ function CollectionDetail() {
           direction='column'
         >
           {collection?.animeList?.map((anime) => (
-            <CollectionAnimeCard
+            <AnimeCard
               onDelete={() => onDelete(anime)}
               data={anime}
               key={anime.title}

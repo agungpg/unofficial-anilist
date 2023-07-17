@@ -59,6 +59,7 @@ export interface AnimeDetailDataResponseType extends AnimeListDataItemResponseTy
 
 export type AnimeCardPropsType = {
   data: AnimeListItemTypes
+  onDelete?: (id: number) => void
 }
 
 export type PageInfoType = {

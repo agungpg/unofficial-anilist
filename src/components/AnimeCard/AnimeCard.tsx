@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 
-import { VerticalInfoWrapper } from '@/app/styeled'
+import { Button, VerticalInfoWrapper } from '@/app/styeled'
+import DeleteIcon from '@/assets/icons/DeleteIcon'
 
 import {
   AnimeCardCover,
@@ -13,7 +14,7 @@ import {
 } from './AnimeCard.styled'
 import { AnimeCardPropsType } from '../../types/animeList'
 
-const AnimeCard = ({ data }: AnimeCardPropsType) => (
+const AnimeCard = ({ data, onDelete }: AnimeCardPropsType) => (
   <AnimeCardDiv>
     <Link href={`/anime?id=${data.id}`}>
       <AnimeCardCover src={data?.coverImage} />
@@ -32,6 +33,14 @@ const AnimeCard = ({ data }: AnimeCardPropsType) => (
       </AnimeCardMetaInfoWrapper>
       <AnimeCardDescriptionText dangerouslySetInnerHTML={{ __html: data?.description }} />
     </VerticalInfoWrapper>
+    {onDelete && (
+      <Button
+        border='none'
+        onClick={() => onDelete(data.id)}
+      >
+        <DeleteIcon />
+      </Button>
+    )}
   </AnimeCardDiv>
 )
 
