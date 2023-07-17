@@ -172,7 +172,7 @@ function CollectionDetail() {
                             /*#__PURE__*/ jsx_runtime_.jsx(components_InfoItem, {
                                 textAlign: "center",
                                 isVertical: true,
-                                label: "Total",
+                                label: "Total Collections",
                                 value: String(collection?.animeList?.length || 0)
                             })
                         ]

@@ -977,7 +977,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                                         alignItems: "center",
                                         wrap: "wrap",
                                         children: collectionsName.map((item)=>/*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                                                href: `/collection/${item.replaceAll(" ", "-")}`,
+                                                href: `/collection?name=${item.replaceAll(" ", "-")}`,
                                                 children: /*#__PURE__*/ jsx_runtime_.jsx(_components_Genre, {
                                                     name: item
                                                 })
