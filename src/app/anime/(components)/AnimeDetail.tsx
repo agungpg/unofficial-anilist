@@ -141,7 +141,7 @@ const AnimeDetail = ({
               {collectionsName.map((item) => (
                 <Link
                   key={item}
-                  href={`/collection/${item.replaceAll(' ', '-')}`}
+                  href={`/collection?name=${item.replaceAll(' ', '-')}`}
                 >
                   <Genre name={item} />
                 </Link>

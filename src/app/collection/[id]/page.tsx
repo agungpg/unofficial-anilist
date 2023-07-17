@@ -113,7 +113,7 @@ function CollectionDetail() {
           <InfoItem
             textAlign='center'
             isVertical
-            label='Total'
+            label='Total Collections'
             value={String(collection?.animeList?.length || 0)}
           />
         </FlexWrapper>
