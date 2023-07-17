@@ -1,6 +1,6 @@
 {
   "/page": "app/page.js",
-  "/anime/page": "app/anime/page.js",
   "/collection/page": "app/collection/page.js",
-  "/collection/[id]/page": "app/collection/[id]/page.js"
+  "/collection/[id]/page": "app/collection/[id]/page.js",
+  "/anime/page": "app/anime/page.js"
 }
