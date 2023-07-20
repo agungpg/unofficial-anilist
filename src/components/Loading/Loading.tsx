@@ -3,8 +3,9 @@ import Skeleton from 'react-loading-skeleton'
 
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import { AnimeCardDiv } from '../AnimeCard/AnimeCard.styled'
 import { FlexWrapper } from '@/app/styeled'
+
+import { AnimeCardDiv } from '../AnimeCard/AnimeCard.styled'
 
 export const DescriptionLineLoading = () => <Skeleton style={{ height: '10px', width: '95%', borderRadius: '8px' }} />
 export const AnimeLoadingCard = () => (
@@ -16,7 +17,11 @@ export const AnimeLoadingCard = () => (
         borderRadius: 0,
       }}
     />
-    <FlexWrapper direction='column' justifyContent='flex-start' alignItems='left'>
+    <FlexWrapper
+      direction='column'
+      justifyContent='flex-start'
+      alignItems='left'
+    >
       <Skeleton
         style={{
           height: '18px',

@@ -1,6 +1,5 @@
 'use client'
 import { useQuery } from '@apollo/client'
-import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 

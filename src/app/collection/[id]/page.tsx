@@ -1,6 +1,5 @@
 'use client'
 import moment from 'moment'
-import Head from 'next/head'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -51,9 +50,6 @@ function CollectionDetail() {
 
   return (
     <>
-      <Head>
-        <title>COLLECTION DETAIL</title>
-      </Head>
       <NavBar>
         <FlexWrapper justifyContent='left'>
           <Button

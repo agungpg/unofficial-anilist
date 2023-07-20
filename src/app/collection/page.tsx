@@ -1,5 +1,4 @@
 'use client'
-import Head from 'next/head'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import React from 'react'
@@ -48,9 +47,6 @@ function CollectionList() {
 
   return (
     <>
-      <Head>
-        <title>COLLECTION LIST</title>
-      </Head>
       <NavBar>
         <FlexWrapper>
           <FlexWrapper

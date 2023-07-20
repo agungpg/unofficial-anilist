@@ -4,11 +4,7 @@ import React from 'react'
 import { Button, FlexWrapper, Image, Text } from '@/app/styeled'
 import DeleteIcon from '@/assets/icons/DeleteIcon'
 
-import {
-  AnimeCardDescriptionText,
-  AnimeCardDiv,
-  AnimeCardTitle,
-} from './AnimeCard.styled'
+import { AnimeCardDescriptionText, AnimeCardDiv, AnimeCardTitle } from './AnimeCard.styled'
 import { AnimeCardPropsType } from '../../types/anime'
 
 const AnimeCard = ({ data, onDelete }: AnimeCardPropsType) => (
@@ -19,11 +15,19 @@ const AnimeCard = ({ data, onDelete }: AnimeCardPropsType) => (
         src={data?.coverImage}
       />
     </Link>
-    <FlexWrapper direction='column' justifyContent='flex-start' alignItems='left'  gap='4px'>
+    <FlexWrapper
+      direction='column'
+      justifyContent='flex-start'
+      alignItems='left'
+      gap='4px'
+    >
       <Link href={`/anime?id=${data.id}`}>
         <AnimeCardTitle>{data?.title}</AnimeCardTitle>
       </Link>
-      <FlexWrapper justifyContent='flex-start' gap='0 5%'>
+      <FlexWrapper
+        justifyContent='flex-start'
+        gap='0 5%'
+      >
         <Text>
           <b>Release Date</b>: {data?.releaseDate}
         </Text>

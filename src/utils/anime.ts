@@ -50,11 +50,6 @@ export const mapAnimeDetailData = ({
   rating: getAverageRatingInFive(reviews),
 })
 
-const timeStamptoDate = (timestamp: number) => {
-  const date = new Date(timestamp)
-  return date.toLocaleString('en-ID') // 👉️ "1/20/2022, 9:50:15 AM"
-}
-
 const getAverageRatingInFive = (reviews: { edges: reviewEdge[] }) => {
   if (reviews?.edges?.length == 0) return 0
   const averageRatingInHundred =
