@@ -1,5 +1,6 @@
 'use client'
 import { useQuery } from '@apollo/client'
+import Head from 'next/head'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -17,20 +18,23 @@ export default function DETAIL() {
 
   const { loading, data, error } = useQuery(GET_ANIMEDETAIL, {
     variables: {
-      id: searchParams.get('id'),
+      id: searchParams?.get('id'),
       isAdult: false,
     },
   })
 
   useEffect(() => {
-    if (searchParams.get('id') && data && !error) {
+    if (searchParams?.get('id') && data && !error) {
       const dataTransform = mapAnimeDetailData(data.Media)
       setDetail(dataTransform)
     }
-  }, [data, error, searchParams.get('id')])
+  }, [data, error, searchParams?.get('id')])
 
   return (
     <div>
+      <Head>
+        <title>ANIME DETAIL</title>
+      </Head>
       <NavBar className='flex'>
         <Button
           onClick={router.back}

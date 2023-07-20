@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { AnimeListItemTypes } from '@/types/animeList'
+import { AnimeListItemTypes } from '@/types/anime'
 
 export type collectStateType = {
   name: string

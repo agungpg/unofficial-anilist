@@ -1,6 +1,11 @@
 import moment from 'moment'
 
-import { AnimeDetailDataResponseType, AnimeListDataItemResponseType, reviewEdge } from '../types/animeList'
+import {
+  AnimeDetailData,
+  AnimeDetailDataResponseType,
+  AnimeListDataItemResponseType,
+  reviewEdge,
+} from '../types/anime'
 
 export const mapAnimeListItemData = ({
   id,
@@ -33,7 +38,7 @@ export const mapAnimeDetailData = ({
   genres,
   episodes,
   reviews,
-}: AnimeDetailDataResponseType) => ({
+}: AnimeDetailDataResponseType): AnimeDetailData => ({
   id,
   status,
   description,

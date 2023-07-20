@@ -8,7 +8,7 @@ import ModalCreateCollection from '@/app/collection/(components)/ModalFormCollec
 import { collectStateType } from '@/app/collection/CollectionSlice'
 import { FlexWrapper, Text } from '@/app/styeled'
 import AddCollectionIcon from '@/assets/icons/AddCollectionIcon'
-import { AnimeDetailDataTypes } from '@/types/animeList'
+import { AnimeDetailData } from '@/types/anime'
 import { findCollectionNameByAnimeId } from '@/utils/common'
 
 import { AnimeDetailContainer } from './AnimeDetail.styled'
@@ -22,7 +22,7 @@ const AnimeDetail = ({
   isLoading,
   collections,
 }: {
-  data: AnimeDetailDataTypes
+  data?: AnimeDetailData
   isLoading: boolean
   collections?: collectStateType[]
 }) => {

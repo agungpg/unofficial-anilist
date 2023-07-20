@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
 import { FlexWrapper, Text } from '@/app/styeled'
-import { AnimeListItemTypes } from '@/types/animeList'
+import { AnimeListItemTypes } from '@/types/anime'
 
 import CollectionCardOption from './CollectionCardOption'
 import { addToCollection, collectStateType } from '../CollectionSlice'

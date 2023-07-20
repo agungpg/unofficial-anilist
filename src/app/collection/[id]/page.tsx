@@ -1,5 +1,6 @@
 'use client'
 import moment from 'moment'
+import Head from 'next/head'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,7 +9,7 @@ import BackIcon from '@/assets/icons/BackIcon'
 import AnimeCard from '@/components/AnimeCard/AnimeCard'
 import InfoItem from '@/components/InfoItem'
 import ModalDeleteConfirmation from '@/components/ModalDeleteConfirmation'
-import { AnimeListItemTypes } from '@/types/animeList'
+import { AnimeListItemTypes } from '@/types/anime'
 
 import { collectStateType, removeAnimeFromCollection } from '../CollectionSlice'
 import { AppTitle, Button, FlexWrapper, Image, NavBar, Text } from '../../styeled'
@@ -19,7 +20,7 @@ function CollectionDetail() {
   const dispatch = useDispatch()
   const router = useRouter()
   const searchParams = useSearchParams()
-  const name = searchParams.get('name')
+  const name = searchParams?.get('name')
   const collections = useSelector((state: any) => state.collections)
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState<boolean>(false)
   const [animeSelected, setAnimeSelected] = useState<AnimeListItemTypes | null>(null)
@@ -50,6 +51,9 @@ function CollectionDetail() {
 
   return (
     <>
+      <Head>
+        <title>COLLECTION DETAIL</title>
+      </Head>
       <NavBar>
         <FlexWrapper justifyContent='left'>
           <Button
@@ -87,6 +91,7 @@ function CollectionDetail() {
           alignItems='center'
         >
           <Image
+            alt='cover collection'
             height='200px'
             width='160px'
             src={defaultCover.src}

@@ -1,4 +1,5 @@
 'use client'
+import Head from 'next/head'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import React from 'react'
@@ -15,7 +16,7 @@ import ModalDeleteConfirmation from '../../components/ModalDeleteConfirmation'
 
 function CollectionList() {
   const searchParams = useSearchParams()
-  const name = searchParams.get('name')
+  const name = searchParams?.get('name')
 
   const [IsModalDeleteConfirm, setIsModalDeleteConfirm] = useState(false)
   const [isModalFormColOpen, setIsModalFormColOpen] = useState(false)
@@ -47,6 +48,9 @@ function CollectionList() {
 
   return (
     <>
+      <Head>
+        <title>COLLECTION LIST</title>
+      </Head>
       <NavBar>
         <FlexWrapper>
           <FlexWrapper

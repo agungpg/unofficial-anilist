@@ -15,7 +15,7 @@ export interface AnimeDetailDataTypes extends AnimeListItemTypes {
   updatedAt: string
 }
 export interface AnimeListDataItemResponseType {
-  id: string
+  id: number
   title: {
     romaji: string
   }
@@ -69,4 +69,19 @@ export type PageInfoType = {
   hasNextPage: boolean
   perPage: number
   isSetFromBE?: boolean
+}
+
+export interface AnimeDetailData {
+  id: number
+  description: string
+  status: string
+  updatedAt: string
+  genres: string[]
+  title: string
+  releaseDate: string
+  coverImage: string
+  studio: string
+  duration: string
+  totalEpisodes: number
+  rating: number
 }

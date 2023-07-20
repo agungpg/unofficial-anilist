@@ -1,5 +1,5 @@
 import { collectStateType } from '@/app/collection/CollectionSlice'
-import { AnimeListItemTypes } from '@/types/animeList'
+import { AnimeListItemTypes } from '@/types/anime'
 
 export const arrayRange = (start: number, stop: number, step: number) =>
   Array.from({ length: (stop - start) / step + 1 }, (value, index) => start + index * step)

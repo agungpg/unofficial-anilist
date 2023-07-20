@@ -27,7 +27,7 @@ export const AnimeCardInfoWrapper = styled.div`
   height: 100%;
 `
 
-export const AnimeCardTitle = styled.h3`
+export const AnimeCardTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
 `

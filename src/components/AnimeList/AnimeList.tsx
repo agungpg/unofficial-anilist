@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import AnimeCard from '../AnimeCard/AnimeCard'
 import { AnimeLoadingList } from '../Loading/Loading'
-import { AnimeListItemTypes } from '../../types/animeList'
+import { AnimeListItemTypes } from '../../types/anime'
 
 const AnimeList = ({ data, isLoading }: { data: AnimeListItemTypes[]; isLoading: boolean }) => {
   if (isLoading) return <AnimeLoadingList total={5} />
