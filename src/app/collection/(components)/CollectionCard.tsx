@@ -9,6 +9,7 @@ import { AnimeCardTitle } from '@/components/AnimeCard/AnimeCard.styled'
 
 import { collectStateType } from '../CollectionSlice'
 import dcoverDefault from '../../../assets/images/collection-default.png'
+import moment from 'moment'
 
 const CollectionCard = ({
   data,
@@ -29,7 +30,7 @@ const CollectionCard = ({
         gap='8px'
       >
         <Link href={`/collection?name=${data?.name?.replaceAll(' ', '-')}`}>
-          <CustomImg src={data?.animeList.length > 0 ? data?.animeList[0].coverImage : dcoverDefault.src} />
+          <CustomImg alt='cover-collection' src={data?.animeList.length > 0 ? data?.animeList[0].coverImage : dcoverDefault.src} />
         </Link>
         <FlexWrapper
           alignItems='center'
@@ -37,10 +38,11 @@ const CollectionCard = ({
           justifyContent='space-around'
           gap='8px'
         >
-          <button onClick={() => onDelete(data?.name)}>
+          <button aria-label='delete-button' onClick={() => onDelete(data?.name)}>
             <DeleteIcon fill='#fff' />
           </button>
           <button
+            aria-label='edit-button'
             onClick={() => {
               if (onEdit) onEdit(data?.name)
             }}
@@ -50,28 +52,31 @@ const CollectionCard = ({
         </FlexWrapper>
       </FlexWrapper>
       <FlexWrapper justifyContent='space-between'>
-        <VerticalInfoWrapper
+        <FlexWrapper
+          direction='column'
           width='100%'
           gap='8px'
+            justifyContent='flex-start'
+            alignItems='left'
         >
           <Link href={`/collection?name=${data?.name?.replaceAll(' ', '-')}`}>
             <AnimeCardTitle>{data?.name}</AnimeCardTitle>
           </Link>
-          <VerticalInfoWrapper gap='0'>
+          <VerticalInfoWrapper gap='2px'>
             <InfoItem
               label='Create Date'
-              value={data?.createdAt}
+              value={moment(data?.createdAt).format('DD MMM YYYY')}
             />
             <InfoItem
               label='Last Update'
-              value={data?.updatedAt}
+              value={moment(data?.updatedAt).format('DD MMM YYYY')}
             />
             <InfoItem
-              label='Total'
+              label='Total Collections'
               value={String(data?.animeList?.length || 0)}
             />
           </VerticalInfoWrapper>
-        </VerticalInfoWrapper>
+        </FlexWrapper>
       </FlexWrapper>
     </ListItemCard>
   )

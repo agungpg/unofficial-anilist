@@ -17,32 +17,10 @@ export const AnimeCardDiv = styled.div`
   }
 `
 
-export const AnimeCardCover = styled.img`
-  width: 100px;
-  height: 100%;
-  max-height: 120px;
-`
-export const AnimeCardInfoWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`
-
 export const AnimeCardTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
 `
-export const AnimeCardMetaInfoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0 5%;
-  width: 100%;
-  color: #b5b5b5;
-`
-export const AnimeCardMetaInfoText = styled.span`
-  font-size: 14px;
-  color: #b5b5b5;
-`
-
 export const AnimeCardDescriptionText = styled.p`
   font-size: 12px;
   color: #b5b5b5;
