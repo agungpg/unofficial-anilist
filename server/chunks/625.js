@@ -117,7 +117,7 @@ const GET_ANIMEDETAIL = _apollo_client__WEBPACK_IMPORTED_MODULE_0__.gql`
     Media(id: $id, isAdult: $isAdult) {
       id
       coverImage {
-        medium
+        large
       }
       title {
         romaji
@@ -184,7 +184,7 @@ const mapAnimeDetailData = ({ id, title, description, startDate, status, coverIm
         genres,
         title: title.romaji,
         releaseDate: moment__WEBPACK_IMPORTED_MODULE_0___default()((startDate.day > 9 ? startDate.day : "0" + startDate.day) + "/" + startDate.month + "/" + startDate.year).format("DD MMM YYYY"),
-        coverImage: coverImage.medium,
+        coverImage: coverImage?.large || "",
         studio: studios.edges.find((stud)=>stud.isMain)?.node?.name || "-",
         duration: duration + " minutes",
         totalEpisodes: episodes,

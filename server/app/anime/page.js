@@ -926,7 +926,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: "flex-column-wrapper w-full",
                         children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                            /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                                 className: "title",
                                 children: data.title
                             }),
