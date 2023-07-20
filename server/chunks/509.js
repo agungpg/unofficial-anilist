@@ -209,7 +209,7 @@ const NavBar = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.
   background: #0d70df;
   padding: 8px;
 `;
-const AppTitle = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.h2`
+const AppTitle = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.h1`
   font-size: 28px;
   font-weight: 600;
   color: #fff;
