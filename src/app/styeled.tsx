@@ -9,7 +9,7 @@ export const NavBar = styled.div`
   padding: 8px;
 `
 
-export const AppTitle = styled.h2`
+export const AppTitle = styled.h1`
   font-size: 28px;
   font-weight: 600;
   color: #fff;
