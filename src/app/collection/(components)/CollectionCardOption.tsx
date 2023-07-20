@@ -14,6 +14,7 @@ const CollectionCardOption = ({ data, selected, onSelect }: any) => {
       onClick={() => onSelect(data?.name)}
     >
       <Image
+        alt='cover collection'
         width='60px'
         height='60px'
         src={coverImg}

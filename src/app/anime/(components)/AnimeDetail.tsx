@@ -49,6 +49,7 @@ const AnimeDetail = ({
       <AnimeDetailContainer>
         <div className='cover-image-wrapper'>
           <img
+            alt='cover anime'
             className='cover-image'
             src={data.coverImage}
           />
