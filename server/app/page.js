@@ -164,7 +164,7 @@ module.exports = require("next/dist/shared/lib/utils");
 
 /***/ }),
 
-/***/ 8091:
+/***/ 8872:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -495,7 +495,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [932,492,509,632,625], () => (__webpack_exec__(8091)));
+var __webpack_exports__ = __webpack_require__.X(0, [580,492,509,632,625], () => (__webpack_exec__(8872)));
 module.exports = __webpack_exports__;
 
 })();

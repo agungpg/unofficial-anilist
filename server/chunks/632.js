@@ -60,6 +60,7 @@ const AnimeCard = ({ data, onDelete })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBP
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: `/anime?id=${data.id}`,
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_AnimeCard_styled__WEBPACK_IMPORTED_MODULE_5__/* .AnimeCardCover */ .Hv, {
+                    alt: "cover anime",
                     src: data?.coverImage
                 })
             }),

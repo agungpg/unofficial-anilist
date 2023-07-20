@@ -164,7 +164,7 @@ module.exports = require("next/dist/shared/lib/utils");
 
 /***/ }),
 
-/***/ 1001:
+/***/ 3306:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -394,7 +394,7 @@ var ModalDeleteConfirmation = __webpack_require__(7119);
 
 function CollectionList() {
     const searchParams = (0,navigation.useSearchParams)();
-    const name = searchParams.get("name");
+    const name = searchParams?.get("name");
     const [IsModalDeleteConfirm, setIsModalDeleteConfirm] = (0,react_.useState)(false);
     const [isModalFormColOpen, setIsModalFormColOpen] = (0,react_.useState)(false);
     const [colNameSelected, setColNameSelected] = (0,react_.useState)("");
@@ -508,7 +508,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [932,165,509,632,906,277], () => (__webpack_exec__(1001)));
+var __webpack_exports__ = __webpack_require__.X(0, [580,165,509,632,906,277], () => (__webpack_exec__(3306)));
 module.exports = __webpack_exports__;
 
 })();

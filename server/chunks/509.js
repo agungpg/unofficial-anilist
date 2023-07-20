@@ -399,7 +399,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ RootLayout)
+  "default": () => (/* binding */ RootLayout),
+  metadata: () => (/* binding */ metadata)
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
@@ -407,6 +408,9 @@ var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"}
 var layout_tsx_import_Inter_arguments_subsets_latin_variableName_inter_ = __webpack_require__(6708);
 var layout_tsx_import_Inter_arguments_subsets_latin_variableName_inter_default = /*#__PURE__*/__webpack_require__.n(layout_tsx_import_Inter_arguments_subsets_latin_variableName_inter_);
+// EXTERNAL MODULE: ./node_modules/next/dist/client/components/noop-head.js
+var noop_head = __webpack_require__(3471);
+var noop_head_default = /*#__PURE__*/__webpack_require__.n(noop_head);
 // EXTERNAL MODULE: ./src/app/globals.css
 var globals = __webpack_require__(5553);
 // EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
@@ -429,15 +433,44 @@ const __default__ = proxy.default;
 
 
 
+
+const metadata = {
+    title: "Unofficial Anilist",
+    description: "Anime List",
+    manifest: "/manifest.json",
+    themeColor: "#fff"
+};
 function RootLayout({ children }) {
-    return /*#__PURE__*/ jsx_runtime_.jsx("html", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("html", {
         lang: "en",
-        children: /*#__PURE__*/ jsx_runtime_.jsx("body", {
-            className: (layout_tsx_import_Inter_arguments_subsets_latin_variableName_inter_default()).className,
-            children: /*#__PURE__*/ jsx_runtime_.jsx(LayoutProvider, {
-                children: children
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((noop_head_default()), {
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("link", {
+                        rel: "icon",
+                        href: "/icon.png"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("link", {
+                        rel: "manifest",
+                        href: "/manifest.json"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        name: "viewport",
+                        content: "width=device-width, initial-scale=1"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        name: "theme-color",
+                        content: "#ffffff"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("body", {
+                className: (layout_tsx_import_Inter_arguments_subsets_latin_variableName_inter_default()).className,
+                children: /*#__PURE__*/ jsx_runtime_.jsx(LayoutProvider, {
+                    children: children
+                })
             })
-        })
+        ]
     });
 }
 

@@ -164,7 +164,7 @@ module.exports = require("next/dist/shared/lib/utils");
 
 /***/ }),
 
-/***/ 1615:
+/***/ 2415:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -296,6 +296,7 @@ const CollectionCardOption = ({ data, selected, onSelect })=>{
         onClick: ()=>onSelect(data?.name),
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Image */.Ee, {
+                alt: "cover collection",
                 width: "60px",
                 height: "60px",
                 src: coverImg
@@ -878,6 +879,7 @@ const AnimeDetail = ({ data, isLoading, collections })=>{
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
                         className: "cover-image-wrapper",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                            alt: "cover anime",
                             className: "cover-image",
                             src: data.coverImage
                         })
@@ -1046,19 +1048,19 @@ function DETAIL() {
     const router = (0,navigation.useRouter)();
     const { loading, data, error } = (0,main.useQuery)(queries/* GET_ANIMEDETAIL */.e, {
         variables: {
-            id: searchParams.get("id"),
+            id: searchParams?.get("id"),
             isAdult: false
         }
     });
     (0,react_.useEffect)(()=>{
-        if (searchParams.get("id") && data && !error) {
+        if (searchParams?.get("id") && data && !error) {
             const dataTransform = (0,anime/* mapAnimeDetailData */.U)(data.Media);
             setDetail(dataTransform);
         }
     }, [
         data,
         error,
-        searchParams.get("id")
+        searchParams?.get("id")
     ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
@@ -1183,7 +1185,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [932,165,492,633,509,277,625], () => (__webpack_exec__(1615)));
+var __webpack_exports__ = __webpack_require__.X(0, [580,165,492,633,509,277,625], () => (__webpack_exec__(2415)));
 module.exports = __webpack_exports__;
 
 })();

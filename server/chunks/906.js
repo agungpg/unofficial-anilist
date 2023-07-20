@@ -80,7 +80,7 @@ function CollectionDetail() {
     const dispatch = (0,lib.useDispatch)();
     const router = (0,navigation.useRouter)();
     const searchParams = (0,navigation.useSearchParams)();
-    const name = searchParams.get("name");
+    const name = searchParams?.get("name");
     const collections = (0,lib.useSelector)((state)=>state.collections);
     const [isModalDeleteOpen, setIsModalDeleteOpen] = (0,react_.useState)(false);
     const [animeSelected, setAnimeSelected] = (0,react_.useState)(null);
@@ -147,6 +147,7 @@ function CollectionDetail() {
                         alignItems: "center",
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Image */.Ee, {
+                                alt: "cover collection",
                                 height: "200px",
                                 width: "160px",
                                 src: collection_default/* default */.Z.src
