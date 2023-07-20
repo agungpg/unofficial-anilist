@@ -361,7 +361,7 @@ const AnimeCardInfoWrapper = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["de
   width: 100%;
   height: 100%;
 `;
-const AnimeCardTitle = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.h3`
+const AnimeCardTitle = _emotion_styled__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.h2`
   font-size: 18px;
   font-weight: bold;
 `;

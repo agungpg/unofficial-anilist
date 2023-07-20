@@ -236,6 +236,9 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: ./node_modules/@apollo/client/main.cjs
 var main = __webpack_require__(6174);
+// EXTERNAL MODULE: ./node_modules/next/dist/client/components/noop-head.js
+var noop_head = __webpack_require__(8312);
+var noop_head_default = /*#__PURE__*/__webpack_require__.n(noop_head);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1621);
 var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
@@ -361,6 +364,7 @@ var styeled = __webpack_require__(8556);
 
 
 
+
 function Home() {
     const [pageInfo, setPageInfo] = (0,react_.useState)({
         total: 0,
@@ -389,46 +393,55 @@ function Home() {
     }, [
         data
     ]);
-    return /*#__PURE__*/ jsx_runtime_.jsx("main", {
-        className: "flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between  lg:py-10 md:py-10",
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-            className: "container",
-            children: [
-                /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
-                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
-                        wrap: "wrap",
-                        gap: "12px",
-                        padding: "8px",
-                        justifyContent: "space-between",
-                        smJustifyContent: "space-evenly",
-                        alignItems: "center",
-                        children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
-                                children: "UNOFFICIAL ANILIST"
-                            }),
-                            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                                href: "/collection",
-                                children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Button */.zx, {
-                                    children: "List Collection"
-                                })
-                            })
-                        ]
-                    })
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx(AnimeList_AnimeList, {
-                    data: list,
-                    isLoading: loading
-                }),
-                pageInfo.total > 1 && /*#__PURE__*/ jsx_runtime_.jsx(Pagination_Pagination, {
-                    totalPage: pageInfo.total,
-                    currentPage: pageInfo.currentPage,
-                    onPageChange: (page)=>setPageInfo((prevPageInfo)=>({
-                                ...prevPageInfo,
-                                currentPage: page
-                            }))
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx((noop_head_default()), {
+                children: /*#__PURE__*/ jsx_runtime_.jsx("title", {
+                    children: "ANIME LIST"
                 })
-            ]
-        })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("main", {
+                className: "flex min-h-screen bg-[#1A1A1A] flex-col items-center justify-between  lg:py-10 md:py-10",
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: "container",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
+                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
+                                wrap: "wrap",
+                                gap: "12px",
+                                padding: "8px",
+                                justifyContent: "space-between",
+                                smJustifyContent: "space-evenly",
+                                alignItems: "center",
+                                children: [
+                                    /*#__PURE__*/ jsx_runtime_.jsx(styeled/* AppTitle */.dC, {
+                                        children: "UNOFFICIAL ANILIST"
+                                    }),
+                                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                                        href: "/collection",
+                                        children: /*#__PURE__*/ jsx_runtime_.jsx(styeled/* Button */.zx, {
+                                            children: "List Collection"
+                                        })
+                                    })
+                                ]
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx(AnimeList_AnimeList, {
+                            data: list,
+                            isLoading: loading
+                        }),
+                        pageInfo.total > 1 && /*#__PURE__*/ jsx_runtime_.jsx(Pagination_Pagination, {
+                            totalPage: pageInfo.total,
+                            currentPage: pageInfo.currentPage,
+                            onPageChange: (page)=>setPageInfo((prevPageInfo)=>({
+                                        ...prevPageInfo,
+                                        currentPage: page
+                                    }))
+                        })
+                    ]
+                })
+            })
+        ]
     });
 }
 
@@ -495,7 +508,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [580,492,509,632,625], () => (__webpack_exec__(8872)));
+var __webpack_exports__ = __webpack_require__.X(0, [622,492,509,632,625], () => (__webpack_exec__(8872)));
 module.exports = __webpack_exports__;
 
 })();

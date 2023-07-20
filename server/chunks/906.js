@@ -26,6 +26,9 @@ var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: ./node_modules/moment/moment.js
 var moment = __webpack_require__(1053);
 var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
+// EXTERNAL MODULE: ./node_modules/next/dist/client/components/noop-head.js
+var noop_head = __webpack_require__(8312);
+var noop_head_default = /*#__PURE__*/__webpack_require__.n(noop_head);
 // EXTERNAL MODULE: ./node_modules/next/navigation.js
 var navigation = __webpack_require__(9483);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
@@ -75,6 +78,7 @@ var collection_default = __webpack_require__(2315);
 
 
 
+
 function CollectionDetail() {
     const [collection, setCollection] = (0,react_.useState)();
     const dispatch = (0,lib.useDispatch)();
@@ -106,6 +110,11 @@ function CollectionDetail() {
     };
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
+            /*#__PURE__*/ jsx_runtime_.jsx((noop_head_default()), {
+                children: /*#__PURE__*/ jsx_runtime_.jsx("title", {
+                    children: "COLLECTION DETAIL"
+                })
+            }),
             /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
                     justifyContent: "left",

@@ -243,6 +243,9 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(6786);
+// EXTERNAL MODULE: ./node_modules/next/dist/client/components/noop-head.js
+var noop_head = __webpack_require__(8312);
+var noop_head_default = /*#__PURE__*/__webpack_require__.n(noop_head);
 // EXTERNAL MODULE: ./node_modules/next/navigation.js
 var navigation = __webpack_require__(9483);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
@@ -392,6 +395,7 @@ var ModalDeleteConfirmation = __webpack_require__(7119);
 
 
 
+
 function CollectionList() {
     const searchParams = (0,navigation.useSearchParams)();
     const name = searchParams?.get("name");
@@ -423,6 +427,11 @@ function CollectionList() {
     };
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
+            /*#__PURE__*/ jsx_runtime_.jsx((noop_head_default()), {
+                children: /*#__PURE__*/ jsx_runtime_.jsx("title", {
+                    children: "COLLECTION LIST"
+                })
+            }),
             /*#__PURE__*/ jsx_runtime_.jsx(styeled/* NavBar */.l2, {
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* FlexWrapper */.A0, {
                     children: [
@@ -508,7 +517,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [580,165,509,632,906,277], () => (__webpack_exec__(3306)));
+var __webpack_exports__ = __webpack_require__.X(0, [622,165,509,632,906,277], () => (__webpack_exec__(3306)));
 module.exports = __webpack_exports__;
 
 })();

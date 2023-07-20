@@ -252,6 +252,9 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: ./node_modules/@apollo/client/main.cjs
 var main = __webpack_require__(6174);
+// EXTERNAL MODULE: ./node_modules/next/dist/client/components/noop-head.js
+var noop_head = __webpack_require__(8312);
+var noop_head_default = /*#__PURE__*/__webpack_require__.n(noop_head);
 // EXTERNAL MODULE: ./node_modules/next/navigation.js
 var navigation = __webpack_require__(9483);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
@@ -1042,6 +1045,7 @@ function AnimeDetail_mapStateToProps(state) {
 
 
 
+
 function DETAIL() {
     const [detail, setDetail] = (0,react_.useState)(null);
     const searchParams = (0,navigation.useSearchParams)();
@@ -1064,6 +1068,11 @@ function DETAIL() {
     ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
+            /*#__PURE__*/ jsx_runtime_.jsx((noop_head_default()), {
+                children: /*#__PURE__*/ jsx_runtime_.jsx("title", {
+                    children: "ANIME DETAIL"
+                })
+            }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)(styeled/* NavBar */.l2, {
                 className: "flex",
                 children: [
@@ -1185,7 +1194,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [580,165,492,633,509,277,625], () => (__webpack_exec__(2415)));
+var __webpack_exports__ = __webpack_require__.X(0, [622,165,492,633,509,277,625], () => (__webpack_exec__(2415)));
 module.exports = __webpack_exports__;
 
 })();
