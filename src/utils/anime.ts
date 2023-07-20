@@ -1,11 +1,6 @@
 import moment from 'moment'
 
-import {
-  AnimeDetailData,
-  AnimeDetailDataResponseType,
-  AnimeListDataItemResponseType,
-  reviewEdge,
-} from '../types/anime'
+import { AnimeDetailData, AnimeDetailDataResponseType, AnimeListDataItemResponseType, reviewEdge } from '../types/anime'
 
 export const mapAnimeListItemData = ({
   id,
@@ -48,7 +43,7 @@ export const mapAnimeDetailData = ({
   releaseDate: moment(
     (startDate.day > 9 ? startDate.day : '0' + startDate.day) + '/' + startDate.month + '/' + startDate.year
   ).format('DD MMM YYYY'),
-  coverImage: coverImage.medium,
+  coverImage: coverImage?.large || '',
   studio: studios.edges.find((stud) => stud.isMain)?.node?.name || '-',
   duration: duration + ' minutes',
   totalEpisodes: episodes,

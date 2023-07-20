@@ -26,7 +26,7 @@ export interface AnimeListDataItemResponseType {
     year: number
   }
   status: string
-  coverImage: { medium: string }
+  coverImage: { medium?: string; large?: string }
 }
 
 type studioEdges = {

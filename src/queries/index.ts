@@ -35,7 +35,7 @@ export const GET_ANIMEDETAIL = gql`
     Media(id: $id, isAdult: $isAdult) {
       id
       coverImage {
-        medium
+        large
       }
       title {
         romaji

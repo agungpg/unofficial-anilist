@@ -79,7 +79,7 @@ const AnimeDetail = ({
           <span>COLLECT</span>
         </button>
         <div className='flex-column-wrapper w-full'>
-          <h3 className='title'>{data.title}</h3>
+          <h2 className='title'>{data.title}</h2>
           <div className='sub-info-wrapper'>
             {infoList.map((item) => (
               <InfoItem
